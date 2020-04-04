@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,7 @@
 		5B97F79D24387A8800ACF83D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F79C24387A8800ACF83D /* LoginViewController.swift */; };
 		5B97F7A324387C6C00ACF83D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7A224387C6C00ACF83D /* Extensions.swift */; };
 		5B97F7A52438CACC00ACF83D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B97F7A42438CACC00ACF83D /* GoogleService-Info.plist */; };
+		5B97F7A72438F41500ACF83D /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7A62438F41500ACF83D /* ChatsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		5B97F79C24387A8800ACF83D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5B97F7A224387C6C00ACF83D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5B97F7A42438CACC00ACF83D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5B97F7A62438F41500ACF83D /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		A7ADEA28FA161DA7BA3FE40E /* Pods-Chat-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat-App.release.xcconfig"; path = "Target Support Files/Pods-Chat-App/Pods-Chat-App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				5B97F79C24387A8800ACF83D /* LoginViewController.swift */,
+				5B97F7A62438F41500ACF83D /* ChatsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -132,7 +135,6 @@
 				0B0C9E669F26A16EB9BF9733 /* Pods-Chat-App.debug.xcconfig */,
 				A7ADEA28FA161DA7BA3FE40E /* Pods-Chat-App.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -256,6 +258,7 @@
 				5B97F7A324387C6C00ACF83D /* Extensions.swift in Sources */,
 				5B97F790243878C000ACF83D /* Chat_App.xcdatamodeld in Sources */,
 				5B97F786243878C000ACF83D /* AppDelegate.swift in Sources */,
+				5B97F7A72438F41500ACF83D /* ChatsViewController.swift in Sources */,
 				5B97F79D24387A8800ACF83D /* LoginViewController.swift in Sources */,
 				5B97F788243878C000ACF83D /* SceneDelegate.swift in Sources */,
 			);

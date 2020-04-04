@@ -141,7 +141,8 @@ class LoginViewController: UIViewController {
                         print("Saved data")
                     }
                 }
-                print("success")
+                print("SignUp success")
+                self.goToViewController()
             }
         }
     }
@@ -149,10 +150,17 @@ class LoginViewController: UIViewController {
     func login(){
         Auth.auth().signIn(withEmail: emailTextField.cleanText, password: passwordTextField.cleanText) { (result, error) in
             if error != nil {
-                print(error?.localizedDescription)
+                print(error?.localizedDescription ?? "Error logging in")
             } else {
-                print("login")
-            }
+                print("login success")
+                self.goToViewController()
         }
     }
+    }
+    
+    func goToViewController(){
+             let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "tovc") as? ChatsViewController
+            self.present(controller!, animated: true, completion: nil)
+        }
 }

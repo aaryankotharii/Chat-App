@@ -89,11 +89,28 @@
                         <outlet property="nameTextField" destination="Uly-K9-ChX" id="7NW-dA-Gbj"/>
                         <outlet property="passwordTextField" destination="b36-Hv-exm" id="Ung-Ip-kne"/>
                         <outlet property="segmentedControl" destination="G5S-4D-ggM" id="clh-UR-VS3"/>
+                        <segue destination="kqo-R1-Pwm" kind="show" identifier="tovc" id="mhb-sN-L4T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
+        </scene>
+        <!--Chats View Controller-->
+        <scene sceneID="kdy-qV-g0w">
+            <objects>
+                <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="kqo-R1-Pwm" customClass="ChatsViewController" customModule="Chat_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vBz-bT-ts1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="vZq-Ga-qod"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jQZ-s4-Lpy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z19-m4-JGE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="961" y="130"/>
         </scene>
     </scenes>
 </document>
