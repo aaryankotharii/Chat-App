@@ -128,13 +128,95 @@
                         <viewLayoutGuide key="safeArea" id="vZq-Ga-qod"/>
                     </view>
                     <navigationItem key="navigationItem" title="Chats" id="vF2-vk-Efa">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="4s4-GJ-xMO"/>
-                        <barButtonItem key="rightBarButtonItem" image="square.and.pencil" catalog="system" id="wcL-v9-yvn"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="4s4-GJ-xMO"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.pencil" catalog="system" id="wcL-v9-yvn">
+                            <connections>
+                                <segue destination="1QW-yD-GlA" kind="popoverPresentation" popoverAnchorBarButtonItem="wcL-v9-yvn" id="sdH-Pq-mF1">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z19-m4-JGE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2689.8550724637685" y="118.52678571428571"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="LwX-WV-em1">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="1QW-yD-GlA" customClass="NewChatsViewController" customModule="Chat_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JSf-ye-05J">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KeP-GI-zWO">
+                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newchatcell" rowHeight="91" id="neW-T1-sC1" customClass="NewChatTableViewCell" customModule="Chat_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="91"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="neW-T1-sC1" id="Y1b-4q-aQ3">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="91"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aaryan Kothari" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="seh-kn-sUu">
+                                                    <rect key="frame" x="186" y="35" width="118" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="aaryan.kothari@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbC-jG-aLP">
+                                                    <rect key="frame" x="186" y="59" width="158" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="NameLabel" destination="seh-kn-sUu" id="Jdc-Oa-fgR"/>
+                                            <outlet property="statusLabel" destination="tbC-jG-aLP" id="RwH-rc-UcB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="1QW-yD-GlA" id="57g-1U-VT9"/>
+                                    <outlet property="delegate" destination="1QW-yD-GlA" id="qlf-tG-Ijm"/>
+                                </connections>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bkz-DC-Phq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <items>
+                                    <navigationItem title="New Chats" id="47U-1C-SVZ">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="QMq-fM-QQW"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bkz-DC-Phq" firstAttribute="top" secondItem="JSf-ye-05J" secondAttribute="top" id="1DL-aN-8vt"/>
+                            <constraint firstItem="KeP-GI-zWO" firstAttribute="leading" secondItem="8Nw-Sn-99F" secondAttribute="leading" id="CJ4-lD-2uq"/>
+                            <constraint firstItem="bkz-DC-Phq" firstAttribute="leading" secondItem="JSf-ye-05J" secondAttribute="leading" id="ENv-gk-ufO"/>
+                            <constraint firstItem="KeP-GI-zWO" firstAttribute="top" secondItem="bkz-DC-Phq" secondAttribute="bottom" id="Px1-Yv-KTV"/>
+                            <constraint firstAttribute="bottom" secondItem="KeP-GI-zWO" secondAttribute="bottom" id="VIr-VA-fON"/>
+                            <constraint firstItem="8Nw-Sn-99F" firstAttribute="trailing" secondItem="bkz-DC-Phq" secondAttribute="trailing" id="eJU-8l-agN"/>
+                            <constraint firstItem="8Nw-Sn-99F" firstAttribute="trailing" secondItem="KeP-GI-zWO" secondAttribute="trailing" id="oOS-ki-vAB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8Nw-Sn-99F"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="kRZ-iF-9hU"/>
+                    <connections>
+                        <outlet property="newContactsTableView" destination="KeP-GI-zWO" id="9cH-QO-2Yt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oC1-GP-ezX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3472.4637681159425" y="109.82142857142857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="im9-9b-az6">
