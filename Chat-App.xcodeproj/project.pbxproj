@@ -14,6 +14,7 @@
 		5B97F790243878C000ACF83D /* Chat_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F78E243878C000ACF83D /* Chat_App.xcdatamodeld */; };
 		5B97F792243878C500ACF83D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B97F791243878C500ACF83D /* Assets.xcassets */; };
 		5B97F795243878C500ACF83D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B97F793243878C500ACF83D /* LaunchScreen.storyboard */; };
+		5B97F79D24387A8800ACF83D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F79C24387A8800ACF83D /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		5B97F791243878C500ACF83D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B97F794243878C500ACF83D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B97F796243878C500ACF83D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B97F79C24387A8800ACF83D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,9 @@
 		5B97F784243878C000ACF83D /* Chat-App */ = {
 			isa = PBXGroup;
 			children = (
+				5B97F7A024387AA400ACF83D /* Model */,
+				5B97F79F24387A9E00ACF83D /* View */,
+				5B97F79E24387A9100ACF83D /* Controller */,
 				5B97F785243878C000ACF83D /* AppDelegate.swift */,
 				5B97F787243878C000ACF83D /* SceneDelegate.swift */,
 				5B97F789243878C000ACF83D /* ViewController.swift */,
@@ -66,8 +71,30 @@
 				5B97F793243878C500ACF83D /* LaunchScreen.storyboard */,
 				5B97F796243878C500ACF83D /* Info.plist */,
 				5B97F78E243878C000ACF83D /* Chat_App.xcdatamodeld */,
+				5B97F79C24387A8800ACF83D /* LoginViewController.swift */,
 			);
 			path = "Chat-App";
+			sourceTree = "<group>";
+		};
+		5B97F79E24387A9100ACF83D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5B97F79F24387A9E00ACF83D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5B97F7A024387AA400ACF83D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +171,7 @@
 				5B97F78A243878C000ACF83D /* ViewController.swift in Sources */,
 				5B97F790243878C000ACF83D /* Chat_App.xcdatamodeld in Sources */,
 				5B97F786243878C000ACF83D /* AppDelegate.swift in Sources */,
+				5B97F79D24387A8800ACF83D /* LoginViewController.swift in Sources */,
 				5B97F788243878C000ACF83D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
