@@ -56,6 +56,26 @@
                                     <action selector="SignUpclicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gDg-o2-xup"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="G5S-4D-ggM">
+                                <rect key="frame" x="22" y="303" width="374" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Login"/>
+                                    <segment title="SignUp"/>
+                                </segments>
+                                <connections>
+                                    <action selector="loginSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="ga7-99-j1n"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plK-Bl-Byf">
+                                <rect key="frame" x="93" y="577" width="228" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.95999999999999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l0x-A6-dBr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.22585033101143376" green="0.42447571286472152" blue="0.39154618687983567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -71,7 +91,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="SignUpButton" destination="int-Fu-pOa" id="Eke-Eg-h9o"/>
                         <outlet property="emailTextField" destination="ocq-68-835" id="aw0-z9-CJ0"/>
+                        <outlet property="loginButton" destination="plK-Bl-Byf" id="0eZ-Mi-Zpx"/>
                         <outlet property="nameTextField" destination="Uly-K9-ChX" id="7NW-dA-Gbj"/>
                         <outlet property="passwordTextField" destination="b36-Hv-exm" id="Ung-Ip-kne"/>
                     </connections>

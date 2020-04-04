@@ -17,6 +17,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    
+    
+    @IBOutlet weak var SignUpButton: UIButton!
+    
+    
+    @IBOutlet weak var loginButton: UIButton!
+    
+    
     let passwordConstraints : String =  "Password should be minimum 8 characters, should contain atleast one uppercase letter, one lowercase letter, atleast one number digit and at least one special character"
     
     override func viewDidLoad() {
@@ -24,6 +32,27 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    @IBAction func loginSegment(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            nameTextField.isHidden = true
+            SignUpButton.isHidden = true
+            loginButton.isHidden = false
+        case 1:
+            nameTextField.isHidden = false
+            SignUpButton.isHidden = false
+            loginButton.isHidden = true
+        default:
+            nameTextField.isHidden = true
+            SignUpButton.isHidden = true
+            loginButton.isHidden = false
+        }
+    }
+    
+    
+    
     
     //MARK: - Check empty fields
     func fieldCheck() -> String? {
@@ -79,6 +108,11 @@ class LoginViewController: UIViewController {
         SignUp()
     }
     
+    @IBAction func loginClicked(_ sender: Any) {
+        login()
+    }
+    
+    
     
     func SignUp(){
         let name = nameTextField.cleanText
@@ -110,5 +144,9 @@ class LoginViewController: UIViewController {
                 print("success")
             }
         }
+    }
+    
+    func login(){
+        print("login")
     }
 }
