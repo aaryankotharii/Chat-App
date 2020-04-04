@@ -160,7 +160,7 @@ class LoginViewController: UIViewController {
     
     func goToViewController(){
              let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "tovc") as? ChatsViewController
-            self.present(controller!, animated: true, completion: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "ChatsViewController")
+        self.present(controller, animated: true, completion: nil)
         }
 }

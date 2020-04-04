@@ -7,24 +7,24 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 
 class ChatsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
 
         // Do any additional setup after loading the view.
+        fetchData()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func fetchData(){
+        if let uid = Auth.auth().currentUser?.uid{
+            Database.database().reference().child("users").child(uid).observe(.value) { (snapshot) in
+                print(snapshot)
+            }
+        }
     }
-    */
-
 }

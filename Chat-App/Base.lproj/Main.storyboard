@@ -89,28 +89,74 @@
                         <outlet property="nameTextField" destination="Uly-K9-ChX" id="7NW-dA-Gbj"/>
                         <outlet property="passwordTextField" destination="b36-Hv-exm" id="Ung-Ip-kne"/>
                         <outlet property="segmentedControl" destination="G5S-4D-ggM" id="clh-UR-VS3"/>
-                        <segue destination="kqo-R1-Pwm" kind="show" identifier="tovc" id="mhb-sN-L4T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
         </scene>
-        <!--Chats View Controller-->
+        <!--Chats-->
         <scene sceneID="kdy-qV-g0w">
             <objects>
                 <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="kqo-R1-Pwm" customClass="ChatsViewController" customModule="Chat_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vBz-bT-ts1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4cI-qp-WTM">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uNi-gA-9an">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uNi-gA-9an" id="sWT-O3-isY">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vZq-Ga-qod" firstAttribute="bottom" secondItem="4cI-qp-WTM" secondAttribute="bottom" id="8kI-7s-8FS"/>
+                            <constraint firstItem="4cI-qp-WTM" firstAttribute="leading" secondItem="vZq-Ga-qod" secondAttribute="leading" id="Ndj-nv-7kP"/>
+                            <constraint firstItem="4cI-qp-WTM" firstAttribute="top" secondItem="vZq-Ga-qod" secondAttribute="top" id="a96-pZ-YvV"/>
+                            <constraint firstItem="vZq-Ga-qod" firstAttribute="trailing" secondItem="4cI-qp-WTM" secondAttribute="trailing" id="iQx-Xk-7ae"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vZq-Ga-qod"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jQZ-s4-Lpy"/>
+                    <navigationItem key="navigationItem" title="Chats" id="vF2-vk-Efa">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="4s4-GJ-xMO"/>
+                        <barButtonItem key="rightBarButtonItem" image="square.and.pencil" catalog="system" id="wcL-v9-yvn"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z19-m4-JGE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="961" y="130"/>
+            <point key="canvasLocation" x="2689.8550724637685" y="118.52678571428571"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="im9-9b-az6">
+            <objects>
+                <navigationController storyboardIdentifier="ChatsViewController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="Pjs-Hg-jef" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="LwM-8l-ftv"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TiJ-qh-N2N">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kqo-R1-Pwm" kind="relationship" relationship="rootViewController" id="joy-fU-VZs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="axx-zW-av1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1779.7101449275365" y="118.52678571428571"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="square.and.pencil" catalog="system" width="128" height="118"/>
+    </resources>
 </document>
