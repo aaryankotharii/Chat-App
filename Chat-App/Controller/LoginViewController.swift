@@ -17,13 +17,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     
     @IBOutlet weak var SignUpButton: UIButton!
     
-    
-    @IBOutlet weak var loginButton: UIButton!
-    
+
     
     let passwordConstraints : String =  "Password should be minimum 8 characters, should contain atleast one uppercase letter, one lowercase letter, atleast one number digit and at least one special character"
     
@@ -38,16 +37,14 @@ class LoginViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 0:
             nameTextField.isHidden = true
-            SignUpButton.isHidden = true
-            loginButton.isHidden = false
+            SignUpButton.titleLabel?.text = "Login"
         case 1:
             nameTextField.isHidden = false
-            SignUpButton.isHidden = false
-            loginButton.isHidden = true
+            SignUpButton.titleLabel?.text = "Sign Up"
+
         default:
             nameTextField.isHidden = true
-            SignUpButton.isHidden = true
-            loginButton.isHidden = false
+            SignUpButton.titleLabel?.text = "Login"
         }
     }
     
@@ -105,11 +102,14 @@ class LoginViewController: UIViewController {
         }
     
     @IBAction func SignUpclicked(_ sender: Any) {
-        SignUp()
-    }
-    
-    @IBAction func loginClicked(_ sender: Any) {
-        login()
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            login()
+        case 1:
+            SignUp()
+        default:
+            login()
+        }
     }
     
     
@@ -147,6 +147,12 @@ class LoginViewController: UIViewController {
     }
     
     func login(){
-        print("login")
+        Auth.auth().signIn(withEmail: emailTextField.cleanText, password: passwordTextField.cleanText) { (result, error) in
+            if error != nil {
+                print(error?.localizedDescription)
+            } else {
+                print("login")
+            }
+        }
     }
 }
