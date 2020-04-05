@@ -34,6 +34,7 @@ class NewChatsViewController: UIViewController, UITableViewDataSource, UITableVi
                 //user.setValuesForKeys(dictionary)
                 user.name = dictionary["name"] as! String
                 user.email = dictionary["email"] as! String
+                user.profileImageUrl = dictionary["profileImageUrl"] as! String
                 self.users.append(user)
                 
                 DispatchQueue.main.async {
@@ -48,15 +49,33 @@ class NewChatsViewController: UIViewController, UITableViewDataSource, UITableVi
        }
        
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =  newContactsTableView.dequeueReusableCell(withIdentifier: "newchatcell") as? NewChatTableViewCell
+        var outputCell = UITableViewCell()
+        if  let cell =  newContactsTableView.dequeueReusableCell(withIdentifier: "newchatcell") as? NewChatTableViewCell {
         let user = users[indexPath.row]
-        cell?.NameLabel.text = user.name
-        cell?.statusLabel.text = user.email
-        return cell!
+        
+            cell.profileImageView?.image = #imageLiteral(resourceName: "Example")
+       // cell?.imageView?.layer.cornerRadius = 25
+        cell.nameLabel?.text = user.name
+        cell.statusLabel?.text = user.email
+        
+        if let profileImageUrl = user.profileImageUrl {
+            cell.imageView?.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
+            }
+            outputCell = cell
+        }
+        return outputCell
        }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 5
     }
     
 }

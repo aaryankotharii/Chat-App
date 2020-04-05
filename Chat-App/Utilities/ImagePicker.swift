@@ -12,13 +12,10 @@ import UIKit
 extension SetupProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     @objc func handSelectProfileImageView(){
-        //let picker = UIImagePickerController()
-     //   picker.delegate = self
-       // picker.allowsEditing = true
         
         let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
 
-              let photoLibraryAction = UIAlertAction.init(title: "Photo Library", style: .default) { (UIAlertAction) in
+              let photoLibraryAction = UIAlertAction.init(title: "Choose Photo", style: .default) { (UIAlertAction) in
                  //photo Library
                  self.importImage()
               }
@@ -29,13 +26,13 @@ extension SetupProfileViewController: UIImagePickerControllerDelegate, UINavigat
               }
               let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel) { (UIAlertAction) in
                   //Cancel
+                self.dismiss(animated: true, completion: nil)
               }
-              
+    
               alertController.addAction(photoLibraryAction)
               alertController.addAction(cameraAction)
               alertController.addAction(cancelAction)
 
-              
               self.present(alertController, animated: true) {
                   print("presented action sheet")
               }
@@ -90,9 +87,5 @@ extension SetupProfileViewController: UIImagePickerControllerDelegate, UINavigat
                 imagePicker.delegate = self
                 present(imagePicker, animated: true)
         }
-
-      
-        
     }
-    
 }

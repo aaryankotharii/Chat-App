@@ -33,11 +33,13 @@ class SetupProfileViewController: UIViewController {
     }
     
     func createProfile(){
+        
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         let name = nameTextField.cleanText
 
         let imageName = NSUUID().uuidString
+        
         let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).png")
         
         
@@ -66,10 +68,9 @@ class SetupProfileViewController: UIViewController {
     
     private func registerUserIntoDataBasewithUID(uid : String, values : [String:Any]){
         let ref = Database.database().reference(fromURL: "https://chat-app-ae81b.firebaseio.com/")
-          
-        //
-          
+                    
         let usersReference = ref.child("users").child(uid)
+        
           usersReference.updateChildValues(values) { (error, ref) in
               if error != nil {
                   print(error?.localizedDescription ?? "error saving data")

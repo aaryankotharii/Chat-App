@@ -150,39 +150,54 @@
                                 <rect key="frame" x="0.0" y="56" width="414" height="786"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newchatcell" rowHeight="91" id="neW-T1-sC1" customClass="NewChatTableViewCell" customModule="Chat_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="91"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newchatcell" rowHeight="52" id="neW-T1-sC1" customClass="NewChatTableViewCell" customModule="Chat_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="neW-T1-sC1" id="Y1b-4q-aQ3">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="91"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fO4-wI-ccs">
-                                                    <rect key="frame" x="178" y="27.5" width="158" height="36.5"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jGc-p3-lAP">
+                                                    <rect key="frame" x="20" y="5" width="42" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="jGc-p3-lAP" secondAttribute="height" multiplier="1:1" id="dEl-tB-7cS"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="21"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="l7u-AK-Lzq">
+                                                    <rect key="frame" x="74" y="5.5" width="199.5" height="41"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aaryan Kothari" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="seh-kn-sUu">
-                                                            <rect key="frame" x="0.0" y="0.0" width="158" height="20.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aaryan Kothari" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUC-os-rkB">
+                                                            <rect key="frame" x="0.0" y="0.0" width="199.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="aaryan.kothari@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbC-jG-aLP">
-                                                            <rect key="frame" x="0.0" y="20.5" width="158" height="16"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
-                                                            <nil key="textColor"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="aaryan.kothari@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wld-E6-kaV">
+                                                            <rect key="frame" x="0.0" y="20.5" width="199.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="fO4-wI-ccs" secondAttribute="trailing" constant="58" id="ZKN-iJ-lBQ"/>
-                                                <constraint firstItem="fO4-wI-ccs" firstAttribute="centerY" secondItem="Y1b-4q-aQ3" secondAttribute="centerY" id="id6-gx-kT0"/>
+                                                <constraint firstItem="l7u-AK-Lzq" firstAttribute="centerY" secondItem="Y1b-4q-aQ3" secondAttribute="centerY" id="Ch1-b6-V5L"/>
+                                                <constraint firstAttribute="bottom" secondItem="jGc-p3-lAP" secondAttribute="bottom" constant="5" id="Yop-zI-HOS"/>
+                                                <constraint firstItem="jGc-p3-lAP" firstAttribute="leading" secondItem="Y1b-4q-aQ3" secondAttribute="leading" constant="20" id="aPI-v2-pOF"/>
+                                                <constraint firstItem="l7u-AK-Lzq" firstAttribute="leading" secondItem="jGc-p3-lAP" secondAttribute="trailing" constant="12" id="ebe-NP-TKJ"/>
+                                                <constraint firstItem="jGc-p3-lAP" firstAttribute="top" secondItem="Y1b-4q-aQ3" secondAttribute="top" constant="5" id="v7g-Pp-Gwy"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="NameLabel" destination="seh-kn-sUu" id="Jdc-Oa-fgR"/>
-                                            <outlet property="statusLabel" destination="tbC-jG-aLP" id="RwH-rc-UcB"/>
+                                            <outlet property="nameLabel" destination="BUC-os-rkB" id="ESi-OF-pWC"/>
+                                            <outlet property="profileImageView" destination="jGc-p3-lAP" id="M7C-f1-B2l"/>
+                                            <outlet property="statusLabel" destination="Wld-E6-kaV" id="2qF-zE-a0Y"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -194,7 +209,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bkz-DC-Phq">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
-                                    <navigationItem title="New Chats" id="47U-1C-SVZ">
+                                    <navigationItem title="New Chat" id="47U-1C-SVZ">
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="QMq-fM-QQW"/>
                                     </navigationItem>
                                 </items>
