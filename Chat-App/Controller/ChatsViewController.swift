@@ -11,6 +11,8 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class ChatsViewController: UIViewController {
+    
+     var messages = [Message]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +35,17 @@ class ChatsViewController: UIViewController {
         let ref = Database.database().reference().child("messages")
         
         ref.observe(.childAdded, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String:AnyObject]{
+            
+            let message = Message()
+                message.setValuesForKeys(dictionary)
+                print(message.text )
+                messages.append(message)
+            }
             print(snapshot)
         }, withCancel: nil)
+    
     }
     
     @IBAction func editClicked(_ sender: Any) {
