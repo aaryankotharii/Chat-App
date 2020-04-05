@@ -13,7 +13,6 @@ import FirebaseDatabase
 class LoginViewController: UIViewController {
 
     
-    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -36,14 +35,11 @@ class LoginViewController: UIViewController {
     @IBAction func loginSegment(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            nameTextField.isHidden = true
             SignUpButton.titleLabel?.text = "Login"
         case 1:
-            nameTextField.isHidden = false
             SignUpButton.titleLabel?.text = "Sign Up"
 
         default:
-            nameTextField.isHidden = true
             SignUpButton.titleLabel?.text = "Login"
         }
     }
@@ -53,7 +49,7 @@ class LoginViewController: UIViewController {
     
     //MARK: - Check empty fields
     func fieldCheck() -> String? {
-        if nameTextField.cleanText == "" ||  emailTextField.cleanText == "" || passwordTextField.cleanText == ""
+        if emailTextField.cleanText == "" || passwordTextField.cleanText == ""
         { return "Please Fill in all the fields" }
         return nil
         }
@@ -101,12 +97,19 @@ class LoginViewController: UIViewController {
         return nil
         }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? SetupProfileViewController{
+            vc.email = emailTextField.cleanText
+        }
+    }
+    
     @IBAction func SignUpclicked(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             login()
         case 1:
             SignUp()
+            performSegue(withIdentifier: "tonewprofile", sender: self)
         default:
             login()
         }
@@ -115,7 +118,6 @@ class LoginViewController: UIViewController {
     
     
     func SignUp(){
-        let name = nameTextField.cleanText
         let email = emailTextField.cleanText
         let password = passwordTextField.cleanText
         
@@ -125,27 +127,12 @@ class LoginViewController: UIViewController {
                 return
             }
             else {
-                let ref = Database.database().reference(fromURL: "https://chat-app-ae81b.firebaseio.com/")
-                
-                guard let uid = result?.user.uid else { return }
-                
-                let usersReference = ref.child("users").child(uid)
-                let values = ["name": name, "email":email]
-                
-                usersReference.updateChildValues(values) { (error, ref) in
-                    if error != nil {
-                        print(error?.localizedDescription ?? "error saving data")
-                        return
-                    }
-                    else{
-                        print("Saved data")
-                    }
+  
                 }
                 print("SignUp success")
-                self.goToViewController()
+               // self.goToViewController()
             }
         }
-    }
     
     func login(){
         Auth.auth().signIn(withEmail: emailTextField.cleanText, password: passwordTextField.cleanText) { (result, error) in
