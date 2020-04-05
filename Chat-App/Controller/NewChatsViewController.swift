@@ -53,13 +53,13 @@ class NewChatsViewController: UIViewController, UITableViewDataSource, UITableVi
         if  let cell =  newContactsTableView.dequeueReusableCell(withIdentifier: "newchatcell") as? NewChatTableViewCell {
         let user = users[indexPath.row]
         
-            cell.profileImageView?.image = #imageLiteral(resourceName: "Example")
+        cell.profileImageView .image = #imageLiteral(resourceName: "Example")
        // cell?.imageView?.layer.cornerRadius = 25
-        cell.nameLabel?.text = user.name
-        cell.statusLabel?.text = user.email
+        cell.nameLabel.text = user.name
+        cell.statusLabel.text = user.email
         
         if let profileImageUrl = user.profileImageUrl {
-            cell.imageView?.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
+            cell.profileImageView.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
             }
             outputCell = cell
         }
@@ -69,13 +69,4 @@ class NewChatsViewController: UIViewController, UITableViewDataSource, UITableVi
         return 50
         
     }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 5
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 5
-    }
-    
 }

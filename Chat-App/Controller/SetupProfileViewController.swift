@@ -40,10 +40,12 @@ class SetupProfileViewController: UIViewController {
 
         let imageName = NSUUID().uuidString
         
-        let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).png")
+        let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).jpg")
         
         
-        if let uploadData = self.profileImageView.image!.pngData(){
+        if let profileImage = self.profileImageView.image, let uploadData = profileImage.jpegData(compressionQuality: 0.2){
+        
+        //if let uploadData = self.profileImageView.image!.pngData(){
             
             storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
                 if error != nil {
