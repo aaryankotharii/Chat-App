@@ -13,6 +13,9 @@ class NewChatsViewController: UIViewController, UITableViewDataSource, UITableVi
 
     @IBOutlet weak var newContactsTableView: UITableView!
     
+    
+    var chatsViewController : ChatsViewController?
+
     var users = [User]()
     
     override func viewDidLoad() {
@@ -32,9 +35,10 @@ class NewChatsViewController: UIViewController, UITableViewDataSource, UITableVi
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let user = User()
                 //user.setValuesForKeys(dictionary)
-                user.name = dictionary["name"] as! String
-                user.email = dictionary["email"] as! String
-                user.profileImageUrl = dictionary["profileImageUrl"] as! String
+                user.name = (dictionary["name"] as! String)
+                user.email = (dictionary["email"] as! String)
+                user.profileImageUrl = (dictionary["profileImageUrl"] as! String)
+                user.id = snapshot.key
                 self.users.append(user)
                 
                 DispatchQueue.main.async {
@@ -65,6 +69,28 @@ class NewChatsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         return outputCell
        }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //unhighlight cell
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        //perform segue
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let vc = storyboard.instantiateViewController(identifier: "ChatLogViewController") as? ChatLogViewController
+        
+        let user = users[indexPath.row]
+        
+        vc!.user = user
+        
+        
+        let presenController : UINavigationController = self.presentingViewController as! UINavigationController
+
+        self.dismiss(animated: false, completion: {
+            presenController.pushViewController(vc!, animated: true)
+        })
+
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
         

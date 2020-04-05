@@ -27,4 +27,14 @@ class ChatsViewController: UIViewController {
             }
         }
     }
+    @IBAction func editClicked(_ sender: Any) {
+        toChatLogVC()
+    }
+    
+    func toChatLogVC(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "ChatLogViewController") as? ChatLogViewController
+        
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
 }

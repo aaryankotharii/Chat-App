@@ -7,26 +7,30 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
-class ChatLogViewController: UIViewController {
+class ChatLogViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var plusButton: NSLayoutConstraint!
-    
-    
     @IBOutlet weak var cameraButton: UIButton!
-    
-    
     @IBOutlet weak var micButton: UIButton!
-    
-    
     @IBOutlet weak var chatTextField: UITextField!
-    
-    
     @IBOutlet weak var sendButton: UIButton!
+    
+    
+    var user : User? {
+        didSet{
+            navigationItem.title = user?.name 
+        }
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.largeTitleDisplayMode = .never
+        chatTextField.delegate = self
+        
          self.sendButton.isHidden = true
         addIndent(chatTextField)
         chatTextField.layer.borderColor = UIColor(named: "border")?.cgColor
@@ -74,6 +78,24 @@ class ChatLogViewController: UIViewController {
     
     
     @IBAction func sendClicked(_ sender: Any) {
+       sendData()
+    }
+    
+    func sendData(){
+        let ref = Database.database().reference().child("messages")
+               
+               let childRef = ref.childByAutoId()
+               
+        let toId = user!.id
         
+        
+        let values = ["text":chatTextField.text, "toId":toId]
+               
+               childRef.updateChildValues(values)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        sendData()
+        return true
     }
 }
