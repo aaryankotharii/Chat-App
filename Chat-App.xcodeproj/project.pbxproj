@@ -23,6 +23,8 @@
 		5B97F7AB24390EDD00ACF83D /* NewChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7AA24390EDD00ACF83D /* NewChatTableViewCell.swift */; };
 		5B97F7AD2439109800ACF83D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7AC2439109800ACF83D /* User.swift */; };
 		5B97F7AF2439A04C00ACF83D /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7AE2439A04C00ACF83D /* SetupProfileViewController.swift */; };
+		5B97F7B12439A88700ACF83D /* File in Resources */ = {isa = PBXBuildFile; fileRef = 5B97F7B02439A88700ACF83D /* File */; };
+		5B97F7B32439A90700ACF83D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7B22439A90700ACF83D /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		5B97F7AA24390EDD00ACF83D /* NewChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatTableViewCell.swift; sourceTree = "<group>"; };
 		5B97F7AC2439109800ACF83D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5B97F7AE2439A04C00ACF83D /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
+		5B97F7B02439A88700ACF83D /* File */ = {isa = PBXFileReference; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
+		5B97F7B22439A90700ACF83D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		A7ADEA28FA161DA7BA3FE40E /* Pods-Chat-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat-App.release.xcconfig"; path = "Target Support Files/Pods-Chat-App/Pods-Chat-App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +67,7 @@
 		5B97F779243878C000ACF83D = {
 			isa = PBXGroup;
 			children = (
+				5B97F7B02439A88700ACF83D /* File */,
 				5B97F784243878C000ACF83D /* Chat-App */,
 				5B97F783243878C000ACF83D /* Products */,
 				6AFFA466BFB6F2B35F0DB556 /* Pods */,
@@ -129,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				5B97F7A224387C6C00ACF83D /* Extensions.swift */,
+				5B97F7B22439A90700ACF83D /* ImagePicker.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -214,6 +220,7 @@
 				5B97F792243878C500ACF83D /* Assets.xcassets in Resources */,
 				5B97F7A52438CACC00ACF83D /* GoogleService-Info.plist in Resources */,
 				5B97F78D243878C000ACF83D /* Main.storyboard in Resources */,
+				5B97F7B12439A88700ACF83D /* File in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +282,7 @@
 				5B97F7AB24390EDD00ACF83D /* NewChatTableViewCell.swift in Sources */,
 				5B97F7AF2439A04C00ACF83D /* SetupProfileViewController.swift in Sources */,
 				5B97F79D24387A8800ACF83D /* LoginViewController.swift in Sources */,
+				5B97F7B32439A90700ACF83D /* ImagePicker.swift in Sources */,
 				5B97F7AD2439109800ACF83D /* User.swift in Sources */,
 				5B97F788243878C000ACF83D /* SceneDelegate.swift in Sources */,
 			);
