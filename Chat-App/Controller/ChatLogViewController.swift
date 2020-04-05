@@ -10,21 +10,70 @@ import UIKit
 
 class ChatLogViewController: UIViewController {
 
+    @IBOutlet weak var plusButton: NSLayoutConstraint!
+    
+    
+    @IBOutlet weak var cameraButton: UIButton!
+    
+    
+    @IBOutlet weak var micButton: UIButton!
+    
+    
+    @IBOutlet weak var chatTextField: UITextField!
+    
+    
+    @IBOutlet weak var sendButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+         self.sendButton.isHidden = true
+        addIndent(chatTextField)
+        chatTextField.layer.borderColor = UIColor(named: "border")?.cgColor
+        chatTextField.layer.borderWidth = 0.5
+        
+        chatTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func curveAnimation(button: UIButton, animationOptions: UIView.AnimationOptions, isReset: Bool) {
+      let defaultXMovement: CGFloat = 240
+      UIView.animate(withDuration: 1, delay: 0, options: animationOptions, animations: {
+        button.transform = isReset ? .identity : CGAffineTransform.identity.translatedBy(x: defaultXMovement, y: 0)
+      }, completion: nil)
     }
-    */
+    
+    
+  @objc func textFieldDidChange(_ textField: UITextField) {
+    if sendButton.isHidden {
+        UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
+        }, completion: { _ in
+            self.sendButton.isHidden = false
+            
+            self.curveAnimation(button: self.cameraButton, animationOptions: .curveEaseOut, isReset: false)
+        })
+    }
+    if chatTextField.text == ""{
+        sendButton.isHidden = true
+    }
+    }
+    
+    
 
+    @IBAction func plusClicked(_ sender: Any) {
+        
+    }
+    
+    
+    @IBAction func cameraClicked(_ sender: Any) {
+    }
+    
+    
+    @IBAction func micClicked(_ sender: Any) {
+    }
+    
+    
+    @IBAction func sendClicked(_ sender: Any) {
+        
+    }
 }

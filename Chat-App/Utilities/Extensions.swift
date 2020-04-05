@@ -53,3 +53,11 @@ extension UIImageView {
          }.resume()
     }
 }
+
+extension UIViewController{
+    func addIndent(_ textField : UITextField){
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:textField.frame.height))
+        textField.leftViewMode = UITextField.ViewMode.always
+        textField.leftView = spacerView
+    }
+}

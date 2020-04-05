@@ -25,6 +25,7 @@
 		5B97F7AF2439A04C00ACF83D /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7AE2439A04C00ACF83D /* SetupProfileViewController.swift */; };
 		5B97F7B12439A88700ACF83D /* File in Resources */ = {isa = PBXBuildFile; fileRef = 5B97F7B02439A88700ACF83D /* File */; };
 		5B97F7B32439A90700ACF83D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7B22439A90700ACF83D /* ImagePicker.swift */; };
+		5B97F7B5243A041600ACF83D /* ChatLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7B4243A041600ACF83D /* ChatLogViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		5B97F7AE2439A04C00ACF83D /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		5B97F7B02439A88700ACF83D /* File */ = {isa = PBXFileReference; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 		5B97F7B22439A90700ACF83D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		5B97F7B4243A041600ACF83D /* ChatLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewController.swift; sourceTree = "<group>"; };
 		A7ADEA28FA161DA7BA3FE40E /* Pods-Chat-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat-App.release.xcconfig"; path = "Target Support Files/Pods-Chat-App/Pods-Chat-App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,8 +96,8 @@
 				5B97F787243878C000ACF83D /* SceneDelegate.swift */,
 				5B97F789243878C000ACF83D /* ViewController.swift */,
 				5B97F78B243878C000ACF83D /* Main.storyboard */,
-				5B97F791243878C500ACF83D /* Assets.xcassets */,
 				5B97F793243878C500ACF83D /* LaunchScreen.storyboard */,
+				5B97F791243878C500ACF83D /* Assets.xcassets */,
 				5B97F796243878C500ACF83D /* Info.plist */,
 				5B97F7A42438CACC00ACF83D /* GoogleService-Info.plist */,
 				5B97F78E243878C000ACF83D /* Chat_App.xcdatamodeld */,
@@ -110,6 +112,7 @@
 				5B97F7A62438F41500ACF83D /* ChatsViewController.swift */,
 				5B97F7A82439087800ACF83D /* NewChatsViewController.swift */,
 				5B97F7AE2439A04C00ACF83D /* SetupProfileViewController.swift */,
+				5B97F7B4243A041600ACF83D /* ChatLogViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				5B97F790243878C000ACF83D /* Chat_App.xcdatamodeld in Sources */,
 				5B97F7A92439087800ACF83D /* NewChatsViewController.swift in Sources */,
 				5B97F786243878C000ACF83D /* AppDelegate.swift in Sources */,
+				5B97F7B5243A041600ACF83D /* ChatLogViewController.swift in Sources */,
 				5B97F7A72438F41500ACF83D /* ChatsViewController.swift in Sources */,
 				5B97F7AB24390EDD00ACF83D /* NewChatTableViewCell.swift in Sources */,
 				5B97F7AF2439A04C00ACF83D /* SetupProfileViewController.swift in Sources */,
