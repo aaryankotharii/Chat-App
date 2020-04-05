@@ -18,6 +18,7 @@ class ChatsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         fetchData()
+        observeMessages()
     }
     
     func fetchData(){
@@ -27,6 +28,15 @@ class ChatsViewController: UIViewController {
             }
         }
     }
+    
+    func observeMessages(){
+        let ref = Database.database().reference().child("messages")
+        
+        ref.observe(.childAdded, with: { (snapshot) in
+            print(snapshot)
+        }, withCancel: nil)
+    }
+    
     @IBAction func editClicked(_ sender: Any) {
         toChatLogVC()
     }

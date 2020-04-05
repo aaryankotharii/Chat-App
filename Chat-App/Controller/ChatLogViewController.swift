@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class ChatLogViewController: UIViewController, UITextFieldDelegate {
 
@@ -88,8 +89,11 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate {
                
         let toId = user!.id
         
+        let fromId = Auth.auth().currentUser?.uid
         
-        let values = ["text":chatTextField.text, "toId":toId]
+        let timeStamp = Int(NSDate().timeIntervalSince1970)
+        
+        let values = ["text":chatTextField.text, "toId":toId, "fromId":fromId,"timestamp":timeStamp] as [String : Any]
                
                childRef.updateChildValues(values)
     }

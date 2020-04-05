@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		44510E86AE29DE5E8BB386D6 /* Pods_Chat_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106ADCEB16915EA1B4331ABD /* Pods_Chat_App.framework */; };
+		5B880EAB243A677800EDFBE3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B880EAA243A677800EDFBE3 /* Message.swift */; };
 		5B97F786243878C000ACF83D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F785243878C000ACF83D /* AppDelegate.swift */; };
 		5B97F788243878C000ACF83D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F787243878C000ACF83D /* SceneDelegate.swift */; };
 		5B97F78A243878C000ACF83D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F789243878C000ACF83D /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		0B0C9E669F26A16EB9BF9733 /* Pods-Chat-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat-App.debug.xcconfig"; path = "Target Support Files/Pods-Chat-App/Pods-Chat-App.debug.xcconfig"; sourceTree = "<group>"; };
 		106ADCEB16915EA1B4331ABD /* Pods_Chat_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chat_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B880EAA243A677800EDFBE3 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		5B97F782243878C000ACF83D /* Chat-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chat-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B97F785243878C000ACF83D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B97F787243878C000ACF83D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				5B97F7AC2439109800ACF83D /* User.swift */,
+				5B880EAA243A677800EDFBE3 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				5B97F7B32439A90700ACF83D /* ImagePicker.swift in Sources */,
 				5B97F7AD2439109800ACF83D /* User.swift in Sources */,
 				5B97F788243878C000ACF83D /* SceneDelegate.swift in Sources */,
+				5B880EAB243A677800EDFBE3 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
