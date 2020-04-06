@@ -156,6 +156,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="N0I-Ta-RYM" secondAttribute="trailing" constant="16" id="fho-wO-laD"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="89" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="lastMessageLabel" destination="BLz-O6-XTg" id="UDx-2w-1yZ"/>
                                             <outlet property="nameLabel" destination="lFA-hV-Wcy" id="A0L-yi-Rxd"/>

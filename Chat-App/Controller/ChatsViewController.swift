@@ -14,6 +14,7 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     
      var messages = [Message]()
+    var messagesDictionary = [String:Message]()
 
     @IBOutlet weak var chatsTableView: UITableView!
     
@@ -52,8 +53,25 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 
               //message.setValuesForKeys(dictionary)
                 print(message.text)
-                self.messages.append(message)
-                self.chatsTableView.reloadData()
+                //self.messages.append(message)
+                
+                if let toId = message.toId {
+                    self.messagesDictionary[toId]  = message
+                    
+                    self.messages = Array(self.messagesDictionary.values)
+                    
+                    self.messages.sort { (message1, message2) -> Bool in
+                        var bool = false
+                        if let time1 = message1.timestamp, let time2 = message2.timestamp {
+                        bool = time1 > time2
+                        }
+                        return bool
+                    }
+                }
+                
+                DispatchQueue.main.async {
+                    self.chatsTableView.reloadData()
+                }
             }
             //print(snapshot)
         }, withCancel: nil)

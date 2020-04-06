@@ -25,7 +25,6 @@ class ChatsTableViewCell: UITableViewCell {
                          if let profileImageUrl = dictionary["profileImageUrl"] as? String {
                              self.profilePicture.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
                          }
-                        
                      }
                  }, withCancel: nil)
              }

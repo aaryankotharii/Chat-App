@@ -70,4 +70,8 @@ extension Int {
     var doubleValue : Double {
         return Double(self)
     }
+    var intValue : Int {
+        return Int(self)
+    }
 }
+
