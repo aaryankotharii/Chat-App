@@ -10,6 +10,7 @@
 		44510E86AE29DE5E8BB386D6 /* Pods_Chat_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106ADCEB16915EA1B4331ABD /* Pods_Chat_App.framework */; };
 		5B880EAB243A677800EDFBE3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B880EAA243A677800EDFBE3 /* Message.swift */; };
 		5B880EAD243AFDB200EDFBE3 /* ChatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B880EAC243AFDB200EDFBE3 /* ChatsTableViewCell.swift */; };
+		5B880EAF243B7BDD00EDFBE3 /* chatLogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B880EAE243B7BDD00EDFBE3 /* chatLogCollectionViewCell.swift */; };
 		5B97F786243878C000ACF83D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F785243878C000ACF83D /* AppDelegate.swift */; };
 		5B97F788243878C000ACF83D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F787243878C000ACF83D /* SceneDelegate.swift */; };
 		5B97F78A243878C000ACF83D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F789243878C000ACF83D /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 		106ADCEB16915EA1B4331ABD /* Pods_Chat_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chat_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B880EAA243A677800EDFBE3 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		5B880EAC243AFDB200EDFBE3 /* ChatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableViewCell.swift; sourceTree = "<group>"; };
+		5B880EAE243B7BDD00EDFBE3 /* chatLogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatLogCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B97F782243878C000ACF83D /* Chat-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chat-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B97F785243878C000ACF83D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B97F787243878C000ACF83D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			children = (
 				5B97F7AA24390EDD00ACF83D /* NewChatTableViewCell.swift */,
 				5B880EAC243AFDB200EDFBE3 /* ChatsTableViewCell.swift */,
+				5B880EAE243B7BDD00EDFBE3 /* chatLogCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				5B97F78A243878C000ACF83D /* ViewController.swift in Sources */,
 				5B880EAD243AFDB200EDFBE3 /* ChatsTableViewCell.swift in Sources */,
 				5B97F7A324387C6C00ACF83D /* Extensions.swift in Sources */,
+				5B880EAF243B7BDD00EDFBE3 /* chatLogCollectionViewCell.swift in Sources */,
 				5B97F790243878C000ACF83D /* Chat_App.xcdatamodeld in Sources */,
 				5B97F7A92439087800ACF83D /* NewChatsViewController.swift in Sources */,
 				5B97F786243878C000ACF83D /* AppDelegate.swift in Sources */,

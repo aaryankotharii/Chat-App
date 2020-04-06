@@ -10,7 +10,8 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class ChatLogViewController: UIViewController, UITextFieldDelegate {
+class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
 
     @IBOutlet weak var plusButton: NSLayoutConstraint!
     @IBOutlet weak var cameraButton: UIButton!
@@ -19,10 +20,48 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var sendButton: UIButton!
     
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     var user : User? {
         didSet{
-            navigationItem.title = user?.name 
+            navigationItem.title = user?.name
+            observeMessages()
         }
+    }
+    var messages = [Message]()
+    
+   func observeMessages(){
+    guard let uid = Auth.auth().currentUser?.uid else {return}
+    
+    let userMessagesref = Database.database().reference().child("user-messages").child(uid)
+    
+    userMessagesref.observe(.childAdded, with: { (snapshot) in
+        let messageId = snapshot.key
+        
+        let messagesRef = Database.database().reference().child("messages").child(messageId)
+        messagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            print(snapshot)
+            guard let dictionary = snapshot.value as?[String:AnyObject] else { return }
+            
+            let message = Message()
+            
+            message.fromId = dictionary["fromId"] as! String
+            message.text = dictionary["text"] as! String
+            message.toId = dictionary["toId"] as! String
+            message.timestamp = dictionary["timestamp"] as! Int
+            
+            
+            if message.chatPatnerId() == self.user?.id {
+            self.messages.append(message)
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+            
+            
+            
+        }, withCancel: nil)
+    }, withCancel: nil)
     }
     
     
@@ -118,5 +157,24 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         sendData()
         return true
+    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? chatLogCollectionViewCell
+                
+        let message = messages[indexPath.item]
+        cell!.messageTextView.text = message.text
+        
+        return cell!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+         return CGSize(width: view.frame.width, height: 80)
     }
 }

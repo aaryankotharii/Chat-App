@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -210,10 +211,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oSB-Yj-dhj">
-                                <rect key="frame" x="0.0" y="44" width="414" height="777.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Vv-NC-NFe">
                                 <rect key="frame" x="0.0" y="822" width="414" height="40"/>
                                 <subviews>
@@ -301,25 +298,72 @@
                                     <constraint firstAttribute="height" constant="0.5" id="S3t-zA-Scr"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QhU-7Z-xYL">
+                                <rect key="frame" x="0.0" y="44" width="414" height="777.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ifh-dp-D7c">
+                                    <size key="itemSize" width="414" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="XJI-Ss-eRD" customClass="chatLogCollectionViewCell" customModule="Chat_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rWm-DR-BOz">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oKU-rj-Yzo">
+                                                    <rect key="frame" x="214" y="0.0" width="200" height="128"/>
+                                                    <color key="backgroundColor" red="0.8482186108692501" green="1" blue="0.97214379457732136" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="200" id="YoS-6N-oYq"/>
+                                                    </constraints>
+                                                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="oKU-rj-Yzo" secondAttribute="trailing" id="RF8-cX-Flp"/>
+                                                <constraint firstAttribute="bottom" secondItem="oKU-rj-Yzo" secondAttribute="bottom" id="gzq-vl-VO2"/>
+                                                <constraint firstItem="oKU-rj-Yzo" firstAttribute="top" secondItem="rWm-DR-BOz" secondAttribute="top" id="hOp-dy-jHu"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="414" height="128"/>
+                                        <connections>
+                                            <outlet property="messageTextView" destination="oKU-rj-Yzo" id="6in-kb-Asl"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="W3r-9y-3OG" id="a7a-GT-y0G"/>
+                                    <outlet property="delegate" destination="W3r-9y-3OG" id="U53-kl-fzv"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" name="grey"/>
                         <constraints>
-                            <constraint firstItem="oSB-Yj-dhj" firstAttribute="leading" secondItem="4Vv-NC-NFe" secondAttribute="leading" id="2L4-Ka-yVa"/>
-                            <constraint firstItem="oSB-Yj-dhj" firstAttribute="top" secondItem="UhK-NO-N09" secondAttribute="top" id="3OR-rm-EH6"/>
+                            <constraint firstAttribute="leading" secondItem="4Vv-NC-NFe" secondAttribute="leading" id="2L4-Ka-yVa"/>
                             <constraint firstItem="Sf1-Gk-eGd" firstAttribute="leading" secondItem="jFh-Ms-AYx" secondAttribute="leading" priority="1" id="CfN-jS-MEw"/>
-                            <constraint firstItem="oSB-Yj-dhj" firstAttribute="leading" secondItem="jFh-Ms-AYx" secondAttribute="leading" id="IN5-IW-G5H"/>
-                            <constraint firstItem="Sf1-Gk-eGd" firstAttribute="top" secondItem="oSB-Yj-dhj" secondAttribute="bottom" id="KPT-wm-3KN"/>
-                            <constraint firstAttribute="trailing" secondItem="oSB-Yj-dhj" secondAttribute="trailing" id="MAO-5f-6TA"/>
-                            <constraint firstItem="oSB-Yj-dhj" firstAttribute="trailing" secondItem="4Vv-NC-NFe" secondAttribute="trailing" id="N5O-nX-Jnb"/>
+                            <constraint firstItem="QhU-7Z-xYL" firstAttribute="top" secondItem="UhK-NO-N09" secondAttribute="top" id="KF2-0b-X9k"/>
+                            <constraint firstAttribute="trailing" secondItem="4Vv-NC-NFe" secondAttribute="trailing" id="N5O-nX-Jnb"/>
+                            <constraint firstItem="Sf1-Gk-eGd" firstAttribute="top" secondItem="QhU-7Z-xYL" secondAttribute="bottom" id="UR8-S3-HGD"/>
                             <constraint firstItem="4Vv-NC-NFe" firstAttribute="bottom" secondItem="UhK-NO-N09" secondAttribute="bottom" id="Zwf-UR-dNY"/>
                             <constraint firstAttribute="trailing" secondItem="Sf1-Gk-eGd" secondAttribute="trailing" id="atT-T1-0H6"/>
-                            <constraint firstItem="4Vv-NC-NFe" firstAttribute="top" secondItem="Sf1-Gk-eGd" secondAttribute="bottom" id="e1J-DL-bZj"/>
+                            <constraint firstItem="QhU-7Z-xYL" firstAttribute="leading" secondItem="jFh-Ms-AYx" secondAttribute="leading" id="dmv-uP-7a4"/>
+                            <constraint firstItem="QhU-7Z-xYL" firstAttribute="trailing" secondItem="jFh-Ms-AYx" secondAttribute="trailing" id="gNR-e9-Yuu"/>
+                            <constraint firstItem="4Vv-NC-NFe" firstAttribute="top" secondItem="Sf1-Gk-eGd" secondAttribute="bottom" id="oAI-YG-2mk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UhK-NO-N09"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="cameraButton" destination="ahc-1z-UtG" id="Ad6-RD-coA"/>
                         <outlet property="chatTextField" destination="Th7-pW-7GQ" id="0wR-bU-pgj"/>
+                        <outlet property="collectionView" destination="QhU-7Z-xYL" id="sUl-TT-UrW"/>
                         <outlet property="micButton" destination="9gC-Uz-1jb" id="Tgd-Ph-dGj"/>
                         <outlet property="plusButton" destination="Rt5-79-NqA" id="hDR-yT-Zqh"/>
                         <outlet property="sendButton" destination="uVk-fk-LCf" id="kMK-eC-tJc"/>

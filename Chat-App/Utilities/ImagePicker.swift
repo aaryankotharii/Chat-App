@@ -34,7 +34,7 @@ extension SetupProfileViewController: UIImagePickerControllerDelegate, UINavigat
               alertController.addAction(cancelAction)
 
               self.present(alertController, animated: true) {
-                  print("presented action sheet")
+                  print("presented camera action sheet")
               }
     }
     

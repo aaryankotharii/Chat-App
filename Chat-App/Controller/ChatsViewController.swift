@@ -27,7 +27,6 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         fetchData()
        // observeMessages()
         observeUserMessages()
-        print(messages)
     }
     
     func fetchData(){
@@ -57,7 +56,6 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                  message.timestamp = dictionary["timestamp"] as! Int
                      
                    //message.setValuesForKeys(dictionary)
-                     print(message.text)
                      //self.messages.append(message)
                      
                      if let toId = message.toId {
@@ -97,7 +95,6 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             message.timestamp = dictionary["timestamp"] as! Int
                 
               //message.setValuesForKeys(dictionary)
-                print(message.text)
                 //self.messages.append(message)
                 
                 if let toId = message.toId {
@@ -118,7 +115,6 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     self.chatsTableView.reloadData()
                 }
             }
-            //print(snapshot)
         }, withCancel: nil)
     
     }
