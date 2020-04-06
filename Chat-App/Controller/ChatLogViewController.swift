@@ -85,17 +85,34 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate {
     func sendData(){
         let ref = Database.database().reference().child("messages")
                
-               let childRef = ref.childByAutoId()
+            let childRef = ref.childByAutoId()
                
-        let toId = user!.id
+        let toId = user!.id!
         
-        let fromId = Auth.auth().currentUser?.uid
+        let fromId = Auth.auth().currentUser!.uid
         
         let timeStamp = Int(NSDate().timeIntervalSince1970)
         
-        let values = ["text":chatTextField.text, "toId":toId, "fromId":fromId,"timestamp":timeStamp] as [String : Any]
+        let values = ["text":chatTextField.text!, "toId":toId, "fromId":fromId,"timestamp":timeStamp] as [String : Any]
                
-               childRef.updateChildValues(values)
+              // childRef.updateChildValues(values)
+        childRef.updateChildValues(values) { (error, ref) in
+            if error != nil {
+                print(error?.localizedDescription ?? "couldnt send message")
+            }else {
+                print("usermessa ref")
+                let userMessagesRef = Database.database().reference().child("user-messages").child(fromId)
+                
+                let messageId = childRef.key!
+                
+                userMessagesRef.updateChildValues([messageId:"a"])
+                
+                let recipientUserMessagesReference = Database.database().reference().child("user-messages").child(toId)
+                
+                recipientUserMessagesReference.updateChildValues([messageId:"a"])
+            }
+            
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -25,16 +25,61 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         // Do any additional setup after loading the view.
         fetchData()
-        observeMessages()
+       // observeMessages()
+        observeUserMessages()
         print(messages)
     }
     
     func fetchData(){
         if let uid = Auth.auth().currentUser?.uid{
             Database.database().reference().child("users").child(uid).observe(.value) { (snapshot) in
-                print(snapshot)
+                print("")
             }
         }
+    }
+    
+    func observeUserMessages(){
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let ref = Database.database().reference().child("user-messages").child(uid)
+        
+        ref.observe(.childAdded, with: { (snapshot) in
+            let messageId = snapshot.key
+            let messagesReference = Database.database().reference().child("messages").child(messageId)
+            
+            messagesReference.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let dictionary = snapshot.value as? [String:AnyObject]{
+                
+                 let message = Message()
+                     
+                 message.fromId = dictionary["fromId"] as! String
+                 message.text = dictionary["text"] as! String
+                 message.toId = dictionary["toId"] as! String
+                 message.timestamp = dictionary["timestamp"] as! Int
+                     
+                   //message.setValuesForKeys(dictionary)
+                     print(message.text)
+                     //self.messages.append(message)
+                     
+                     if let toId = message.toId {
+                         self.messagesDictionary[toId]  = message
+                         
+                         self.messages = Array(self.messagesDictionary.values)
+                         
+                         self.messages.sort { (message1, message2) -> Bool in
+                             var bool = false
+                             if let time1 = message1.timestamp, let time2 = message2.timestamp {
+                             bool = time1 > time2
+                             }
+                             return bool
+                         }
+                     }
+                     
+                     DispatchQueue.main.async {
+                         self.chatsTableView.reloadData()
+                     }
+                 }
+            }, withCancel: nil)
+        }, withCancel: nil)
     }
     
     func observeMessages(){
