@@ -181,7 +181,7 @@
                         <viewLayoutGuide key="safeArea" id="vZq-Ga-qod"/>
                     </view>
                     <navigationItem key="navigationItem" title="Chats" id="vF2-vk-Efa">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="4s4-GJ-xMO">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="4s4-GJ-xMO">
                             <connections>
                                 <action selector="editClicked:" destination="kqo-R1-Pwm" id="eXr-Og-OdK"/>
                             </connections>

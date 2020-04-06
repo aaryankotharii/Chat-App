@@ -152,6 +152,39 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell!
      }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //unhighlight cell
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let message = messages[indexPath.row]
+
+        guard let chatPatnerId = message.chatPatnerId() else { return }
+        
+        let ref = Database.database().reference().child("users").child(chatPatnerId)
+        
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let dictionary = snapshot.value as? [String:AnyObject]  else { return}
+            
+            let user = User()
+            
+            user.name = (dictionary["name"] as! String)
+            user.email = (dictionary["email"] as! String)
+            user.profileImageUrl = (dictionary["profileImageUrl"] as! String)
+            user.id = chatPatnerId
+            
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "ChatLogViewController") as? ChatLogViewController
+            
+             vc!.user = user
+            
+            self.navigationController?.pushViewController(vc!, animated: true)
+
+        }, withCancel: nil)
+        
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 68.5
     }

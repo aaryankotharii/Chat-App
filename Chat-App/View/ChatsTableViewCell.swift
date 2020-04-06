@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
-
+import FirebaseAuth
 
 
 
@@ -16,18 +16,8 @@ class ChatsTableViewCell: UITableViewCell {
     
     var message : Message? {
         didSet{
-            if let toId = message?.toId {
-                 let ref = Database.database().reference().child("users").child(toId)
-                 ref.observe(.value, with: { (snapshot) in
-                     
-                     if let dictionary = snapshot.value as? [String:AnyObject] {
-                         self.nameLabel.text = dictionary["name"] as? String
-                         if let profileImageUrl = dictionary["profileImageUrl"] as? String {
-                             self.profilePicture.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
-                         }
-                     }
-                 }, withCancel: nil)
-             }
+            setupNameAndProfileImage ()
+            self.lastMessageLabel.text = message?.text
             if let seconds = message?.timestamp?.doubleValue {
             let timestampDate = NSDate(timeIntervalSince1970: seconds)
                 
@@ -41,6 +31,28 @@ class ChatsTableViewCell: UITableViewCell {
             }
         }
     }
+    
+    
+    private func setupNameAndProfileImage(){
+        
+     
+        
+        if let id = message?.chatPatnerId() {
+            let ref = Database.database().reference().child("users").child(id)
+            ref.observe(.value, with: { (snapshot) in
+                
+                if let dictionary = snapshot.value as? [String:AnyObject] {
+                    self.nameLabel.text = dictionary["name"] as? String
+                    if let profileImageUrl = dictionary["profileImageUrl"] as? String {
+                        self.profilePicture.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
+                    }
+                }
+            }, withCancel: nil)
+        }
+    }
+    
+    
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var lastMessageLabel: UILabel!
