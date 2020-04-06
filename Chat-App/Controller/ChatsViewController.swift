@@ -10,10 +10,14 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class ChatsViewController: UIViewController {
+class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     
      var messages = [Message]()
 
+    @IBOutlet weak var chatsTableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -21,6 +25,7 @@ class ChatsViewController: UIViewController {
         // Do any additional setup after loading the view.
         fetchData()
         observeMessages()
+        print(messages)
     }
     
     func fetchData(){
@@ -39,11 +44,18 @@ class ChatsViewController: UIViewController {
             if let dictionary = snapshot.value as? [String:AnyObject]{
             
             let message = Message()
-                message.setValuesForKeys(dictionary)
-                print(message.text )
-                messages.append(message)
+                
+            message.fromId = dictionary["fromId"] as! String
+            message.text = dictionary["text"] as! String
+            message.toId = dictionary["toId"] as! String
+            message.timestamp = dictionary["timestamp"] as! Int
+                
+              //message.setValuesForKeys(dictionary)
+                print(message.text)
+                self.messages.append(message)
+                self.chatsTableView.reloadData()
             }
-            print(snapshot)
+            //print(snapshot)
         }, withCancel: nil)
     
     }
@@ -57,5 +69,27 @@ class ChatsViewController: UIViewController {
         let vc = storyboard.instantiateViewController(identifier: "ChatLogViewController") as? ChatLogViewController
         
         self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
+    
+    
+    
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messages.count
+     }
+     
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = chatsTableView.dequeueReusableCell(withIdentifier: "chatcell") as? ChatsTableViewCell
+        
+        let message = messages[indexPath.row]
+        
+        cell?.message = message
+        
+        return cell!
+     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 68.5
     }
 }

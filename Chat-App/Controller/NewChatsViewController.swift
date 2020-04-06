@@ -47,6 +47,8 @@ class NewChatsViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         }, withCancel: nil)
     }
+
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
@@ -69,6 +71,8 @@ class NewChatsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         return outputCell
        }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //unhighlight cell
         tableView.deselectRow(at: indexPath, animated: true)

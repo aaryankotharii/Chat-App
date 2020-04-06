@@ -61,3 +61,13 @@ extension UIViewController{
         textField.leftView = spacerView
     }
 }
+
+extension Int {
+    var stringValue : String {
+        return String(self)
+    }
+    
+    var doubleValue : Double {
+        return Double(self)
+    }
+}

@@ -104,15 +104,70 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uNi-gA-9an">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatcell" rowHeight="87" id="uNi-gA-9an" customClass="ChatsTableViewCell" customModule="Chat_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uNi-gA-9an" id="sWT-O3-isY">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="omu-ec-2bq">
+                                                    <rect key="frame" x="20" y="15.5" width="56" height="56"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="56" id="RWh-UH-hCt"/>
+                                                        <constraint firstAttribute="width" constant="56" id="mdK-DO-jwQ"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="28"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WyA-P4-ezq">
+                                                    <rect key="frame" x="91" y="27" width="102.5" height="33"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aaryan Kothari" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFA-hV-Wcy">
+                                                            <rect key="frame" x="0.0" y="0.0" width="102.5" height="17"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLz-O6-XTg">
+                                                            <rect key="frame" x="0.0" y="17" width="102.5" height="16"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:53" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0I-Ta-RYM">
+                                                    <rect key="frame" x="367" y="14" width="31" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                    <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WyA-P4-ezq" firstAttribute="leading" secondItem="omu-ec-2bq" secondAttribute="trailing" constant="15" id="7ke-DG-qdo"/>
+                                                <constraint firstItem="omu-ec-2bq" firstAttribute="leading" secondItem="sWT-O3-isY" secondAttribute="leading" constant="20" id="8au-T2-ikJ"/>
+                                                <constraint firstItem="omu-ec-2bq" firstAttribute="centerY" secondItem="sWT-O3-isY" secondAttribute="centerY" id="DZr-SX-xE0"/>
+                                                <constraint firstItem="WyA-P4-ezq" firstAttribute="centerY" secondItem="sWT-O3-isY" secondAttribute="centerY" id="SFS-eD-ePP"/>
+                                                <constraint firstItem="N0I-Ta-RYM" firstAttribute="top" secondItem="sWT-O3-isY" secondAttribute="top" constant="14" id="Xz9-mT-ymy"/>
+                                                <constraint firstAttribute="trailing" secondItem="N0I-Ta-RYM" secondAttribute="trailing" constant="16" id="fho-wO-laD"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lastMessageLabel" destination="BLz-O6-XTg" id="UDx-2w-1yZ"/>
+                                            <outlet property="nameLabel" destination="lFA-hV-Wcy" id="A0L-yi-Rxd"/>
+                                            <outlet property="profilePicture" destination="omu-ec-2bq" id="2bC-83-7ap"/>
+                                            <outlet property="timeLabel" destination="N0I-Ta-RYM" id="idU-qX-8rk"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="kqo-R1-Pwm" id="3HX-6J-gcK"/>
+                                    <outlet property="delegate" destination="kqo-R1-Pwm" id="9Ps-Od-ver"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -138,6 +193,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chatsTableView" destination="4cI-qp-WTM" id="ETN-mo-bmw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z19-m4-JGE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
