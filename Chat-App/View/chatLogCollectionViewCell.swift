@@ -10,7 +10,11 @@ import UIKit
 
 class chatLogCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet var bubbleRightAnchor: NSLayoutConstraint!
     
+    @IBOutlet var bubbleLeftAnchor: NSLayoutConstraint!
+    
+    @IBOutlet var chatBubble: UIView!
     @IBOutlet weak var messageTextView: UITextView!
     
     @IBOutlet weak var bubbleWidthAnchor: NSLayoutConstraint!

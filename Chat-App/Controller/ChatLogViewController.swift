@@ -15,6 +15,7 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
     @IBOutlet var textfieldRightConstraint: NSLayoutConstraint!
     
     
+    @IBOutlet var chatBubble: UITextView!
     @IBOutlet weak var plusButton: NSLayoutConstraint!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var micButton: UIButton!
@@ -178,14 +179,33 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? chatLogCollectionViewCell
-                
+        
+         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! chatLogCollectionViewCell 
+            
         let message = messages[indexPath.item]
-        cell!.messageTextView.text = message.text
+            
+        cell.messageTextView.text = message.text
         
-        cell?.bubbleWidthAnchor.constant = extimateFrameForText(text: message.text!).width + 32 
+        setupCell(cell: cell, message: message)
         
-        return cell!
+        cell.bubbleWidthAnchor.constant = extimateFrameForText(text: message.text!).width + 32
+            
+    
+        return cell
+    }
+    
+    private func setupCell(cell : chatLogCollectionViewCell, message : Message){
+        if message.fromId == Auth.auth().currentUser?.uid {
+                   //Blue Cell
+            cell.chatBubble.backgroundColor = UIColor(named: "tochatcolor")
+            cell.bubbleLeftAnchor.isActive = false
+            cell.bubbleRightAnchor.isActive = true
+               }else {
+                   //grey message
+            cell.chatBubble.backgroundColor = UIColor(named: "fromchatcolor")
+            cell.bubbleRightAnchor.isActive = false
+            cell.bubbleLeftAnchor.isActive = true 
+               }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

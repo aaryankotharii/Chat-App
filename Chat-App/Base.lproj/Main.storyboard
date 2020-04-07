@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W3r-9y-3OG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pjs-Hg-jef">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -321,7 +321,7 @@
                                                     <subviews>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oKU-rj-Yzo">
                                                             <rect key="frame" x="2" y="0.0" width="320" height="128"/>
-                                                            <color key="backgroundColor" red="0.8482186108692501" green="1" blue="0.97214379457732136" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -347,12 +347,16 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="yix-oP-eFx" secondAttribute="bottom" id="B76-2k-ajn"/>
                                                 <constraint firstAttribute="trailing" secondItem="yix-oP-eFx" secondAttribute="trailing" constant="16" id="W0q-fm-fAk"/>
+                                                <constraint firstItem="yix-oP-eFx" firstAttribute="leading" secondItem="rWm-DR-BOz" secondAttribute="leading" priority="1" constant="16" id="ZVn-Bq-liO"/>
                                                 <constraint firstItem="yix-oP-eFx" firstAttribute="top" secondItem="rWm-DR-BOz" secondAttribute="top" id="aFQ-eu-hxW"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="128"/>
                                         <connections>
+                                            <outlet property="bubbleLeftAnchor" destination="ZVn-Bq-liO" id="0bj-L8-kiJ"/>
+                                            <outlet property="bubbleRightAnchor" destination="W0q-fm-fAk" id="BHQ-zG-YPs"/>
                                             <outlet property="bubbleWidthAnchor" destination="WMB-iZ-msE" id="td6-Qu-Jff"/>
+                                            <outlet property="chatBubble" destination="yix-oP-eFx" id="yem-Oy-U2p"/>
                                             <outlet property="messageTextView" destination="oKU-rj-Yzo" id="6in-kb-Asl"/>
                                         </connections>
                                     </collectionViewCell>

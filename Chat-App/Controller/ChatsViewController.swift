@@ -20,12 +20,21 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     override func viewDidLoad() {
+        
+        //MARK:- TO BE Removed
+        DispatchQueue.main.async {
+                   Auth.auth().signIn(withEmail: "j@k.com", password: "123456") { (result, error) in
+                 if error != nil {
+                    print(error?.localizedDescription)
+                 }else { print("sign in") }
+             }
+        }
+ 
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
 
         // Do any additional setup after loading the view.
         fetchData()
-       // observeMessages()
         observeUserMessages()
     }
     
@@ -71,53 +80,24 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                              return bool
                          }
                      }
+                    self.timer?.invalidate()
+                    self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadTable), userInfo: nil, repeats: false)
+                    
                      
-                     DispatchQueue.main.async {
-                         self.chatsTableView.reloadData()
-                     }
                  }
             }, withCancel: nil)
         }, withCancel: nil)
     }
     
-    func observeMessages(){
-        let ref = Database.database().reference().child("messages")
-        
-        ref.observe(.childAdded, with: { (snapshot) in
-            
-            if let dictionary = snapshot.value as? [String:AnyObject]{
-            
-            let message = Message()
-                
-            message.fromId = dictionary["fromId"] as! String
-            message.text = dictionary["text"] as! String
-            message.toId = dictionary["toId"] as! String
-            message.timestamp = dictionary["timestamp"] as! Int
-                
-              //message.setValuesForKeys(dictionary)
-                //self.messages.append(message)
-                
-                if let toId = message.toId {
-                    self.messagesDictionary[toId]  = message
-                    
-                    self.messages = Array(self.messagesDictionary.values)
-                    
-                    self.messages.sort { (message1, message2) -> Bool in
-                        var bool = false
-                        if let time1 = message1.timestamp, let time2 = message2.timestamp {
-                        bool = time1 > time2
-                        }
-                        return bool
-                    }
-                }
-                
-                DispatchQueue.main.async {
-                    self.chatsTableView.reloadData()
-                }
-            }
-        }, withCancel: nil)
+    var timer : Timer?
     
+    @objc func handleReloadTable(){
+        DispatchQueue.main.async {
+            self.chatsTableView.reloadData()
+        }
     }
+    
+
     
     @IBAction func editClicked(_ sender: Any) {
         toChatLogVC()
@@ -129,9 +109,6 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         self.navigationController?.pushViewController(vc!, animated: true)
     }
-    
-    
-    
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
