@@ -374,7 +374,7 @@
                             <constraint firstItem="QhU-7Z-xYL" firstAttribute="top" secondItem="UhK-NO-N09" secondAttribute="top" id="KF2-0b-X9k"/>
                             <constraint firstAttribute="trailing" secondItem="4Vv-NC-NFe" secondAttribute="trailing" id="N5O-nX-Jnb"/>
                             <constraint firstItem="Sf1-Gk-eGd" firstAttribute="top" secondItem="QhU-7Z-xYL" secondAttribute="bottom" id="UR8-S3-HGD"/>
-                            <constraint firstItem="4Vv-NC-NFe" firstAttribute="bottom" secondItem="UhK-NO-N09" secondAttribute="bottom" id="Zwf-UR-dNY"/>
+                            <constraint firstItem="UhK-NO-N09" firstAttribute="bottom" secondItem="4Vv-NC-NFe" secondAttribute="bottom" id="Zwf-UR-dNY"/>
                             <constraint firstAttribute="trailing" secondItem="Sf1-Gk-eGd" secondAttribute="trailing" id="atT-T1-0H6"/>
                             <constraint firstItem="QhU-7Z-xYL" firstAttribute="leading" secondItem="jFh-Ms-AYx" secondAttribute="leading" id="dmv-uP-7a4"/>
                             <constraint firstItem="QhU-7Z-xYL" firstAttribute="trailing" secondItem="jFh-Ms-AYx" secondAttribute="trailing" id="gNR-e9-Yuu"/>
@@ -387,6 +387,8 @@
                         <outlet property="cameraButton" destination="ahc-1z-UtG" id="Ad6-RD-coA"/>
                         <outlet property="chatTextField" destination="Th7-pW-7GQ" id="0wR-bU-pgj"/>
                         <outlet property="collectionView" destination="QhU-7Z-xYL" id="sUl-TT-UrW"/>
+                        <outlet property="keyBoardView" destination="4Vv-NC-NFe" id="waG-NT-Axh"/>
+                        <outlet property="keyboardBottomAnchot" destination="Zwf-UR-dNY" id="Wa7-Ca-xxe"/>
                         <outlet property="micButton" destination="9gC-Uz-1jb" id="Tgd-Ph-dGj"/>
                         <outlet property="plusButton" destination="Rt5-79-NqA" id="hDR-yT-Zqh"/>
                         <outlet property="sendButton" destination="uVk-fk-LCf" id="kMK-eC-tJc"/>
