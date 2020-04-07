@@ -298,7 +298,7 @@
                                     <constraint firstAttribute="height" constant="0.5" id="S3t-zA-Scr"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QhU-7Z-xYL">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QhU-7Z-xYL">
                                 <rect key="frame" x="0.0" y="44" width="414" height="777.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ifh-dp-D7c">
@@ -315,25 +315,43 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oKU-rj-Yzo">
-                                                    <rect key="frame" x="214" y="0.0" width="200" height="128"/>
-                                                    <color key="backgroundColor" red="0.8482186108692501" green="1" blue="0.97214379457732136" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yix-oP-eFx">
+                                                    <rect key="frame" x="71" y="0.0" width="327" height="128"/>
+                                                    <subviews>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oKU-rj-Yzo">
+                                                            <rect key="frame" x="2" y="0.0" width="320" height="128"/>
+                                                            <color key="backgroundColor" red="0.8482186108692501" green="1" blue="0.97214379457732136" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.84943974020000002" green="1" blue="0.97124296430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="YoS-6N-oYq"/>
+                                                        <constraint firstAttribute="bottom" secondItem="oKU-rj-Yzo" secondAttribute="bottom" id="Cmx-bK-1sn"/>
+                                                        <constraint firstItem="oKU-rj-Yzo" firstAttribute="leading" secondItem="yix-oP-eFx" secondAttribute="leading" constant="2" id="E4U-cF-WtH"/>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="327" id="WMB-iZ-msE"/>
+                                                        <constraint firstAttribute="trailing" secondItem="oKU-rj-Yzo" secondAttribute="trailing" constant="5" id="e3M-dB-WHd"/>
+                                                        <constraint firstAttribute="width" priority="1" constant="327" id="knQ-Qy-YHd"/>
+                                                        <constraint firstItem="oKU-rj-Yzo" firstAttribute="top" secondItem="yix-oP-eFx" secondAttribute="top" id="zOi-6C-zya"/>
                                                     </constraints>
-                                                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="oKU-rj-Yzo" secondAttribute="trailing" id="RF8-cX-Flp"/>
-                                                <constraint firstAttribute="bottom" secondItem="oKU-rj-Yzo" secondAttribute="bottom" id="gzq-vl-VO2"/>
-                                                <constraint firstItem="oKU-rj-Yzo" firstAttribute="top" secondItem="rWm-DR-BOz" secondAttribute="top" id="hOp-dy-jHu"/>
+                                                <constraint firstAttribute="bottom" secondItem="yix-oP-eFx" secondAttribute="bottom" id="B76-2k-ajn"/>
+                                                <constraint firstAttribute="trailing" secondItem="yix-oP-eFx" secondAttribute="trailing" constant="16" id="W0q-fm-fAk"/>
+                                                <constraint firstItem="yix-oP-eFx" firstAttribute="top" secondItem="rWm-DR-BOz" secondAttribute="top" id="aFQ-eu-hxW"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="128"/>
                                         <connections>
+                                            <outlet property="bubbleWidthAnchor" destination="WMB-iZ-msE" id="td6-Qu-Jff"/>
                                             <outlet property="messageTextView" destination="oKU-rj-Yzo" id="6in-kb-Asl"/>
                                         </connections>
                                     </collectionViewCell>

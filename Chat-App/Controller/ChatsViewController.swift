@@ -58,8 +58,8 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                    //message.setValuesForKeys(dictionary)
                      //self.messages.append(message)
                      
-                     if let toId = message.toId {
-                         self.messagesDictionary[toId]  = message
+                     if let chatPatnerId = message.chatPatnerId() {
+                         self.messagesDictionary[chatPatnerId]  = message
                          
                          self.messages = Array(self.messagesDictionary.values)
                          

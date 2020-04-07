@@ -4,10 +4,12 @@ enable take photo for profile pic
 
 add name and profile pic to chatLogVC
 
-
 lec 11 min 19 remove all somethig used in logout ( ltaer )
-
 
 refactor user database fetching
 
 remove fetchData function
+
+login button changes back to sign up glitch
+
+add logout functions

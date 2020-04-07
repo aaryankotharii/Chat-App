@@ -77,6 +77,9 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
         chatTextField.layer.borderWidth = 0.5
         
         chatTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        
+        collectionView.alwaysBounceVertical=true
+        collectionView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 7, right: 0)
         // Do any additional setup after loading the view.
     }
     
@@ -139,7 +142,10 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
             if error != nil {
                 print(error?.localizedDescription ?? "couldnt send message")
             }else {
-                print("usermessa ref")
+                
+                self.chatTextField.text = nil
+                self.sendButton.isHidden = true
+                
                 let userMessagesRef = Database.database().reference().child("user-messages").child(fromId)
                 
                 let messageId = childRef.key!
@@ -161,6 +167,10 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
     
     
     
+    
+    
+    //MARK:- CollectiomView Delegate Methods
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return messages.count
     }
@@ -171,10 +181,29 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
         let message = messages[indexPath.item]
         cell!.messageTextView.text = message.text
         
+        cell?.bubbleWidthAnchor.constant = extimateFrameForText(text: message.text!).width + 32 
+        
         return cell!
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-         return CGSize(width: view.frame.width, height: 80)
+        
+        var height : CGFloat = 80.0
+        
+        if let text = messages[indexPath.item].text {
+            height = extimateFrameForText(text: text).height + 20
+        }
+        
+         return CGSize(width: view.frame.width, height: height)
     }
+    
+    
+    //MARK:- Height constraints for chat bubble
+    private func extimateFrameForText(text: String) -> CGRect {
+        let size = CGSize(width: 327, height: 1000)
+        
+        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+        
+        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16)], context: nil)
+       }
 }
