@@ -12,7 +12,9 @@ import FirebaseAuth
 
 class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-
+    @IBOutlet var textfieldRightConstraint: NSLayoutConstraint!
+    
+    
     @IBOutlet weak var plusButton: NSLayoutConstraint!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var micButton: UIButton!
@@ -83,28 +85,28 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
         // Do any additional setup after loading the view.
     }
     
-    func curveAnimation(button: UIButton, animationOptions: UIView.AnimationOptions, isReset: Bool) {
-      let defaultXMovement: CGFloat = 240
-      UIView.animate(withDuration: 1, delay: 0, options: animationOptions, animations: {
-        button.transform = isReset ? .identity : CGAffineTransform.identity.translatedBy(x: defaultXMovement, y: 0)
-      }, completion: nil)
+    func curveAnimation(button: UIButton, animationOptions: UIView.AnimationOptions, x: CGFloat, bool : Bool) {
+        UIView.animate(withDuration: 0.01, delay: 0, options: animationOptions, animations: {
+            self.sendButton.alpha = bool ? 0 : 1
+            self.textfieldRightConstraint.isActive = !bool
+            self.sendButton.isHidden = bool
+            button.alpha = CGFloat(bool ? 1: 0)
+        button.transform = CGAffineTransform.identity.translatedBy(x: x, y: 0)
+        }, completion: nil)
     }
     
     
   @objc func textFieldDidChange(_ textField: UITextField) {
     if sendButton.isHidden {
-        UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
-        }, completion: { _ in
-            self.sendButton.isHidden = false
-            
-            self.curveAnimation(button: self.cameraButton, animationOptions: .curveEaseOut, isReset: false)
-        })
+        self.textfieldRightConstraint.priority = UILayoutPriority(rawValue: 900)
+        self.curveAnimation(button: self.cameraButton, animationOptions: .curveEaseOut, x: 50, bool: false)
+        self.curveAnimation(button: self.micButton, animationOptions: .curveEaseOut,  x: 50, bool: false)
     }
     if chatTextField.text == ""{
-        sendButton.isHidden = true
+        self.curveAnimation(button: self.cameraButton, animationOptions: .curveEaseIn, x: 0, bool: true)
+        self.curveAnimation(button: self.micButton, animationOptions: .curveEaseIn, x: 0, bool: true)
     }
-    }
-    
+}
     
 
     @IBAction func plusClicked(_ sender: Any) {

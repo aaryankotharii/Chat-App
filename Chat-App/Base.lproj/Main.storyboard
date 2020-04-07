@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W3r-9y-3OG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -279,7 +279,7 @@
                                 <constraints>
                                     <constraint firstItem="bMP-BH-Zf8" firstAttribute="leading" secondItem="4Vv-NC-NFe" secondAttribute="leading" constant="12" id="1hg-ZD-5D9"/>
                                     <constraint firstAttribute="trailing" secondItem="9gC-Uz-1jb" secondAttribute="trailing" constant="17.5" id="4M3-hl-cGm"/>
-                                    <constraint firstItem="ahc-1z-UtG" firstAttribute="leading" secondItem="Th7-pW-7GQ" secondAttribute="trailing" constant="20" id="4NL-fE-mfu"/>
+                                    <constraint firstItem="uVk-fk-LCf" firstAttribute="leading" secondItem="Th7-pW-7GQ" secondAttribute="trailing" priority="500" constant="9" id="4NL-fE-mfu"/>
                                     <constraint firstItem="9gC-Uz-1jb" firstAttribute="leading" secondItem="ahc-1z-UtG" secondAttribute="trailing" constant="23.5" id="7nx-Ah-UOT"/>
                                     <constraint firstItem="ahc-1z-UtG" firstAttribute="centerY" secondItem="4Vv-NC-NFe" secondAttribute="centerY" id="7re-0j-mgU"/>
                                     <constraint firstAttribute="height" constant="40" id="BbX-tY-6uc"/>
@@ -287,6 +287,7 @@
                                     <constraint firstItem="9gC-Uz-1jb" firstAttribute="centerY" secondItem="4Vv-NC-NFe" secondAttribute="centerY" id="Rt5-79-NqA"/>
                                     <constraint firstItem="Th7-pW-7GQ" firstAttribute="centerY" secondItem="4Vv-NC-NFe" secondAttribute="centerY" id="pDA-Ve-yuf"/>
                                     <constraint firstAttribute="trailing" secondItem="uVk-fk-LCf" secondAttribute="trailing" constant="9" id="prP-nt-irT"/>
+                                    <constraint firstItem="ahc-1z-UtG" firstAttribute="leading" secondItem="Th7-pW-7GQ" secondAttribute="trailing" priority="500" constant="20" id="sqq-em-rPT"/>
                                     <constraint firstItem="bMP-BH-Zf8" firstAttribute="centerY" secondItem="4Vv-NC-NFe" secondAttribute="centerY" id="vpP-Wd-cgN"/>
                                     <constraint firstItem="uVk-fk-LCf" firstAttribute="centerY" secondItem="4Vv-NC-NFe" secondAttribute="centerY" id="xjj-EM-rSq"/>
                                 </constraints>
@@ -385,6 +386,7 @@
                         <outlet property="micButton" destination="9gC-Uz-1jb" id="Tgd-Ph-dGj"/>
                         <outlet property="plusButton" destination="Rt5-79-NqA" id="hDR-yT-Zqh"/>
                         <outlet property="sendButton" destination="uVk-fk-LCf" id="kMK-eC-tJc"/>
+                        <outlet property="textfieldRightConstraint" destination="4NL-fE-mfu" id="D8C-kl-Zza"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XaX-CX-cGC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
