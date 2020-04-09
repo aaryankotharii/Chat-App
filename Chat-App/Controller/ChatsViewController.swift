@@ -21,9 +21,10 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Defaultlogin()
         navigationController?.navigationBar.prefersLargeTitles = true
         observeUserMessages()
-        //Defaultlogin()
+        Defaultlogin()
     }
     
     func Defaultlogin(){
@@ -52,8 +53,10 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 if let dictionary = snapshot.value as? [String:AnyObject]{
                 
                 let message = Message()
+                    if let text = dictionary["text"] {
+                        message.text = text as! String
+                    }
                 message.fromId = (dictionary["fromId"] as! String)
-                message.text = (dictionary["text"] as! String)
                 message.toId = (dictionary["toId"] as! String)
                 message.timestamp = (dictionary["timestamp"] as! Int)
                                               

@@ -75,3 +75,16 @@ extension Int {
     }
 }
 
+
+extension UIAlertAction {
+    var setAttributes: UIAlertAction{
+        let action = self
+        action.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+        action.setValue(UIColor.black, forKey: "titleTextColor")
+        return action
+    }
+}
+    
+
+
+

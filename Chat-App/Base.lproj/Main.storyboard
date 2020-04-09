@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pjs-Hg-jef">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -211,6 +211,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whatsapp" translatesAutoresizingMaskIntoConstraints="NO" id="Rru-uK-p0H">
+                                <rect key="frame" x="0.0" y="44" width="414" height="777.5"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Vv-NC-NFe">
                                 <rect key="frame" x="0.0" y="822" width="414" height="40"/>
                                 <subviews>
@@ -301,39 +304,46 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QhU-7Z-xYL">
                                 <rect key="frame" x="0.0" y="44" width="414" height="777.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ifh-dp-D7c">
-                                    <size key="itemSize" width="414" height="128"/>
+                                    <size key="itemSize" width="414" height="249"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="XJI-Ss-eRD" customClass="chatLogCollectionViewCell" customModule="Chat_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="327"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rWm-DR-BOz">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="327"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yix-oP-eFx">
-                                                    <rect key="frame" x="71" y="0.0" width="327" height="128"/>
+                                                    <rect key="frame" x="71" y="0.0" width="327" height="327"/>
                                                     <subviews>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oKU-rj-Yzo">
-                                                            <rect key="frame" x="2" y="0.0" width="320" height="128"/>
+                                                            <rect key="frame" x="2" y="0.0" width="320" height="327"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="19N-BR-TAK">
+                                                            <rect key="frame" x="3" y="3" width="321" height="321"/>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.84943974020000002" green="1" blue="0.97124296430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="oKU-rj-Yzo" secondAttribute="bottom" id="Cmx-bK-1sn"/>
                                                         <constraint firstItem="oKU-rj-Yzo" firstAttribute="leading" secondItem="yix-oP-eFx" secondAttribute="leading" constant="2" id="E4U-cF-WtH"/>
+                                                        <constraint firstAttribute="trailing" secondItem="19N-BR-TAK" secondAttribute="trailing" constant="3" id="ELA-u5-Qei"/>
+                                                        <constraint firstAttribute="bottom" secondItem="19N-BR-TAK" secondAttribute="bottom" constant="3" id="LKc-8Y-9MU"/>
+                                                        <constraint firstItem="19N-BR-TAK" firstAttribute="leading" secondItem="yix-oP-eFx" secondAttribute="leading" constant="3" id="UT2-BL-ixH"/>
                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="327" id="WMB-iZ-msE"/>
                                                         <constraint firstAttribute="trailing" secondItem="oKU-rj-Yzo" secondAttribute="trailing" constant="5" id="e3M-dB-WHd"/>
                                                         <constraint firstAttribute="width" priority="1" constant="327" id="knQ-Qy-YHd"/>
+                                                        <constraint firstItem="19N-BR-TAK" firstAttribute="top" secondItem="yix-oP-eFx" secondAttribute="top" constant="3" id="tcl-NY-xHG"/>
                                                         <constraint firstItem="oKU-rj-Yzo" firstAttribute="top" secondItem="yix-oP-eFx" secondAttribute="top" id="zOi-6C-zya"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
@@ -351,12 +361,14 @@
                                                 <constraint firstItem="yix-oP-eFx" firstAttribute="top" secondItem="rWm-DR-BOz" secondAttribute="top" id="aFQ-eu-hxW"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="414" height="128"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="customSize" width="414" height="327"/>
                                         <connections>
                                             <outlet property="bubbleLeftAnchor" destination="ZVn-Bq-liO" id="0bj-L8-kiJ"/>
                                             <outlet property="bubbleRightAnchor" destination="W0q-fm-fAk" id="BHQ-zG-YPs"/>
                                             <outlet property="bubbleWidthAnchor" destination="WMB-iZ-msE" id="td6-Qu-Jff"/>
                                             <outlet property="chatBubble" destination="yix-oP-eFx" id="yem-Oy-U2p"/>
+                                            <outlet property="imageView" destination="19N-BR-TAK" id="5ti-x8-fp5"/>
                                             <outlet property="messageTextView" destination="oKU-rj-Yzo" id="6in-kb-Asl"/>
                                         </connections>
                                     </collectionViewCell>
@@ -369,7 +381,10 @@
                         </subviews>
                         <color key="backgroundColor" name="grey"/>
                         <constraints>
+                            <constraint firstItem="Sf1-Gk-eGd" firstAttribute="top" secondItem="Rru-uK-p0H" secondAttribute="bottom" id="22p-48-qpS"/>
                             <constraint firstAttribute="leading" secondItem="4Vv-NC-NFe" secondAttribute="leading" id="2L4-Ka-yVa"/>
+                            <constraint firstItem="Rru-uK-p0H" firstAttribute="leading" secondItem="UhK-NO-N09" secondAttribute="leading" id="2fr-Ka-awD"/>
+                            <constraint firstItem="Rru-uK-p0H" firstAttribute="top" secondItem="UhK-NO-N09" secondAttribute="top" id="C7K-SQ-x55"/>
                             <constraint firstItem="Sf1-Gk-eGd" firstAttribute="leading" secondItem="jFh-Ms-AYx" secondAttribute="leading" priority="1" id="CfN-jS-MEw"/>
                             <constraint firstItem="QhU-7Z-xYL" firstAttribute="top" secondItem="UhK-NO-N09" secondAttribute="top" id="KF2-0b-X9k"/>
                             <constraint firstAttribute="trailing" secondItem="4Vv-NC-NFe" secondAttribute="trailing" id="N5O-nX-Jnb"/>
@@ -379,6 +394,7 @@
                             <constraint firstItem="QhU-7Z-xYL" firstAttribute="leading" secondItem="jFh-Ms-AYx" secondAttribute="leading" id="dmv-uP-7a4"/>
                             <constraint firstItem="QhU-7Z-xYL" firstAttribute="trailing" secondItem="jFh-Ms-AYx" secondAttribute="trailing" id="gNR-e9-Yuu"/>
                             <constraint firstItem="4Vv-NC-NFe" firstAttribute="top" secondItem="Sf1-Gk-eGd" secondAttribute="bottom" id="oAI-YG-2mk"/>
+                            <constraint firstItem="UhK-NO-N09" firstAttribute="trailing" secondItem="Rru-uK-p0H" secondAttribute="trailing" id="pFp-CH-0bc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UhK-NO-N09"/>
                     </view>
@@ -563,6 +579,7 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="send" width="177" height="177"/>
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>
+        <image name="whatsapp" width="760" height="1396"/>
         <namedColor name="TextField">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
