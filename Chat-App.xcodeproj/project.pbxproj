@@ -10,6 +10,10 @@
 		44510E86AE29DE5E8BB386D6 /* Pods_Chat_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106ADCEB16915EA1B4331ABD /* Pods_Chat_App.framework */; };
 		5B5E18A3243EFD2C0081B407 /* Chat+Plus+Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5E18A2243EFD2C0081B407 /* Chat+Plus+Button.swift */; };
 		5B5E18C5244059C90081B407 /* PhoneAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5E18C4244059C90081B407 /* PhoneAuthViewController.swift */; };
+		5B5E18C72440C59B0081B407 /* Contries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5E18C62440C59B0081B407 /* Contries.swift */; };
+		5B5E18C92441001D0081B407 /* countriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5E18C82441001D0081B407 /* countriesViewController.swift */; };
+		5B5E18CE24410E0E0081B407 /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5E18CD24410E0E0081B407 /* SF-Pro-Display-Light.otf */; };
+		5B5E18D024410ED20081B407 /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5E18CF24410ED20081B407 /* SF-Pro-Display-Medium.otf */; };
 		5B880EAB243A677800EDFBE3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B880EAA243A677800EDFBE3 /* Message.swift */; };
 		5B880EAD243AFDB200EDFBE3 /* ChatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B880EAC243AFDB200EDFBE3 /* ChatsTableViewCell.swift */; };
 		5B880EAF243B7BDD00EDFBE3 /* chatLogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B880EAE243B7BDD00EDFBE3 /* chatLogCollectionViewCell.swift */; };
@@ -38,6 +42,10 @@
 		106ADCEB16915EA1B4331ABD /* Pods_Chat_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chat_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B5E18A2243EFD2C0081B407 /* Chat+Plus+Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chat+Plus+Button.swift"; sourceTree = "<group>"; };
 		5B5E18C4244059C90081B407 /* PhoneAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhoneAuthViewController.swift; path = "Chat-App/PhoneAuthViewController.swift"; sourceTree = SOURCE_ROOT; };
+		5B5E18C62440C59B0081B407 /* Contries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contries.swift; sourceTree = "<group>"; };
+		5B5E18C82441001D0081B407 /* countriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = countriesViewController.swift; sourceTree = "<group>"; };
+		5B5E18CD24410E0E0081B407 /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
+		5B5E18CF24410ED20081B407 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		5B880EAA243A677800EDFBE3 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		5B880EAC243AFDB200EDFBE3 /* ChatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableViewCell.swift; sourceTree = "<group>"; };
 		5B880EAE243B7BDD00EDFBE3 /* chatLogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatLogCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -76,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B5E18CC24410DC30081B407 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5B5E18CD24410E0E0081B407 /* SF-Pro-Display-Light.otf */,
+				5B5E18CF24410ED20081B407 /* SF-Pro-Display-Medium.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		5B97F779243878C000ACF83D = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +128,7 @@
 				5B97F796243878C500ACF83D /* Info.plist */,
 				5B97F7A42438CACC00ACF83D /* GoogleService-Info.plist */,
 				5B97F78E243878C000ACF83D /* Chat_App.xcdatamodeld */,
+				5B5E18CC24410DC30081B407 /* Fonts */,
 			);
 			path = "Chat-App";
 			sourceTree = "<group>";
@@ -124,6 +142,7 @@
 				5B97F7AE2439A04C00ACF83D /* SetupProfileViewController.swift */,
 				5B97F7B4243A041600ACF83D /* ChatLogViewController.swift */,
 				5B5E18C4244059C90081B407 /* PhoneAuthViewController.swift */,
+				5B5E18C82441001D0081B407 /* countriesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -143,6 +162,7 @@
 			children = (
 				5B97F7AC2439109800ACF83D /* User.swift */,
 				5B880EAA243A677800EDFBE3 /* Message.swift */,
+				5B5E18C62440C59B0081B407 /* Contries.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,7 +258,9 @@
 				5B97F792243878C500ACF83D /* Assets.xcassets in Resources */,
 				5B97F7A52438CACC00ACF83D /* GoogleService-Info.plist in Resources */,
 				5B97F78D243878C000ACF83D /* Main.storyboard in Resources */,
+				5B5E18CE24410E0E0081B407 /* SF-Pro-Display-Light.otf in Resources */,
 				5B97F7B12439A88700ACF83D /* File in Resources */,
+				5B5E18D024410ED20081B407 /* SF-Pro-Display-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B97F78A243878C000ACF83D /* ViewController.swift in Sources */,
+				5B5E18C72440C59B0081B407 /* Contries.swift in Sources */,
 				5B880EAD243AFDB200EDFBE3 /* ChatsTableViewCell.swift in Sources */,
 				5B5E18A3243EFD2C0081B407 /* Chat+Plus+Button.swift in Sources */,
 				5B97F7A324387C6C00ACF83D /* Extensions.swift in Sources */,
@@ -309,6 +332,7 @@
 				5B97F788243878C000ACF83D /* SceneDelegate.swift in Sources */,
 				5B880EAB243A677800EDFBE3 /* Message.swift in Sources */,
 				5B5E18C5244059C90081B407 /* PhoneAuthViewController.swift in Sources */,
+				5B5E18C92441001D0081B407 /* countriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
