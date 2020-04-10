@@ -40,7 +40,6 @@ extension UIImageView {
                  print(error?.localizedDescription ?? "")
              }
              else{
-                 print("imageslaoded")
                  DispatchQueue.main.async {
                     if  let downloadedImage = UIImage(data: data!) {
                     

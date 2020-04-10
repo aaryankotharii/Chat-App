@@ -21,7 +21,6 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
     
     
     
-    @IBOutlet var chatBubble: UITextView!
     @IBOutlet weak var plusButton: NSLayoutConstraint!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var micButton: UIButton!
@@ -35,6 +34,7 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
                 observeMessages()
             }
         }
+
         var messages = [Message]()
         
        func observeMessages(){
@@ -47,12 +47,19 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
             
             let messagesRef = Database.database().reference().child("messages").child(messageId)
             messagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
-                print(snapshot)
                 guard let dictionary = snapshot.value as?[String:AnyObject] else { return }
                 
                 let message = Message()
                 if let text = dictionary["text"]{
-                      message.text = text as! String
+                      message.text = text as? String
+                    if text as? String == "delete all messages"{
+                        Database.database().reference().child("messages").removeValue()
+                        Database.database().reference().child("user-messages").removeValue()
+                        self.messages.removeAll()
+                        DispatchQueue.main.async {
+                            self.collectionView.reloadData()
+                        }
+                    }
                 }
                 message.fromId = dictionary["fromId"] as! String
                 message.toId = dictionary["toId"] as! String
@@ -123,7 +130,6 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
 
         @IBAction func plusClicked(_ sender: Any) {
             self.createPLusActionSheet()
-            print("plus")
         }
         
         
@@ -201,7 +207,6 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
             
             if message.imageUrl != nil {
                 cell.bubbleWidthAnchor.constant = 327
-
             }
             else {
                 cell.bubbleWidthAnchor.constant = extimateFrameForText(text: message.text!).width + 32
@@ -215,9 +220,11 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
 
       
             if let imageUrl = message.imageUrl{
-                cell.imageView.loadImageUsingCacheWithUrlString(urlString: imageUrl)
+               cell.imageView.loadImageUsingCacheWithUrlString(urlString: imageUrl)
+                cell.messageTextView.isHidden = true
                 cell.imageView.isHidden = false
             }else{
+                cell.messageTextView.isHidden = false
                 cell.imageView.isHidden = true
             }
             
@@ -236,15 +243,17 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
         
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             
-            var height : CGFloat = 80.0
-            
-           
+            var height : CGFloat = 327
             if let text = messages[indexPath.item].text{
                 height = extimateFrameForText(text: text).height + 20
             }
-            
+            print("height is",height,messages[indexPath.item].text)
             return CGSize(width: view.frame.width, height: height)
         }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
         
         
         //MARK:- Height constraints for chat bubble
@@ -256,162 +265,4 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
            }
     }
 
-
-extension ChatLogViewController {
-    func createPLusActionSheet(){
-        let Alert: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-
-   
-        
-        
-        let cameraAction = UIAlertAction(title: "  Camera", style: .default) { (UIAlertAction) in
-            print("camera tapped")
-        }
-        cameraAction.setValue(#imageLiteral(resourceName: "camera-small"), forKey: "image")
-        cameraAction.setAttributes
-        Alert.addAction(cameraAction)
-        
-        
-        
-        
-        let photoAction = UIAlertAction(title: "  Photo & Video Library", style: .default) { (UIAlertAction) in
-                   print("Photo tapped")
-               }
-               photoAction.setValue(#imageLiteral(resourceName: "photo"), forKey: "image")
-               photoAction.setAttributes
-               Alert.addAction(photoAction)
-        
-        
-        
-        let docAction = UIAlertAction(title: "  Document", style: .default) { (UIAlertAction) in
-            print("Photo tapped")
-            self.sendPhoto()
-        }
-        docAction.setValue(#imageLiteral(resourceName: "document"), forKey: "image")
-        docAction.setAttributes
-        Alert.addAction(docAction)
-        
-        
-        
-        
-        let locationAction = UIAlertAction(title: "  Location", style: .default) { (UIAlertAction) in
-                  print("Location tapped")
-              }
-              locationAction.setValue(#imageLiteral(resourceName: "location"), forKey: "image")
-              locationAction.setAttributes
-              Alert.addAction(locationAction)
-        
-        
-        
-        let contactAction = UIAlertAction(title: "  Contact", style: .default) { (UIAlertAction) in
-            print("Contact tapped")
-        }
-        contactAction.setValue(#imageLiteral(resourceName: "contact"), forKey: "image")
-        contactAction.setAttributes
-        Alert.addAction(contactAction)
-        
-        
-
-
-        
-             let cancelActionButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-         Alert.addAction(cancelActionButton)
-        self.present(Alert, animated: true, completion: nil)
-        
-    }
-    
-    
-    func sendPhoto(){
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.allowsEditing = true
-        imagePickerController.delegate = self
-        imagePickerController.modalPresentationStyle = .fullScreen
-        present(imagePickerController, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-           var selectedImageFromPicker : UIImage?
-            
-            if let editedImage = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage{
-                selectedImageFromPicker = editedImage
-            }
-             else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                   selectedImageFromPicker = originalImage
-             }
-            
-            if let selectedImage = selectedImageFromPicker {
-               uploadToFirebaseStorageUsingImage(selectedImage)
-            }
-
-               self.dismiss(animated: true, completion: nil )
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-   private func uploadToFirebaseStorageUsingImage(_ image: UIImage){
-    
-    let imageName = NSUUID().uuidString
-    let ref = Storage.storage().reference().child("messages_images").child(imageName)
-    
-    
-    if let uploadData = image.jpegData(compressionQuality: 0.5) {
-        ref.putData(uploadData, metadata: nil) { (metadata, error) in
-            if error != nil {
-                print(error?.localizedDescription ?? "Error sending photo")
-            }else {
-                ref.downloadURL { (url, error) in
-                    if error != nil {
-                        print(error?.localizedDescription ?? "")
-                    }
-                    else {
-                        self.sendMessageWithImageUrl(imageUrl: url!.absoluteString)
-                    }
-                }
-            }
-        }
-        
-    }
-    }
-    
-    private func sendMessageWithImageUrl(imageUrl : String){
-        
-        let ref = Database.database().reference().child("messages")
-               
-        let childRef = ref.childByAutoId()
-               
-        let toId = user!.id!
-        
-        let fromId = Auth.auth().currentUser!.uid
-        
-        let timeStamp = Int(NSDate().timeIntervalSince1970)
-        
-        let values = ["imageUrl":imageUrl, "toId":toId, "fromId":fromId,"timestamp":timeStamp] as [String : Any]
-               
-              // childRef.updateChildValues(values)
-        childRef.updateChildValues(values) { (error, ref) in
-            if error != nil {
-                print(error?.localizedDescription ?? "couldnt send message")
-            }else {
-                
-                self.chatTextField.text = nil
-                self.sendButton.isHidden = true
-                
-                let userMessagesRef = Database.database().reference().child("user-messages").child(fromId)
-                
-                let messageId = childRef.key!
-                
-                userMessagesRef.updateChildValues([messageId:"a"])
-                
-                let recipientUserMessagesReference = Database.database().reference().child("user-messages").child(toId)
-                
-                recipientUserMessagesReference.updateChildValues([messageId:"a"])
-            }
-            
-        }
-        
-    }
-    
-}
 
