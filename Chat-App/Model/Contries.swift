@@ -18,7 +18,7 @@ let contries =
     [
         "emoji": "🇦🇽",
         "name": "Åland Islands",
-        "code": "35818"
+        "code": "358"
     ],
     [
         "emoji": "🇦🇱",

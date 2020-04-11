@@ -8,22 +8,33 @@
 
 import UIKit
 
-class countriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
- 
-    
 
+
+class countriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate {
+
+    
+ 
+
+    let search = UISearchController(searchResultsController: nil)           // Declare the searchController
+
+    var searchResults = [String:String]()
+    
     @IBOutlet var tableView: UITableView!
     
     var mainViewController:PhoneAuthViewController?
 
     override func viewDidLoad() {
-        let search = UISearchController(searchResultsController: nil)           // Declare the searchController
            self.navigationItem.searchController = search
-        super.viewDidLoad()
+        
+       // search.searchResultsUpdater = self
 
+        search.delegate = self
+        super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contries.count

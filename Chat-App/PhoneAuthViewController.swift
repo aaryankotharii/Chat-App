@@ -12,7 +12,6 @@ import FirebaseAuth
 class PhoneAuthViewController: UIViewController{
 
     
-    @IBOutlet var otpTextField: UITextField!
     
     @IBOutlet var tableView: UITableView!
     
@@ -22,21 +21,19 @@ class PhoneAuthViewController: UIViewController{
     
     @IBOutlet var doneButton: UIBarButtonItem!
     
-    var countryName : String = "India"{
-        didSet{
-            print("set")
-        }
-    }
     @IBOutlet var bgview: UIView!
     
-    var countryCode : String = "+91"
+    var countryName : String = "India"
+
     
-    var verificationId : String?
+    var countryCode : String = "91"
+    
+    var phoneNumber : String?
+    
     override func viewDidLoad() {
         
-        let str = "8286040000"
-        let final2 = str.inserting(separator: " ", every: 5)
-        print(final2)      // "11:23:12:45:1\n"
+        doneButton.isEnabled = false
+        
 
         super.viewDidLoad()
  
@@ -57,42 +54,45 @@ class PhoneAuthViewController: UIViewController{
        // self.countryCodeLabel.text = countryCode
     }
     
-    @IBAction func addingPhoneNumber(_ sender: Any) {
-        if phoneTextField.text != "" {
-            if phoneTextField.text!.count == 5{
-                phoneTextField.text = phoneTextField.text! + " "
+    @IBAction func addingPhoneNumber(_ sender: UITextField) {
+       if sender.text!.count > 0 && sender.text!.count % 6 == 0 && sender.text!.last! != " " {
+           sender.text!.insert(" ", at:sender.text!.index(sender.text!.startIndex, offsetBy: sender.text!.count-1) )
         }
-    }
+        
         print(phoneTextField.text)
             self.title = "+" + self.countryCode + " " + self.phoneTextField.text!
         
-    }
-    
-    
-    @IBAction func login(_ sender: Any) {
-        PhoneAuthProvider.provider().verifyPhoneNumber(phoneTextField.text!, uiDelegate: nil) { (id, error) in
-             if error != nil{
-                 print(error)
-             }
-             else{
-                self.verificationId = id
-             }
-         }
-    }
-    
-    @IBAction func id(_ sender: Any) {
-        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationId!, verificationCode: otpTextField.text!)
-        
-        Auth.auth().signIn(with: credential) { (result, error) in
-            if error != nil{
-                print(error?.localizedDescription)
-            }
-            else{
-                print("success")
-            }
+        if phoneTextField.text?.count == 11{
+            doneButton.isEnabled = true
+            phoneNumber = self.title?.replacingOccurrences(of: " ", with: "")
+        }else{
+            doneButton.isEnabled = false
         }
     }
     
+    
+    @IBAction func doneClicked(_ sender: Any) {
+        if let number = self.phoneNumber {
+        PhoneAuthProvider.provider().verifyPhoneNumber(number, uiDelegate: nil) { (id, error) in
+                   if error != nil{
+                    print(error?.localizedDescription ?? "error verifying number")
+                   }
+                   else{
+                    let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                    let vc = storyboard.instantiateViewController(identifier: "OTPViewController") as OTPViewController
+                    vc.id = id
+                    vc.phone = number
+                    self.navigationController?.pushViewController(vc, animated: true)
+                      
+                   }
+               }
+    }
+    }
+    
+    
+    
+
+
 }
 
 
