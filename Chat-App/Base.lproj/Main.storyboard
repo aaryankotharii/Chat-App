@@ -615,7 +615,10 @@
                                         </connections>
                                     </tableView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="your phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2QM-Nw-CaY">
-                                        <rect key="frame" x="91" y="43" width="323" height="30.5"/>
+                                        <rect key="frame" x="91" y="43" width="323" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="mRn-tM-OcJ"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="24"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                         <connections>
@@ -623,8 +626,9 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" +91  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEx-9S-DSd">
-                                        <rect key="frame" x="0.0" y="43" width="91" height="29"/>
+                                        <rect key="frame" x="0.0" y="43" width="91" height="42"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="G0x-xs-wDV"/>
                                             <constraint firstAttribute="width" constant="91" id="Mur-j6-JRP"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="24"/>
@@ -659,7 +663,9 @@
                         <barButtonItem key="rightBarButtonItem" title="Done" id="cQI-Zf-njP"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="bgview" destination="quV-Ae-tsV" id="sMY-uv-trU"/>
                         <outlet property="countryCodeLabel" destination="uEx-9S-DSd" id="dgj-HP-Ru5"/>
+                        <outlet property="doneButton" destination="cQI-Zf-njP" id="PLe-xX-gnu"/>
                         <outlet property="otpTextField" destination="w66-j2-lLB" id="nlM-Ru-CXC"/>
                         <outlet property="phoneTextField" destination="2QM-Nw-CaY" id="YN6-LW-vYh"/>
                         <outlet property="tableView" destination="VIv-cE-8au" id="nel-pH-HhE"/>

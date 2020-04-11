@@ -20,11 +20,14 @@ class PhoneAuthViewController: UIViewController{
     
     @IBOutlet var phoneTextField: UITextField!
     
+    @IBOutlet var doneButton: UIBarButtonItem!
+    
     var countryName : String = "India"{
         didSet{
             print("set")
         }
     }
+    @IBOutlet var bgview: UIView!
     
     var countryCode : String = "+91"
     
@@ -37,10 +40,21 @@ class PhoneAuthViewController: UIViewController{
 
         super.viewDidLoad()
  
-        view.layer.borderColor = UIColor.init(r: 193, g: 193, b: 193).cgColor
-        view.layer.borderWidth = 0.5
+        bgview.layer.borderColor = UIColor.init(r: 193, g: 193, b: 193).cgColor
+        bgview.layer.borderWidth = 0.5
+
+        addIndent(phoneTextField)
         
+        var border = CALayer()
+        border.frame = CGRect(x: 0, y: 0, width: 0.5,height: 42)
+        border.backgroundColor=UIColor.init(r: 193, g: 193, b: 193).cgColor
+        phoneTextField.layer.addSublayer(border)
+
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+       // self.countryCodeLabel.text = countryCode
     }
     
     @IBAction func addingPhoneNumber(_ sender: Any) {
@@ -49,6 +63,9 @@ class PhoneAuthViewController: UIViewController{
                 phoneTextField.text = phoneTextField.text! + " "
         }
     }
+        print(phoneTextField.text)
+            self.title = "+" + self.countryCode + " " + self.phoneTextField.text!
+        
     }
     
     

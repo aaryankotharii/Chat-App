@@ -46,6 +46,7 @@ class countriesViewController: UIViewController, UITableViewDelegate, UITableVie
         mainViewController?.countryName = country["name"] ?? "aaa"
         mainViewController?.countryCode = country["code"] ?? "aaa"
         mainViewController?.tableView.reloadData()
+        mainViewController?.countryCodeLabel.text = "+" +  (mainViewController!.countryCode)
         self.navigationController?.popViewController(animated: true)
     }
     
