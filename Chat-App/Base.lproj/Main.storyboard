@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1BK-Xg-GNN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pjs-Hg-jef">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -94,7 +94,6 @@
                         <outlet property="emailTextField" destination="ocq-68-835" id="aw0-z9-CJ0"/>
                         <outlet property="passwordTextField" destination="b36-Hv-exm" id="Ung-Ip-kne"/>
                         <outlet property="segmentedControl" destination="G5S-4D-ggM" id="clh-UR-VS3"/>
-                        <segue destination="QyX-55-EbB" kind="show" identifier="tonewprofile" id="RHT-qW-dkf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -639,6 +638,7 @@
                     <connections>
                         <outlet property="otpLabel" destination="ECg-PP-1is" id="JSA-Mn-pdA"/>
                         <outlet property="otpTextField" destination="xym-ET-8rK" id="5PH-8L-8Jg"/>
+                        <segue destination="QyX-55-EbB" kind="show" identifier="tonewprofile" id="ECw-Oc-Rxa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pfj-XB-kpY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -855,6 +855,7 @@
                         <viewLayoutGuide key="safeArea" id="4fW-sL-MQU"/>
                     </view>
                     <navigationItem key="navigationItem" id="23R-Nv-Lfh"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="nameTextField" destination="GRJ-my-iVJ" id="cAQ-hM-8AT"/>
                         <outlet property="profileImageView" destination="xaz-BH-CzT" id="8gw-6V-WkR"/>

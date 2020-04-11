@@ -99,7 +99,7 @@ class LoginViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? SetupProfileViewController{
-            vc.email = emailTextField.cleanText
+            //vc.email = emailTextField.cleanText
         }
     }
     

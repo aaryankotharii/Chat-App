@@ -18,10 +18,10 @@ class SetupProfileViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
         
-    var email = String()
+    var phone : String?
 
     override func viewDidLoad() {
-        print(email)
+        
         super.viewDidLoad()
 
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handSelectProfileImageView)))
@@ -57,7 +57,7 @@ class SetupProfileViewController: UIViewController {
                         if error != nil {
                             print(error?.localizedDescription ?? "")
                         }else{
-                            let values = ["name": name, "email": self.email, "profileImageUrl": url?.absoluteString ?? ""]
+                            let values = ["name": name, "phone": self.phone, "profileImageUrl": url?.absoluteString ?? ""]
                             
                             self.registerUserIntoDataBasewithUID(uid: uid, values: values)
                         }

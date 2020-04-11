@@ -38,7 +38,7 @@ class NewChatsViewController: UIViewController, UITableViewDataSource, UITableVi
                 let user = User()
                 //user.setValuesForKeys(dictionary)
                 user.name = (dictionary["name"] as! String)
-                user.email = (dictionary["email"] as! String)
+                user.phone = (dictionary["phone"] as! String)
                 user.profileImageUrl = (dictionary["profileImageUrl"] as! String)
                 user.id = snapshot.key
                 self.users.append(user)
@@ -64,7 +64,7 @@ class NewChatsViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.profileImageView .image = #imageLiteral(resourceName: "Example")
        // cell?.imageView?.layer.cornerRadius = 25
         cell.nameLabel.text = user.name
-        cell.statusLabel.text = user.email
+        cell.statusLabel.text = user.phone
         
         if let profileImageUrl = user.profileImageUrl {
             cell.profileImageView.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)

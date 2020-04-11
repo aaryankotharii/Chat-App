@@ -21,10 +21,9 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Defaultlogin()
+        self.defaultPhoneLogin()
         navigationController?.navigationBar.prefersLargeTitles = true
         observeUserMessages()
-        Defaultlogin()
     }
     
     func Defaultlogin(){
@@ -37,6 +36,8 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
              }
         }
     }
+    
+
 
 
     func observeUserMessages(){
@@ -149,7 +150,7 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 let user = User()
                 
                 user.name = (dictionary["name"] as! String)
-                user.email = (dictionary["email"] as! String)
+                user.phone = (dictionary["phone"] as! String)
                 user.profileImageUrl = (dictionary["profileImageUrl"] as! String)
                 user.id = chatPatnerId
                 

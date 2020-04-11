@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		44510E86AE29DE5E8BB386D6 /* Pods_Chat_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106ADCEB16915EA1B4331ABD /* Pods_Chat_App.framework */; };
 		5B29B6472442101A00CD3FDD /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B29B6462442101A00CD3FDD /* OTPViewController.swift */; };
+		5B29B6492442440800CD3FDD /* DeleteLater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B29B6482442440700CD3FDD /* DeleteLater.swift */; };
 		5B5E18A3243EFD2C0081B407 /* Chat+Plus+Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5E18A2243EFD2C0081B407 /* Chat+Plus+Button.swift */; };
 		5B5E18C5244059C90081B407 /* PhoneAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5E18C4244059C90081B407 /* PhoneAuthViewController.swift */; };
 		5B5E18C72440C59B0081B407 /* Contries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5E18C62440C59B0081B407 /* Contries.swift */; };
@@ -42,6 +43,7 @@
 		0B0C9E669F26A16EB9BF9733 /* Pods-Chat-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat-App.debug.xcconfig"; path = "Target Support Files/Pods-Chat-App/Pods-Chat-App.debug.xcconfig"; sourceTree = "<group>"; };
 		106ADCEB16915EA1B4331ABD /* Pods_Chat_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chat_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B29B6462442101A00CD3FDD /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
+		5B29B6482442440700CD3FDD /* DeleteLater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteLater.swift; sourceTree = "<group>"; };
 		5B5E18A2243EFD2C0081B407 /* Chat+Plus+Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chat+Plus+Button.swift"; sourceTree = "<group>"; };
 		5B5E18C4244059C90081B407 /* PhoneAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhoneAuthViewController.swift; path = "Chat-App/PhoneAuthViewController.swift"; sourceTree = SOURCE_ROOT; };
 		5B5E18C62440C59B0081B407 /* Contries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contries.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				5B97F7A224387C6C00ACF83D /* Extensions.swift */,
 				5B97F7B22439A90700ACF83D /* ImagePicker.swift */,
 				5B5E18A2243EFD2C0081B407 /* Chat+Plus+Button.swift */,
+				5B29B6482442440700CD3FDD /* DeleteLater.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				5B880EAD243AFDB200EDFBE3 /* ChatsTableViewCell.swift in Sources */,
 				5B5E18A3243EFD2C0081B407 /* Chat+Plus+Button.swift in Sources */,
 				5B97F7A324387C6C00ACF83D /* Extensions.swift in Sources */,
+				5B29B6492442440800CD3FDD /* DeleteLater.swift in Sources */,
 				5B880EAF243B7BDD00EDFBE3 /* chatLogCollectionViewCell.swift in Sources */,
 				5B97F790243878C000ACF83D /* Chat_App.xcdatamodeld in Sources */,
 				5B97F7A92439087800ACF83D /* NewChatsViewController.swift in Sources */,

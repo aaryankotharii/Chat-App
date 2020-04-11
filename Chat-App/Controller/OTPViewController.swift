@@ -27,6 +27,12 @@ class OTPViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         if let vc = segue.destination as? SetupProfileViewController{
+            vc.phone = self.phone
+         }
+     }
+    
     @IBAction func otp(_ sender: UITextField) {
         var last = ""
         if let text = sender.text {
@@ -61,10 +67,14 @@ class OTPViewController: UIViewController {
                 }
                 else{
                     print("success")
-                    self.goToViewController()
+                    self.segue()
                 }
             }
         }
+    }
+    
+    func segue(){
+    performSegue(withIdentifier: "tonewprofile", sender: self)
     }
     func goToViewController(){
              let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -73,7 +83,7 @@ class OTPViewController: UIViewController {
         }
     
     func resetLabels(){
-        for i in 1...7{
+        for i in 1...6{
             let label : UILabel = self.view.viewWithTag(i) as! UILabel
             label.text = "﹣"
         }
