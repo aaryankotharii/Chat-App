@@ -57,18 +57,19 @@ class PhoneAuthViewController: UIViewController{
     }
     
     @IBAction func addingPhoneNumber(_ sender: UITextField) {
-       if sender.text!.count > 0 && sender.text!.count % 6 == 0 && sender.text!.last! != " " {
-           sender.text!.insert(" ", at:sender.text!.index(sender.text!.startIndex, offsetBy: sender.text!.count-1) )
-        }
         
-        print(phoneTextField.text)
-            self.title = "+" + self.countryCode + " " + self.phoneTextField.text!
-        
-        if phoneTextField.text?.count == 11{
-            doneButton.isEnabled = true
-            phoneNumber = self.title?.replacingOccurrences(of: " ", with: "")
-        }else{
-            doneButton.isEnabled = false
+        if let text = sender.text{
+            if text.count > 0 && text.count % 6 == 0 && text.last! != " " {
+                    sender.text!.insert(" ", at:text.index(text.startIndex, offsetBy: text.count-1) )
+                 }
+                     self.title = "+" + self.countryCode + " " + self.phoneTextField.text!
+                 
+                 if text.count == 11{
+                     doneButton.isEnabled = true
+                     phoneNumber = self.title?.replacingOccurrences(of: " ", with: "")
+                 }else{
+                     doneButton.isEnabled = false
+                 }
         }
     }
     

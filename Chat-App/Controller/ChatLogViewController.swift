@@ -143,6 +143,8 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
         
         @IBAction func sendClicked(_ sender: Any) {
            sendData()
+            self.curveAnimation(button: self.cameraButton, animationOptions: .curveEaseIn, x: 0, bool: true)
+            self.curveAnimation(button: self.micButton, animationOptions: .curveEaseIn, x: 0, bool: true)
         }
         
         func sendData(){
@@ -189,6 +191,7 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
         
         
         
+    
         //MARK:- CollectiomView Delegate Methods
         
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -215,6 +218,17 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
         
             return cell
         }
+    
+    @objc func handleImageTap(tapGesture: UITapGestureRecognizer){
+        if let imageView = tapGesture.view as? UIImageView{
+            self.performZoom(startingImageView: imageView)
+        }
+    }
+    
+    func performZoom(startingImageView : UIImageView){
+        var startingFrame = startingImageView.superview?.convert(startingImageView.frame, from: nil)
+        print(startingFrame)
+    }
         
         private func setupCell(cell : chatLogCollectionViewCell, message : Message){
 
@@ -223,6 +237,7 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
                cell.imageView.loadImageUsingCacheWithUrlString(urlString: imageUrl)
                 cell.messageTextView.isHidden = true
                 cell.imageView.isHidden = false
+                cell.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImageTap)))
             }else{
                 cell.messageTextView.isHidden = false
                 cell.imageView.isHidden = true
