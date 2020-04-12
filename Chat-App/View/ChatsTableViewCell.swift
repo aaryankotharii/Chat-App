@@ -17,7 +17,7 @@ class ChatsTableViewCell: UITableViewCell {
     var message : Message? {
         didSet{
             setupNameAndProfileImage ()
-            self.lastMessageLabel.text = message?.text
+            self.lastMessageLabel.text = message?.text ?? "📸 Photo"
             if let seconds = message?.timestamp?.doubleValue {
             let timestampDate = NSDate(timeIntervalSince1970: seconds)
                 
@@ -26,7 +26,6 @@ class ChatsTableViewCell: UITableViewCell {
                 dateFormatter.dateFormat = "hh:mm"
                 
                 self.timeLabel.text = dateFormatter.string(from: timestampDate as Date)
-                
                 
             }
         }

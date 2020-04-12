@@ -49,7 +49,12 @@ class NewChatsViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         }, withCancel: nil)
     }
-
+    
+    
+    @IBAction func cancelButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

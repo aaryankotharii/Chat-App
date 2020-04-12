@@ -331,12 +331,11 @@
                                                     <subviews>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oKU-rj-Yzo">
                                                             <rect key="frame" x="2" y="0.0" width="320" height="238"/>
-                                                            <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S3f-Ld-R9D">
+                                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S3f-Ld-R9D">
                                                             <rect key="frame" x="3" y="3" width="321" height="232"/>
                                                         </imageView>
                                                     </subviews>
@@ -495,7 +494,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
                                     <navigationItem title="New Chat" id="47U-1C-SVZ">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="QMq-fM-QQW"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="QMq-fM-QQW">
+                                            <connections>
+                                                <action selector="cancelButton:" destination="1QW-yD-GlA" id="fKG-mm-KDG"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
