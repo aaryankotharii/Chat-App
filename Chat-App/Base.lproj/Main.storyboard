@@ -329,29 +329,21 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yix-oP-eFx">
                                                     <rect key="frame" x="71" y="0.0" width="327" height="327"/>
                                                     <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oKU-rj-Yzo">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oKU-rj-Yzo">
                                                             <rect key="frame" x="2" y="0.0" width="320" height="327"/>
                                                             <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
-                                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S3f-Ld-R9D">
-                                                            <rect key="frame" x="3" y="3" width="321" height="321"/>
-                                                            <color key="backgroundColor" red="0.75686274509999996" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.84943974020000002" green="1" blue="0.97124296430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="oKU-rj-Yzo" secondAttribute="bottom" id="Cmx-bK-1sn"/>
                                                         <constraint firstItem="oKU-rj-Yzo" firstAttribute="leading" secondItem="yix-oP-eFx" secondAttribute="leading" constant="2" id="E4U-cF-WtH"/>
                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="327" id="WMB-iZ-msE"/>
-                                                        <constraint firstItem="S3f-Ld-R9D" firstAttribute="leading" secondItem="yix-oP-eFx" secondAttribute="leading" priority="1" constant="3" id="cJf-WN-AC2"/>
                                                         <constraint firstAttribute="trailing" secondItem="oKU-rj-Yzo" secondAttribute="trailing" constant="5" id="e3M-dB-WHd"/>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="327" id="eTu-qo-wEI"/>
-                                                        <constraint firstItem="S3f-Ld-R9D" firstAttribute="top" secondItem="yix-oP-eFx" secondAttribute="top" priority="1" constant="3" id="gyg-iw-fau"/>
                                                         <constraint firstAttribute="width" priority="1" constant="327" id="knQ-Qy-YHd"/>
-                                                        <constraint firstAttribute="bottom" secondItem="S3f-Ld-R9D" secondAttribute="bottom" priority="1" constant="3" id="ptb-mQ-sFz"/>
-                                                        <constraint firstAttribute="trailing" secondItem="S3f-Ld-R9D" secondAttribute="trailing" priority="1" constant="3" id="yAL-he-yjq"/>
                                                         <constraint firstItem="oKU-rj-Yzo" firstAttribute="top" secondItem="yix-oP-eFx" secondAttribute="top" id="zOi-6C-zya"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
@@ -376,7 +368,6 @@
                                             <outlet property="bubbleRightAnchor" destination="W0q-fm-fAk" id="BHQ-zG-YPs"/>
                                             <outlet property="bubbleWidthAnchor" destination="WMB-iZ-msE" id="td6-Qu-Jff"/>
                                             <outlet property="chatBubble" destination="yix-oP-eFx" id="yem-Oy-U2p"/>
-                                            <outlet property="imageView" destination="S3f-Ld-R9D" id="CEK-uj-sNG"/>
                                             <outlet property="messageTextView" destination="oKU-rj-Yzo" id="6in-kb-Asl"/>
                                         </connections>
                                     </collectionViewCell>
@@ -397,12 +388,12 @@
                                                     <color key="backgroundColor" red="0.84943974020000002" green="1" blue="0.97124296430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" priority="1" constant="327" id="2EE-cX-3Nb"/>
-                                                        <constraint firstAttribute="bottom" secondItem="mR0-RE-ycL" secondAttribute="bottom" priority="250" constant="3" id="KRz-oq-EEo"/>
+                                                        <constraint firstAttribute="bottom" secondItem="mR0-RE-ycL" secondAttribute="bottom" constant="3" id="KRz-oq-EEo"/>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="327" id="Myi-R0-pfQ"/>
-                                                        <constraint firstAttribute="trailing" secondItem="mR0-RE-ycL" secondAttribute="trailing" priority="250" constant="3" id="PNV-Un-xuV"/>
-                                                        <constraint firstItem="mR0-RE-ycL" firstAttribute="leading" secondItem="ymh-pe-4Tj" secondAttribute="leading" priority="250" constant="3" id="ZAa-S2-JcG"/>
+                                                        <constraint firstAttribute="trailing" secondItem="mR0-RE-ycL" secondAttribute="trailing" constant="3" id="PNV-Un-xuV"/>
+                                                        <constraint firstItem="mR0-RE-ycL" firstAttribute="leading" secondItem="ymh-pe-4Tj" secondAttribute="leading" constant="3" id="ZAa-S2-JcG"/>
                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="327" id="hdL-9L-JFW"/>
-                                                        <constraint firstItem="mR0-RE-ycL" firstAttribute="top" secondItem="ymh-pe-4Tj" secondAttribute="top" priority="250" constant="3" id="yTY-Jl-Xvv"/>
+                                                        <constraint firstItem="mR0-RE-ycL" firstAttribute="top" secondItem="ymh-pe-4Tj" secondAttribute="top" constant="3" id="yTY-Jl-Xvv"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -421,6 +412,13 @@
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="414" height="327"/>
+                                        <connections>
+                                            <outlet property="bubbleLeftAnchor" destination="5BE-i9-jWM" id="Pfo-Fz-cVo"/>
+                                            <outlet property="bubbleRightAnchor" destination="jNq-xl-vc9" id="g6K-Lk-7uM"/>
+                                            <outlet property="bubbleWidthAnchor" destination="hdL-9L-JFW" id="J5s-PD-DJf"/>
+                                            <outlet property="chatBubble" destination="ymh-pe-4Tj" id="fnD-mX-O7j"/>
+                                            <outlet property="imageView" destination="mR0-RE-ycL" id="yKx-5n-lIM"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

@@ -10,4 +10,14 @@ import UIKit
 
 class ChatLogImageCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet var bubbleLeftAnchor: NSLayoutConstraint!
+    
+    
+    @IBOutlet var bubbleRightAnchor: NSLayoutConstraint!
+    
+    @IBOutlet var chatBubble: UIView!
+    
+    @IBOutlet var imageView: UIImageView!
+    
+    @IBOutlet var bubbleWidthAnchor: NSLayoutConstraint!
 }

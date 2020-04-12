@@ -200,23 +200,27 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
         
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             
-             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! chatLogCollectionViewCell
-                
-            let message = messages[indexPath.item]
-                
-            cell.messageTextView.text = message.text
+            var cellToBeReturned = UICollectionViewCell()
             
-            setupCell(cell: cell, message: message)
+            let message = messages[indexPath.item]
             
             if message.imageUrl != nil {
-                cell.bubbleWidthAnchor.constant = 327
+                //cell.bubbleWidthAnchor.constant = 327
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imagecell", for: indexPath) as! ChatLogImageCollectionViewCell
+                
+                setupImageCell(cell: cell, message: message)
+                cellToBeReturned = cell
             }
             else {
-                cell.bubbleWidthAnchor.constant = extimateFrameForText(text: message.text!).width + 32
-            }
+                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! chatLogCollectionViewCell
+                    
+                cell.messageTextView.text = message.text
                 
-        
-            return cell
+                setupMessageCell(cell: cell, message: message)
+                cell.bubbleWidthAnchor.constant = extimateFrameForText(text: message.text!).width + 32
+                cellToBeReturned = cell
+            }
+            return cellToBeReturned
         }
     
     @objc func handleImageTap(tapGesture: UITapGestureRecognizer){
@@ -226,26 +230,33 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
     }
     
     func performZoom(startingImageView : UIImageView){
-        var startingFrame = startingImageView.superview?.superview?.superview?.convert(startingImageView.frame, from: nil)
-        print(startingFrame)
+        var startingFrame = startingImageView.superview?.convert(startingImageView.frame, from: nil)
+        print(startingFrame,"1")
         let zoomingImageView = UIImageView(frame: startingFrame ?? CGRect())
         zoomingImageView.backgroundColor = .red
         UIApplication.shared.keyWindow?.addSubview(zoomingImageView)
-        
     }
+    
+    private func setupImageCell(cell : ChatLogImageCollectionViewCell, message : Message){
+        if let imageUrl = message.imageUrl{
+           cell.imageView.loadImageUsingCacheWithUrlString(urlString: imageUrl)
+            cell.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImageTap)))
+        }
+        if message.fromId == Auth.auth().currentUser?.uid {
+                   //Blue Cell
+            cell.chatBubble.backgroundColor = UIColor(named: "tochatcolor")
+            cell.bubbleLeftAnchor.isActive = false
+            cell.bubbleRightAnchor.isActive = true
+               }else {
+                   //grey message
+            cell.chatBubble.backgroundColor = UIColor(named: "fromchatcolor")
+            cell.bubbleRightAnchor.isActive = false
+            cell.bubbleLeftAnchor.isActive = true
+               }
+    }
+    
         
-        private func setupCell(cell : chatLogCollectionViewCell, message : Message){
-
-      
-            if let imageUrl = message.imageUrl{
-               cell.imageView.loadImageUsingCacheWithUrlString(urlString: imageUrl)
-                cell.messageTextView.isHidden = true
-                cell.imageView.isHidden = false
-                cell.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImageTap)))
-            }else{
-                cell.messageTextView.isHidden = false
-                cell.imageView.isHidden = true
-            }
+        private func setupMessageCell(cell : chatLogCollectionViewCell, message : Message){
             
             if message.fromId == Auth.auth().currentUser?.uid {
                        //Blue Cell

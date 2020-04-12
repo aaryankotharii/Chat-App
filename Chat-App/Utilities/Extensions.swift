@@ -74,6 +74,12 @@ extension Int {
     }
 }
 
+extension CGFloat {
+    var negativeValue : CGFloat {
+        return CGFloat(Float(self)*(-1))
+    }
+}
+
 
 extension UIAlertAction {
     var setAttributes: UIAlertAction{
