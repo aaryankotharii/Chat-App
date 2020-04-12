@@ -230,11 +230,24 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
     }
     
     func performZoom(startingImageView : UIImageView){
-        var startingFrame = startingImageView.superview?.convert(startingImageView.frame, from: nil)
-        print(startingFrame,"1")
+        var startingFrame = startingImageView.globalFrame
+        print(startingFrame,"frame")
         let zoomingImageView = UIImageView(frame: startingFrame ?? CGRect())
-        zoomingImageView.backgroundColor = .red
-        UIApplication.shared.keyWindow?.addSubview(zoomingImageView)
+        zoomingImageView.image = startingImageView.image
+        
+        var aspectRatio : CGFloat = 1
+        
+        view.addSubview(zoomingImageView)
+        if let image = startingImageView.image {
+            aspectRatio = image.size.width / image.size.height
+        }
+        let width = view.frame.width
+        let center = view.center
+        let height = width / aspectRatio
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+            zoomingImageView.frame = CGRect(x: 0, y: 0, width: width, height: height)
+            zoomingImageView.center = center
+        }, completion: nil)
     }
     
     private func setupImageCell(cell : ChatLogImageCollectionViewCell, message : Message){

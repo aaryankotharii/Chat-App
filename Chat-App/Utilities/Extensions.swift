@@ -80,6 +80,19 @@ extension CGFloat {
     }
 }
 
+extension UIView{
+    var globalPoint :CGPoint? {
+        return self.superview?.convert(self.frame.origin, to: nil)
+    }
+
+
+    var globalFrame :CGRect? {
+        return self.superview?.convert(self.frame, to: nil)
+    }
+}
+
+
+
 
 extension UIAlertAction {
     var setAttributes: UIAlertAction{
