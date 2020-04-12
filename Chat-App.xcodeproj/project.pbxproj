@@ -12,6 +12,7 @@
 		5B29B6492442440800CD3FDD /* DeleteLater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B29B6482442440700CD3FDD /* DeleteLater.swift */; };
 		5B29B64B2442DA2800CD3FDD /* Keyboard+Hide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B29B64A2442DA2800CD3FDD /* Keyboard+Hide.swift */; };
 		5B29B64C2442E0BF00CD3FDD /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5E18CF24410ED20081B407 /* SF-Pro-Display-Medium.otf */; };
+		5B29B64E24435BCA00CD3FDD /* ChatLogImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B29B64D24435BCA00CD3FDD /* ChatLogImageCollectionViewCell.swift */; };
 		5B5E18A3243EFD2C0081B407 /* Chat+Plus+Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5E18A2243EFD2C0081B407 /* Chat+Plus+Button.swift */; };
 		5B5E18C5244059C90081B407 /* PhoneAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5E18C4244059C90081B407 /* PhoneAuthViewController.swift */; };
 		5B5E18C72440C59B0081B407 /* Contries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5E18C62440C59B0081B407 /* Contries.swift */; };
@@ -46,6 +47,7 @@
 		5B29B6462442101A00CD3FDD /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		5B29B6482442440700CD3FDD /* DeleteLater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteLater.swift; sourceTree = "<group>"; };
 		5B29B64A2442DA2800CD3FDD /* Keyboard+Hide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard+Hide.swift"; sourceTree = "<group>"; };
+		5B29B64D24435BCA00CD3FDD /* ChatLogImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B5E18A2243EFD2C0081B407 /* Chat+Plus+Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chat+Plus+Button.swift"; sourceTree = "<group>"; };
 		5B5E18C4244059C90081B407 /* PhoneAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhoneAuthViewController.swift; path = "Chat-App/PhoneAuthViewController.swift"; sourceTree = SOURCE_ROOT; };
 		5B5E18C62440C59B0081B407 /* Contries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contries.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				5B97F7AA24390EDD00ACF83D /* NewChatTableViewCell.swift */,
 				5B880EAC243AFDB200EDFBE3 /* ChatsTableViewCell.swift */,
 				5B880EAE243B7BDD00EDFBE3 /* chatLogCollectionViewCell.swift */,
+				5B29B64D24435BCA00CD3FDD /* ChatLogImageCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				5B97F7A92439087800ACF83D /* NewChatsViewController.swift in Sources */,
 				5B97F786243878C000ACF83D /* AppDelegate.swift in Sources */,
 				5B97F7B5243A041600ACF83D /* ChatLogViewController.swift in Sources */,
+				5B29B64E24435BCA00CD3FDD /* ChatLogImageCollectionViewCell.swift in Sources */,
 				5B97F7A72438F41500ACF83D /* ChatsViewController.swift in Sources */,
 				5B97F7AB24390EDD00ACF83D /* NewChatTableViewCell.swift in Sources */,
 				5B29B6472442101A00CD3FDD /* OTPViewController.swift in Sources */,

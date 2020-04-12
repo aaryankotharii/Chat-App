@@ -226,8 +226,12 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
     }
     
     func performZoom(startingImageView : UIImageView){
-        var startingFrame = startingImageView.superview?.convert(startingImageView.frame, from: nil)
+        var startingFrame = startingImageView.superview?.superview?.superview?.convert(startingImageView.frame, from: nil)
         print(startingFrame)
+        let zoomingImageView = UIImageView(frame: startingFrame ?? CGRect())
+        zoomingImageView.backgroundColor = .red
+        UIApplication.shared.keyWindow?.addSubview(zoomingImageView)
+        
     }
         
         private func setupCell(cell : chatLogCollectionViewCell, message : Message){
