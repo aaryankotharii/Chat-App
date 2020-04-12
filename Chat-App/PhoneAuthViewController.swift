@@ -34,6 +34,8 @@ class PhoneAuthViewController: UIViewController{
         
         doneButton.isEnabled = false
         
+        self.title = "Edit Profile"
+        
 
         super.viewDidLoad()
  
@@ -86,13 +88,8 @@ class PhoneAuthViewController: UIViewController{
                       
                    }
                }
+        }
     }
-    }
-    
-    
-    
-
-
 }
 
 

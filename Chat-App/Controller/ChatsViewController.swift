@@ -21,7 +21,7 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.defaultPhoneLogin()
+        //self.defaultPhoneLogin()
         navigationController?.navigationBar.prefersLargeTitles = true
         observeUserMessages()
     }

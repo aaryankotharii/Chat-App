@@ -67,7 +67,6 @@ class NewChatsViewController: UIViewController, UITableViewDataSource, UITableVi
         let user = users[indexPath.row]
         
         cell.profileImageView .image = #imageLiteral(resourceName: "Example")
-       // cell?.imageView?.layer.cornerRadius = 25
         cell.nameLabel.text = user.name
         cell.statusLabel.text = user.phone
         

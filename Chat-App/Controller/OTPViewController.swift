@@ -8,11 +8,13 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class OTPViewController: UIViewController {
 
     var id : String?
     var phone : String?
+    var users = [String]()
     
     @IBOutlet var otpTextField: UITextField!
     
@@ -22,16 +24,15 @@ class OTPViewController: UIViewController {
     override func viewDidLoad() {
         self.otpTextField.becomeFirstResponder()
         print(id)
+        let ref = Database.database().reference().child("users")
+            ref.observe(.childAdded, with: { (snapshot) in
+            print(snapshot.key,"snapshotkey")
+                self.users.append(snapshot.key)
+            }, withCancel: nil)
         super.viewDidLoad()
-
+        otpTextField.tintColor = .clear
         // Do any additional setup after loading the view.
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         if let vc = segue.destination as? SetupProfileViewController{
-            vc.phone = self.phone
-         }
-     }
     
     @IBAction func otp(_ sender: UITextField) {
         var last = ""
@@ -66,21 +67,33 @@ class OTPViewController: UIViewController {
                     self.otpTextField.becomeFirstResponder()
                 }
                 else{
-                    print("success")
-                    self.segue()
+                    let uid = result?.user.uid
+                    print(uid,"uid")
+                    let existingUser = self.checkExistingUser(uid!)
+                    existingUser ? self.goToViewController() : self.segue()
                 }
             }
         }
     }
     
     func segue(){
-    performSegue(withIdentifier: "tonewprofile", sender: self)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "SetupProfileViewController") as SetupProfileViewController
+        vc.phone = self.phone
+        present(vc, animated: true, completion: nil)
     }
     func goToViewController(){
-             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "ChatsViewController")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "ChatsViewController")
         self.present(controller, animated: true, completion: nil)
         }
+    
+    func checkExistingUser(_ uid : String) -> Bool{
+        if users.contains(uid) {
+             return true
+        }
+        return false
+    }
     
     func resetLabels(){
         for i in 1...6{

@@ -14,6 +14,10 @@ extension SetupProfileViewController: UIImagePickerControllerDelegate, UINavigat
     @objc func handSelectProfileImageView(){
         
         let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let deleteAction = UIAlertAction(title: "Delete Photo", style: .destructive) { (UIAlertAction) in
+            self.deletePhoto()
+        }
 
               let photoLibraryAction = UIAlertAction.init(title: "Choose Photo", style: .default) { (UIAlertAction) in
                  //photo Library
@@ -29,6 +33,7 @@ extension SetupProfileViewController: UIImagePickerControllerDelegate, UINavigat
                 self.dismiss(animated: true, completion: nil)
               }
     
+              alertController.addAction(deleteAction)
               alertController.addAction(photoLibraryAction)
               alertController.addAction(cameraAction)
               alertController.addAction(cancelAction)
@@ -87,5 +92,9 @@ extension SetupProfileViewController: UIImagePickerControllerDelegate, UINavigat
                 imagePicker.delegate = self
                 present(imagePicker, animated: true)
         }
+    }
+    func deletePhoto(){
+        //MARK:- LEFT
+        print("delete")
     }
 }
