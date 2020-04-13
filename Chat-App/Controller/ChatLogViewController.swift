@@ -231,8 +231,10 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
     
     var startingImageFrame : CGRect?
     var backgroundView : UIView?
+    var startingImageView : UIImageView?
     
     func performZoom(startingImageView : UIImageView){
+        self.startingImageView = startingImageView
         startingImageFrame = startingImageView.globalFrame
         let zoomingImageView = UIImageView(frame: self.startingImageFrame ?? CGRect())
         zoomingImageView.image = startingImageView.image
@@ -241,6 +243,7 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
         
         var aspectRatio : CGFloat = 1
         
+
         
         backgroundView = UIView(frame: view.frame )
         backgroundView?.backgroundColor = .systemBackground
@@ -257,7 +260,9 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
             zoomingImageView.frame = CGRect(x: 0, y: 0, width: width, height: height)
             zoomingImageView.center = center
             self.backgroundView?.alpha = 1
-        }, completion: nil)
+        }){ (completed : Bool) in
+            self.startingImageView?.isHidden = true
+        }
     }
     
     @objc func zoomout(tapGesture: UITapGestureRecognizer){
@@ -270,6 +275,7 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
             }) { (completed : Bool) in
                 zoomOutImageView.removeFromSuperview()
                 self.backgroundView?.removeFromSuperview()
+                self.startingImageView?.isHidden = false
             }
         }
         
@@ -281,12 +287,12 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
             cell.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImageTap)))
         }
         if message.fromId == Auth.auth().currentUser?.uid {
-                   //Blue Cell
+                   //green Cell
             cell.chatBubble.backgroundColor = UIColor(named: "tochatcolor")
             cell.bubbleLeftAnchor.isActive = false
             cell.bubbleRightAnchor.isActive = true
                }else {
-                   //grey message
+                   //white cell
             cell.chatBubble.backgroundColor = UIColor(named: "fromchatcolor")
             cell.bubbleRightAnchor.isActive = false
             cell.bubbleLeftAnchor.isActive = true

@@ -53,6 +53,7 @@ class countriesViewController: UIViewController, UITableViewDelegate, UITableVie
      }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let country = contries[indexPath.row]
         mainViewController?.countryName = country["name"] ?? "aaa"
         mainViewController?.countryCode = country["code"] ?? "aaa"
