@@ -229,14 +229,23 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
         }
     }
     
+    var startingImageFrame : CGRect?
+    var backgroundView : UIView?
+    
     func performZoom(startingImageView : UIImageView){
-        var startingFrame = startingImageView.globalFrame
-        print(startingFrame,"frame")
-        let zoomingImageView = UIImageView(frame: startingFrame ?? CGRect())
+        startingImageFrame = startingImageView.globalFrame
+        let zoomingImageView = UIImageView(frame: self.startingImageFrame ?? CGRect())
         zoomingImageView.image = startingImageView.image
+        zoomingImageView.isUserInteractionEnabled = true
+        zoomingImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(zoomout)))
         
         var aspectRatio : CGFloat = 1
         
+        
+        backgroundView = UIView(frame: view.frame )
+        backgroundView?.backgroundColor = .systemBackground
+        backgroundView?.alpha = 0
+        view.addSubview(backgroundView!)
         view.addSubview(zoomingImageView)
         if let image = startingImageView.image {
             aspectRatio = image.size.width / image.size.height
@@ -244,10 +253,26 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
         let width = view.frame.width
         let center = view.center
         let height = width / aspectRatio
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0,usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             zoomingImageView.frame = CGRect(x: 0, y: 0, width: width, height: height)
             zoomingImageView.center = center
+            self.backgroundView?.alpha = 1
         }, completion: nil)
+    }
+    
+    @objc func zoomout(tapGesture: UITapGestureRecognizer){
+        print("zoom  out")
+        if  let zoomOutImageView = tapGesture.view{
+            
+            UIView.animate(withDuration: 0.5, delay: 0,usingSpringWithDamping: 1, initialSpringVelocity: 1 ,options: .curveEaseOut, animations: {
+                zoomOutImageView.frame = self.startingImageFrame!
+                self.backgroundView?.alpha = 0
+            }) { (completed : Bool) in
+                zoomOutImageView.removeFromSuperview()
+                self.backgroundView?.removeFromSuperview()
+            }
+        }
+        
     }
     
     private func setupImageCell(cell : ChatLogImageCollectionViewCell, message : Message){

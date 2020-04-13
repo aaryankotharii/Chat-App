@@ -54,8 +54,8 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 if let dictionary = snapshot.value as? [String:AnyObject]{
                 
                 let message = Message()
-                    if let text = dictionary["text"] {
-                        message.text = text as! String
+                    if let text = dictionary["text"]{
+                        message.text = text  as? String
                     }
                 message.fromId = (dictionary["fromId"] as! String)
                 message.toId = (dictionary["toId"] as! String)

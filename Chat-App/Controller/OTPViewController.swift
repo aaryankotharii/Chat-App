@@ -23,7 +23,6 @@ class OTPViewController: UIViewController {
     
     override func viewDidLoad() {
         self.otpTextField.becomeFirstResponder()
-        print(id)
         let ref = Database.database().reference().child("users")
             ref.observe(.childAdded, with: { (snapshot) in
             print(snapshot.key,"snapshotkey")
@@ -60,17 +59,17 @@ class OTPViewController: UIViewController {
             
             Auth.auth().signIn(with: credential) { (result, error) in
                 if error != nil{
-                    print(error?.localizedDescription)
+                    print(error?.localizedDescription ?? "Phone Authentication error")
                     self.otpTextField.isEnabled = true
                     self.otpTextField.text = nil
                     self.resetLabels()
                     self.otpTextField.becomeFirstResponder()
                 }
                 else{
-                    let uid = result?.user.uid
-                    print(uid,"uid")
-                    let existingUser = self.checkExistingUser(uid!)
+                    if let uid = result?.user.uid{
+                    let existingUser = self.checkExistingUser(uid)
                     existingUser ? self.goToViewController() : self.segue()
+                    }
                 }
             }
         }

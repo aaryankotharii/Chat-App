@@ -44,7 +44,7 @@ class PhoneAuthViewController: UIViewController{
 
         addIndent(phoneTextField)
         
-        var border = CALayer()
+        let border = CALayer()
         border.frame = CGRect(x: 0, y: 0, width: 0.5,height: 42)
         border.backgroundColor=UIColor.init(r: 193, g: 193, b: 193).cgColor
         phoneTextField.layer.addSublayer(border)

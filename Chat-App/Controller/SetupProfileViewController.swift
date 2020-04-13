@@ -89,7 +89,7 @@ class SetupProfileViewController: UIViewController {
                             print(error?.localizedDescription ?? "")
                         }else{
                             let values = ["name": name, "phone": self.phone, "profileImageUrl": url?.absoluteString ?? ""]
-                            self.registerUserIntoDataBasewithUID(uid: uid, values: values)
+                            self.registerUserIntoDataBasewithUID(uid: uid, values: values as [String : Any])
                         }
                     }
                 }
