@@ -93,6 +93,7 @@ extension SetupProfileViewController: UIImagePickerControllerDelegate, UINavigat
                 present(imagePicker, animated: true)
         }
     }
+    
     func deletePhoto(){
         //MARK:- LEFT
         print("delete")

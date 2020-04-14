@@ -159,6 +159,7 @@
                                                 <constraint firstItem="WyA-P4-ezq" firstAttribute="leading" secondItem="omu-ec-2bq" secondAttribute="trailing" constant="15" id="7ke-DG-qdo"/>
                                                 <constraint firstItem="omu-ec-2bq" firstAttribute="leading" secondItem="sWT-O3-isY" secondAttribute="leading" constant="20" id="8au-T2-ikJ"/>
                                                 <constraint firstItem="omu-ec-2bq" firstAttribute="centerY" secondItem="sWT-O3-isY" secondAttribute="centerY" id="DZr-SX-xE0"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="WyA-P4-ezq" secondAttribute="trailing" constant="16" id="IBd-aI-bb3"/>
                                                 <constraint firstItem="WyA-P4-ezq" firstAttribute="centerY" secondItem="sWT-O3-isY" secondAttribute="centerY" id="SFS-eD-ePP"/>
                                                 <constraint firstItem="N0I-Ta-RYM" firstAttribute="top" secondItem="sWT-O3-isY" secondAttribute="top" constant="14" id="Xz9-mT-ymy"/>
                                                 <constraint firstAttribute="trailing" secondItem="N0I-Ta-RYM" secondAttribute="trailing" constant="16" id="fho-wO-laD"/>
@@ -423,6 +424,44 @@
                                             <outlet property="bubbleWidthAnchor" destination="hdL-9L-JFW" id="J5s-PD-DJf"/>
                                             <outlet property="chatBubble" destination="ymh-pe-4Tj" id="fnD-mX-O7j"/>
                                             <outlet property="imageView" destination="mR0-RE-ycL" id="yKx-5n-lIM"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videocell" id="u6H-8n-Ldj" customClass="ChatLogVideoCollectionViewCell" customModule="Chat_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="674" width="414" height="327"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="eh3-ch-IaH">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="327"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1kt-gD-oUz">
+                                                    <rect key="frame" x="71" y="0.0" width="327" height="327"/>
+                                                    <color key="backgroundColor" red="0.84943974020000002" green="1" blue="0.97124296430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="327" id="0gn-9x-zhX"/>
+                                                        <constraint firstAttribute="width" priority="1" constant="327" id="hga-3q-xN3"/>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="327" id="qCY-4b-trh"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="7"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="1kt-gD-oUz" secondAttribute="trailing" constant="16" id="abK-QI-aLp"/>
+                                                <constraint firstItem="1kt-gD-oUz" firstAttribute="top" secondItem="eh3-ch-IaH" secondAttribute="top" id="hMr-QE-cVU"/>
+                                                <constraint firstItem="1kt-gD-oUz" firstAttribute="leading" secondItem="eh3-ch-IaH" secondAttribute="leading" priority="1" constant="16" id="rD4-fw-h1Q"/>
+                                                <constraint firstAttribute="bottom" secondItem="1kt-gD-oUz" secondAttribute="bottom" id="w3s-Zr-jMQ"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="customSize" width="414" height="327"/>
+                                        <connections>
+                                            <outlet property="bubbleLeftAnchor" destination="rD4-fw-h1Q" id="IH7-Xi-oKJ"/>
+                                            <outlet property="bubbleRightAnchor" destination="abK-QI-aLp" id="LcT-DO-pZl"/>
+                                            <outlet property="chatBubble" destination="1kt-gD-oUz" id="TDb-c4-Bd7"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -780,12 +819,27 @@
                                     <constraint firstItem="VIv-cE-8au" firstAttribute="leading" secondItem="quV-Ae-tsV" secondAttribute="leading" id="xtI-Mw-YUw"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please confirm your country code and enter your phone number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="py8-u5-nRX">
+                                <rect key="frame" x="33" y="110" width="348.5" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11.5"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="dlZ-xN-2mO">
+                                <rect key="frame" x="146" y="391" width="123" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="rU0-8C-xrp" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="py8-u5-nRX" secondAttribute="trailing" constant="28.5" id="9bR-uI-ZQw"/>
+                            <constraint firstItem="py8-u5-nRX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rU0-8C-xrp" secondAttribute="leading" constant="28.5" id="HdA-bw-l54"/>
                             <constraint firstItem="rU0-8C-xrp" firstAttribute="trailing" secondItem="quV-Ae-tsV" secondAttribute="trailing" id="Htp-c5-31K"/>
                             <constraint firstItem="quV-Ae-tsV" firstAttribute="leading" secondItem="zhq-bE-fPa" secondAttribute="leading" id="dmE-3U-iO9"/>
                             <constraint firstItem="quV-Ae-tsV" firstAttribute="top" secondItem="rU0-8C-xrp" secondAttribute="top" constant="54" id="dww-l1-wfH"/>
+                            <constraint firstItem="py8-u5-nRX" firstAttribute="centerX" secondItem="zhq-bE-fPa" secondAttribute="centerX" id="eGt-q4-BsW"/>
+                            <constraint firstItem="py8-u5-nRX" firstAttribute="top" secondItem="rU0-8C-xrp" secondAttribute="top" constant="22" id="gGP-Dg-Ktr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rU0-8C-xrp"/>
                     </view>
@@ -803,7 +857,6 @@
                         <outlet property="doneButton" destination="cQI-Zf-njP" id="PLe-xX-gnu"/>
                         <outlet property="phoneTextField" destination="2QM-Nw-CaY" id="YN6-LW-vYh"/>
                         <outlet property="tableView" destination="VIv-cE-8au" id="nel-pH-HhE"/>
-                        <segue destination="UoO-8w-DFW" kind="show" id="SBC-wt-Aws"/>
                         <segue destination="eqW-Fb-4NQ" kind="show" identifier="segue" id="Tia-01-6il"/>
                     </connections>
                 </viewController>
@@ -820,7 +873,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VUf-LL-N3K">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>

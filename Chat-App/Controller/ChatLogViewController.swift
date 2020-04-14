@@ -61,14 +61,17 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
                         }
                     }
                 }
-                message.fromId = dictionary["fromId"] as! String
-                message.toId = dictionary["toId"] as! String
-                message.timestamp = dictionary["timestamp"] as! Int
+                message.fromId = (dictionary["fromId"] as! String)
+                message.toId = (dictionary["toId"] as! String)
+                message.timestamp = (dictionary["timestamp"] as! Int)
                 
                 if let imageUrl = dictionary["imageUrl"] {
-                    message.imageUrl = imageUrl as! String
+                    message.imageUrl = (imageUrl as! String)
                 }
                 
+                if let videoUrl = dictionary["videoUrl"]{
+                    message.videoUrl = (videoUrl as! String)
+                }
                 
                 if message.chatPatnerId() == self.user?.id {
                 self.messages.append(message)
@@ -77,7 +80,6 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
                         
                         //scrollToLAst index
                         let indexPath = IndexPath(item: self.messages.count-1, section: 0)
-                        
                         self.collectionView.scrollToItem(at: indexPath as IndexPath, at: .bottom, animated: true)
                     }
                 }
@@ -186,11 +188,6 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
             sendData()
             return true
         }
-        
-        
-        
-        
-        
     
         //MARK:- CollectiomView Delegate Methods
         
@@ -204,7 +201,13 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
             
             let message = messages[indexPath.item]
             
-            if message.imageUrl != nil {
+            if message.videoUrl != nil{
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "videocell", for: indexPath) as! ChatLogVideoCollectionViewCell
+                print("Video here")
+                setupVideoCell(cell: cell, message: message)
+                cellToBeReturned = cell
+            }
+            else if message.imageUrl != nil {
                 //cell.bubbleWidthAnchor.constant = 327
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imagecell", for: indexPath) as! ChatLogImageCollectionViewCell
                 
@@ -281,6 +284,24 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
         
     }
     
+    private func setupVideoCell(cell : ChatLogVideoCollectionViewCell, message : Message){
+        if let videoUrl = message.videoUrl{
+          // cell.imageView.loadImageUsingCacheWithUrlString(urlString: imageUrl)
+           // cell.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImageTap)))
+        }
+        if message.fromId == Auth.auth().currentUser?.uid {
+                   //green Cell
+            cell.chatBubble.backgroundColor = UIColor(named: "tochatcolor")
+            cell.bubbleLeftAnchor.isActive = false
+            cell.bubbleRightAnchor.isActive = true
+               }else {
+                   //white cell
+            cell.chatBubble.backgroundColor = UIColor(named: "fromchatcolor")
+            cell.bubbleRightAnchor.isActive = false
+            cell.bubbleLeftAnchor.isActive = true
+               }
+    }
+    
     private func setupImageCell(cell : ChatLogImageCollectionViewCell, message : Message){
         if let imageUrl = message.imageUrl{
            cell.imageView.loadImageUsingCacheWithUrlString(urlString: imageUrl)
@@ -320,8 +341,8 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
             var height : CGFloat = 327
             if let text = messages[indexPath.item].text{
                 height = extimateFrameForText(text: text).height + 20
+                print("height is",height,messages[indexPath.item].text)
             }
-            print("height is",height,messages[indexPath.item].text)
             return CGSize(width: view.frame.width, height: height)
         }
     

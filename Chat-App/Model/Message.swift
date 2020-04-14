@@ -18,6 +18,7 @@ class Message: NSObject {
     var toId : String?
     
     var imageUrl : String?
+    var videoUrl : String?
     
     func chatPatnerId() -> String? {
         return fromId == Auth.auth().currentUser?.uid ? toId : fromId
