@@ -37,6 +37,15 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
         }
 
         var messages = [Message]()
+    
+    
+    var activityIndicatorView : UIActivityIndicatorView{
+        let aiv = UIActivityIndicatorView(style: .large)
+        aiv.translatesAutoresizingMaskIntoConstraints = true
+        aiv.hidesWhenStopped = true
+        aiv.startAnimating()
+        return aiv
+    }
         
        func observeMessages(){
         guard let uid = Auth.auth().currentUser?.uid else {return}
@@ -295,6 +304,8 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
                 zoomOutImageView.frame = self.startingImageFrame!
                 self.backgroundView?.alpha = 0
             }) { (completed : Bool) in
+                self.playerLayer?.removeFromSuperlayer()
+                self.player?.pause()
                 zoomOutImageView.removeFromSuperview()
                 self.backgroundView?.removeFromSuperview()
                 self.startingImageView?.isHidden = false
@@ -304,7 +315,7 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
     }
     
     private func setupVideoCell(cell : ChatLogVideoCollectionViewCell, message : Message){
-        if let videoUrl = message.videoUrl{
+        if message.videoUrl != nil{
           // cell.imageView.loadImageUsingCacheWithUrlString(urlString: imageUrl)
            // cell.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImageTap)))
         }
@@ -323,7 +334,7 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
     }
     
     private func setupImageCell(cell : ChatLogImageCollectionViewCell, message : Message){
-        if let videoUrl = message.videoUrl{
+        if message.videoUrl != nil{
             print("Video")
             let imageUrl = message.imageUrl!
             cell.message = message
@@ -359,15 +370,16 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
     }
     
     
+    var playerLayer : AVPlayerLayer?
+    var player : AVPlayer?
     
     func handlePlay(message: Message?){
           if let videoUrl = message?.videoUrl, let url = URL(string: videoUrl){
-             let player = AVPlayer(url: url)
-              
-              let playerLayer = AVPlayerLayer(player: player)
-              playerLayer.frame = view.bounds
-              view.layer.addSublayer(playerLayer)
-              player.play()
+            player = AVPlayer(url: url)
+              playerLayer = AVPlayerLayer(player: player)
+            playerLayer!.frame = view.bounds
+                view.layer.addSublayer(playerLayer!)
+            player!.play()
               print("playing")
           }
       }
