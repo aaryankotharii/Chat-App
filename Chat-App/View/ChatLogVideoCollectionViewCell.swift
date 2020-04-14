@@ -18,4 +18,5 @@ class ChatLogVideoCollectionViewCell: UICollectionViewCell {
     
     
     
+    
 }

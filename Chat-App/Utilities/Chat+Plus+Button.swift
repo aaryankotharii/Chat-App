@@ -12,6 +12,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import FirebaseStorage
 import CoreServices
+import AVFoundation
 
 extension ChatLogViewController {
     func createPLusActionSheet(){
@@ -135,7 +136,10 @@ extension ChatLogViewController {
                         print(error!.localizedDescription)
                     }else{
                         if let videoUrl = url{
+                            if let thumbnail = self.thumbnailImageForVideoUrl(url: videoUrl){
+                            self.uploadToFirebaseStorageUsingImage(thumbnail)
                             self.sendMessageWithVideoUrl(videourl: videoUrl.absoluteString)
+                            }
                         }
                     }
                 })
@@ -152,6 +156,19 @@ extension ChatLogViewController {
             print("SUCCESS!")
         }
         
+    }
+    
+    private func thumbnailImageForVideoUrl(url: URL) -> UIImage? {
+        let asset = AVAsset(url: url)
+        let assetGenerator = AVAssetImageGenerator(asset: asset)
+        
+        do{
+            let cgImage = try assetGenerator.copyCGImage(at:  CMTimeMake(value: 1,timescale: 60), actualTime: nil)
+            return UIImage(cgImage: cgImage)
+        }catch let err{
+            print(err)
+        }
+        return nil
     }
     
     
@@ -174,7 +191,7 @@ extension ChatLogViewController {
         dismiss(animated: true, completion: nil)
     }
     
-   private func uploadToFirebaseStorageUsingImage(_ image: UIImage){
+    private func uploadToFirebaseStorageUsingImage(_ image: UIImage){
     
     let imageName = NSUUID().uuidString
     let ref = Storage.storage().reference().child("messages_images").child(imageName)
@@ -190,6 +207,7 @@ extension ChatLogViewController {
                         print(error?.localizedDescription ?? "")
                     }
                     else {
+        
                         self.sendMessageWithImageUrl(imageUrl: url!.absoluteString)
                     }
                 }

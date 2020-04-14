@@ -22,6 +22,7 @@ class OTPViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        
         self.otpTextField.becomeFirstResponder()
         let ref = Database.database().reference().child("users")
             ref.observe(.childAdded, with: { (snapshot) in
@@ -79,7 +80,7 @@ class OTPViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "SetupProfileViewController") as SetupProfileViewController
         vc.phone = self.phone
-        present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     func goToViewController(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

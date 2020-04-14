@@ -23,6 +23,7 @@ class SetupProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         
+        self.navigationItem.setHidesBackButton(true, animated: true)
         self.hideKeyboardWhenTappedAround()
         setUpBorders()
         super.viewDidLoad()
