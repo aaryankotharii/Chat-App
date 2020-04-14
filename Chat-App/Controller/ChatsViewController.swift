@@ -24,9 +24,11 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //self.defaultPhoneLogin()
         self.Defaultlogin()
         self.title = "Chats"
-        self.navigationController?.topViewController?.title = "Chats"
+       // self.tabBarController?.title = "Chats"
+       // self.navigationController?.topViewController?.title = "Chats"
+        
         navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.title = "Chats"
+       // self.navigationController?.title = "Chats"
         observeUserMessages()
     }
     
