@@ -26,13 +26,13 @@ class ChatLogImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var bubbleWidthAnchor: NSLayoutConstraint!
     
-    func handlePlay(){
+    func handlePlay(view: UIView){
         if let videoUrl = message?.videoUrl, let url = URL(string: videoUrl){
            let player = AVPlayer(url: url)
             
             let playerLayer = AVPlayerLayer(player: player)
-            playerLayer.frame = chatBubble.bounds 
-            self.chatBubble.layer.addSublayer(playerLayer )
+            playerLayer.frame = view.bounds
+            view.layer.addSublayer(playerLayer)
             player.play()
             print("playing")
         }

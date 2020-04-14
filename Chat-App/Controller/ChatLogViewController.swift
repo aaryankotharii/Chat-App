@@ -241,6 +241,15 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
         }
     }
     
+    @objc func handleVideoTap(recognizer: MyTapGesture){
+        if let imageView = recognizer.view as? UIImageView{
+            self.performZoom(startingImageView: imageView)
+            if let message = recognizer.message{
+            self.handlePlay(message: message)
+            }
+        }
+    }
+    
     
     var startingImageFrame : CGRect?
     var backgroundView : UIView?
@@ -299,6 +308,7 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
           // cell.imageView.loadImageUsingCacheWithUrlString(urlString: imageUrl)
            // cell.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImageTap)))
         }
+        
         if message.fromId == Auth.auth().currentUser?.uid {
                    //green Cell
             cell.chatBubble.backgroundColor = UIColor(named: "tochatcolor")
@@ -318,13 +328,21 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
             let imageUrl = message.imageUrl!
             cell.message = message
             cell.imageView.loadImageUsingCacheWithUrlString(urlString: imageUrl)
-             cell.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self,action: #selector(handleImageTap)))
-            cell.handlePlay()
+            
+            
+            let tapped = MyTapGesture.init(target: self, action: #selector(handleVideoTap))
+            tapped.message = message
+            cell.imageView.addGestureRecognizer(tapped)
+             //cell.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self,action: #selector(handleVideoTap)))
+           // cell.handlePlay(view: view)
         }
+            
        else if let imageUrl = message.imageUrl{
             print("Image")
             cell.message = message
            cell.imageView.loadImageUsingCacheWithUrlString(urlString: imageUrl)
+            
+            
             cell.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImageTap)))
         }
         if message.fromId == Auth.auth().currentUser?.uid {
@@ -339,6 +357,20 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
             cell.bubbleLeftAnchor.isActive = true
                }
     }
+    
+    
+    
+    func handlePlay(message: Message?){
+          if let videoUrl = message?.videoUrl, let url = URL(string: videoUrl){
+             let player = AVPlayer(url: url)
+              
+              let playerLayer = AVPlayerLayer(player: player)
+              playerLayer.frame = view.bounds
+              view.layer.addSublayer(playerLayer)
+              player.play()
+              print("playing")
+          }
+      }
     
         
         private func setupMessageCell(cell : chatLogCollectionViewCell, message : Message){
@@ -380,6 +412,9 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
            }
     }
 
+class MyTapGesture: UITapGestureRecognizer {
+    var message : Message?
+}
 
 
 extension ChatLogViewController{
