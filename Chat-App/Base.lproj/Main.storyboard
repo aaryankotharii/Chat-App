@@ -390,6 +390,13 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Play" translatesAutoresizingMaskIntoConstraints="NO" id="RjL-fd-b1a">
+                                                            <rect key="frame" x="138" y="138" width="51" height="51"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="51" id="R5U-zO-alV"/>
+                                                                <constraint firstAttribute="width" constant="51" id="iJf-oa-E0Z"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.84943974020000002" green="1" blue="0.97124296430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -397,6 +404,8 @@
                                                         <constraint firstAttribute="bottom" secondItem="mR0-RE-ycL" secondAttribute="bottom" constant="3" id="KRz-oq-EEo"/>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="327" id="Myi-R0-pfQ"/>
                                                         <constraint firstAttribute="trailing" secondItem="mR0-RE-ycL" secondAttribute="trailing" constant="3" id="PNV-Un-xuV"/>
+                                                        <constraint firstItem="RjL-fd-b1a" firstAttribute="centerX" secondItem="ymh-pe-4Tj" secondAttribute="centerX" id="PjP-l3-pBr"/>
+                                                        <constraint firstItem="RjL-fd-b1a" firstAttribute="centerY" secondItem="ymh-pe-4Tj" secondAttribute="centerY" id="Rzc-5Z-JRm"/>
                                                         <constraint firstItem="mR0-RE-ycL" firstAttribute="leading" secondItem="ymh-pe-4Tj" secondAttribute="leading" constant="3" id="ZAa-S2-JcG"/>
                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="327" id="hdL-9L-JFW"/>
                                                         <constraint firstItem="mR0-RE-ycL" firstAttribute="top" secondItem="ymh-pe-4Tj" secondAttribute="top" constant="3" id="yTY-Jl-Xvv"/>
@@ -424,6 +433,7 @@
                                             <outlet property="bubbleWidthAnchor" destination="hdL-9L-JFW" id="J5s-PD-DJf"/>
                                             <outlet property="chatBubble" destination="ymh-pe-4Tj" id="fnD-mX-O7j"/>
                                             <outlet property="imageView" destination="mR0-RE-ycL" id="yKx-5n-lIM"/>
+                                            <outlet property="playButton" destination="RjL-fd-b1a" id="u16-xB-POQ"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videocell" id="u6H-8n-Ldj" customClass="ChatLogVideoCollectionViewCell" customModule="Chat_App" customModuleProvider="target">
@@ -1040,6 +1050,7 @@
     </scenes>
     <resources>
         <image name="Default" width="54" height="54"/>
+        <image name="Play" width="51" height="51"/>
         <image name="camera" width="328" height="285"/>
         <image name="mic" width="252" height="379"/>
         <image name="plus" catalog="system" width="128" height="113"/>

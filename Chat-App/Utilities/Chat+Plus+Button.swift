@@ -122,7 +122,7 @@ extension ChatLogViewController {
     }
     
     private func uploadToFirebaseStorageUsingVideo(_ url : URL){
-        let fileName = "movie.mov"
+        let fileName = NSUUID().uuidString + ".mov"
         let videoRef = Storage.storage().reference().child("messages_videos").child(fileName)
         
         let videoData: Data = try! Data(contentsOf: url)
@@ -137,8 +137,7 @@ extension ChatLogViewController {
                     }else{
                         if let videoUrl = url{
                             if let thumbnail = self.thumbnailImageForVideoUrl(url: videoUrl){
-                            self.uploadToFirebaseStorageUsingImage(thumbnail)
-                            self.sendMessageWithVideoUrl(videourl: videoUrl.absoluteString)
+                                self.sendMessageWithVideoUrl(videourl: videoUrl.absoluteString, image: thumbnail)
                             }
                         }
                     }
@@ -207,8 +206,7 @@ extension ChatLogViewController {
                         print(error?.localizedDescription ?? "")
                     }
                     else {
-        
-                        self.sendMessageWithImageUrl(imageUrl: url!.absoluteString)
+                       self.sendMessageWithImageUrl(imageUrl: url!.absoluteString)
                     }
                 }
             }
@@ -217,12 +215,10 @@ extension ChatLogViewController {
 }
     
     
+    
+    
     private func sendMessageWithImageUrl(imageUrl : String){
         
-        let ref = Database.database().reference().child("messages")
-               
-        let childRef = ref.childByAutoId()
-               
         let toId = user!.id!
         
         let fromId = Auth.auth().currentUser!.uid
@@ -231,33 +227,11 @@ extension ChatLogViewController {
         
         let values = ["imageUrl":imageUrl, "toId":toId, "fromId":fromId,"timestamp":timeStamp] as [String : Any]
                
-        childRef.updateChildValues(values) { (error, ref) in
-            if error != nil {
-                print(error?.localizedDescription ?? "couldnt send message")
-            }else {
-                
-                self.chatTextField.text = nil
-                
-                self.sendButton.isHidden = true
-                
-                let userMessagesRef = Database.database().reference().child("user-messages").child(fromId)
-                
-                let messageId = childRef.key!
-                
-                userMessagesRef.updateChildValues([messageId:"a"])
-                
-                let recipientUserMessagesReference = Database.database().reference().child("user-messages").child(toId)
-                
-                recipientUserMessagesReference.updateChildValues([messageId:"a"])
-            }
-        }
+        sendMediaData(values: values, toId: toId, fromId: fromId)
     }
     
-    private func sendMessageWithVideoUrl(videourl : String){
-        
-        let ref = Database.database().reference().child("messages")
-               
-        let childRef = ref.childByAutoId()
+    
+    private func sendMessageWithVideoUrl(videourl : String, image : UIImage){
                
         let toId = user!.id!
         
@@ -265,28 +239,62 @@ extension ChatLogViewController {
         
         let timeStamp = Int(NSDate().timeIntervalSince1970)
         
-        let values = ["videoUrl":videourl, "toId":toId, "fromId":fromId,"timestamp":timeStamp] as [String : Any]
+         let imageName = NSUUID().uuidString
+          let ref = Storage.storage().reference().child("messages_images").child(imageName)
+          
+          
+          if let uploadData = image.jpegData(compressionQuality: 0.5) {
+              ref.putData(uploadData, metadata: nil) { (metadata, error) in
+                  if error != nil {
+                      print(error?.localizedDescription ?? "Error sending photo")
+                  }else {
+                      ref.downloadURL { (url, error) in
+                          if error != nil {
+                              print(error?.localizedDescription ?? "")
+                          }
+                          else {
+                            if let imageUrl = url?.absoluteString{
+                            let values = ["imageUrl":imageUrl,"videoUrl":videourl, "toId":toId, "fromId":fromId,"timestamp":timeStamp] as [String : Any]
+                                    
+                                self.sendMediaData(values: values, toId: toId, fromId: fromId)
+                            }
+                          }
+                      }
+                  }
+              }
+          }
+        
+
+    }
+    
+    
+    
+    
+    func sendMediaData(values: [String: Any], toId: String, fromId: String){
+        let ref = Database.database().reference().child("messages")
                
+        let childRef = ref.childByAutoId()
+        
         childRef.updateChildValues(values) { (error, ref) in
-            if error != nil {
-                print(error?.localizedDescription ?? "couldnt send message")
-            }else {
-                
-                self.chatTextField.text = nil
-                
-                self.sendButton.isHidden = true
-                
-                let userMessagesRef = Database.database().reference().child("user-messages").child(fromId)
-                
-                let messageId = childRef.key!
-                
-                userMessagesRef.updateChildValues([messageId:"a"])
-                
-                let recipientUserMessagesReference = Database.database().reference().child("user-messages").child(toId)
-                
-                recipientUserMessagesReference.updateChildValues([messageId:"a"])
-            }
-        }
+               if error != nil {
+                   print(error?.localizedDescription ?? "couldnt send message")
+               }else {
+                   
+                   self.chatTextField.text = nil
+                   
+                   self.sendButton.isHidden = true
+                   
+                   let userMessagesRef = Database.database().reference().child("user-messages").child(fromId)
+                   
+                   let messageId = childRef.key!
+                   
+                   userMessagesRef.updateChildValues([messageId:"a"])
+                   
+                   let recipientUserMessagesReference = Database.database().reference().child("user-messages").child(toId)
+                   
+                   recipientUserMessagesReference.updateChildValues([messageId:"a"])
+               }
+           }
     }
     
 }

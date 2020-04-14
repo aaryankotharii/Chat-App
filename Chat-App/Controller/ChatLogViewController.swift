@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import FirebaseStorage
+import AVFoundation
 
 class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -202,15 +203,23 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
             let message = messages[indexPath.item]
             
             if message.videoUrl != nil{
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "videocell", for: indexPath) as! ChatLogVideoCollectionViewCell
-                print("Video here")
-                setupVideoCell(cell: cell, message: message)
+//                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "videocell", for: indexPath) as! ChatLogVideoCollectionViewCell
+//                print("Video here")
+//                setupVideoCell(cell: cell, message: message)
+//                cellToBeReturned = cell
+                
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imagecell", for: indexPath) as! ChatLogImageCollectionViewCell
+                
+                cell.playButton.isHidden = false
+                
+                setupImageCell(cell: cell, message: message)
                 cellToBeReturned = cell
             }
             else if message.imageUrl != nil {
                 //cell.bubbleWidthAnchor.constant = 327
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imagecell", for: indexPath) as! ChatLogImageCollectionViewCell
                 
+                cell.playButton.isHidden = true
                 setupImageCell(cell: cell, message: message)
                 cellToBeReturned = cell
             }
@@ -231,6 +240,7 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
             self.performZoom(startingImageView: imageView)
         }
     }
+    
     
     var startingImageFrame : CGRect?
     var backgroundView : UIView?
@@ -303,7 +313,17 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
     }
     
     private func setupImageCell(cell : ChatLogImageCollectionViewCell, message : Message){
-        if let imageUrl = message.imageUrl{
+        if let videoUrl = message.videoUrl{
+            print("Video")
+            let imageUrl = message.imageUrl!
+            cell.message = message
+            cell.imageView.loadImageUsingCacheWithUrlString(urlString: imageUrl)
+             cell.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self,action: #selector(handleImageTap)))
+            cell.handlePlay()
+        }
+       else if let imageUrl = message.imageUrl{
+            print("Image")
+            cell.message = message
            cell.imageView.loadImageUsingCacheWithUrlString(urlString: imageUrl)
             cell.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImageTap)))
         }
@@ -359,5 +379,11 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
             return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16)], context: nil)
            }
     }
+
+
+
+extension ChatLogViewController{
+   
+}
 
 
