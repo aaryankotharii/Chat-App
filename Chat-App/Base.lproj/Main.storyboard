@@ -100,7 +100,7 @@
             </objects>
             <point key="canvasLocation" x="-461" y="133"/>
         </scene>
-        <!--Item-->
+        <!--Status-->
         <scene sceneID="sQv-ZU-WFE">
             <objects>
                 <viewController id="GTb-LB-Hhp" sceneMemberID="viewController">
@@ -110,11 +110,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="ev3-y6-C6r"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="qBu-Kq-Amu"/>
+                    <tabBarItem key="tabBarItem" title="Status" image="Status_tab" selectedImage="Status_tab_complete" id="qBu-Kq-Amu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGp-Ud-eaj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3422" y="-1738"/>
+            <point key="canvasLocation" x="2933" y="-946"/>
         </scene>
         <!--Chats-->
         <scene sceneID="kdy-qV-g0w">
@@ -125,7 +125,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4cI-qp-WTM">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatcell" rowHeight="87" id="uNi-gA-9an" customClass="ChatsTableViewCell" customModule="Chat_App" customModuleProvider="target">
@@ -205,8 +205,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vZq-Ga-qod"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="vOU-nI-f7v"/>
+                    <tabBarItem key="tabBarItem" title="Chats" image="chats_tab" selectedImage="chats_tab_complete" id="vOU-nI-f7v"/>
                     <navigationItem key="navigationItem" title="Chats" id="vF2-vk-Efa">
+                        <barButtonItem key="backBarButtonItem" title="Chats" id="niV-bM-6mL"/>
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="4s4-GJ-xMO">
                             <connections>
                                 <action selector="editClicked:" destination="kqo-R1-Pwm" id="eXr-Og-OdK"/>
@@ -220,13 +221,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="chatsTableView" destination="4cI-qp-WTM" id="ETN-mo-bmw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z19-m4-JGE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3423" y="1320"/>
+            <point key="canvasLocation" x="3041" y="1597"/>
         </scene>
         <!--Chat Log View Controller-->
         <scene sceneID="WP0-QU-ld9">
@@ -517,7 +519,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UhK-NO-N09"/>
                     </view>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="cameraButton" destination="ahc-1z-UtG" id="Ad6-RD-coA"/>
                         <outlet property="chatTextField" destination="Th7-pW-7GQ" id="0wR-bU-pgj"/>
@@ -532,7 +533,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XaX-CX-cGC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4229" y="1320"/>
+            <point key="canvasLocation" x="3849" y="1597"/>
         </scene>
         <!--Title-->
         <scene sceneID="LwX-WV-em1">
@@ -634,26 +635,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oC1-GP-ezX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3422" y="611"/>
+            <point key="canvasLocation" x="3041" y="888"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="im9-9b-az6">
             <objects>
                 <navigationController storyboardIdentifier="ChatsViewController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="Pjs-Hg-jef" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Krp-7T-Qyb"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="LwM-8l-ftv"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TiJ-qh-N2N">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="kqo-R1-Pwm" kind="show" id="Vj9-PY-DSO"/>
+                        <segue destination="VEI-e5-cdQ" kind="relationship" relationship="rootViewController" id="eaK-Fi-3xK"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axx-zW-av1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2607" y="1298"/>
+            <point key="canvasLocation" x="1096" y="843"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="qcJ-fy-feD">
@@ -1075,18 +1078,18 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="kqo-R1-Pwm" kind="relationship" relationship="viewControllers" id="OHU-dR-yv0"/>
                         <segue destination="GTb-LB-Hhp" kind="relationship" relationship="viewControllers" id="4f8-u0-rAN"/>
                         <segue destination="huH-GE-zib" kind="relationship" relationship="viewControllers" id="bbP-c0-5j0"/>
                         <segue destination="fV2-Hf-vKm" kind="relationship" relationship="viewControllers" id="4Yx-0T-pgj"/>
-                        <segue destination="4xf-J9-ogS" kind="show" id="8PK-YT-nb0"/>
+                        <segue destination="kqo-R1-Pwm" kind="relationship" relationship="viewControllers" id="bnY-U4-h4s"/>
+                        <segue destination="4xf-J9-ogS" kind="relationship" relationship="viewControllers" id="AH3-Ka-cqV"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wNm-vW-liH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1983" y="5"/>
+            <point key="canvasLocation" x="2012" y="360"/>
         </scene>
-        <!--Item-->
+        <!--Camera-->
         <scene sceneID="Ujg-21-AmC">
             <objects>
                 <viewController id="fV2-Hf-vKm" sceneMemberID="viewController">
@@ -1096,29 +1099,30 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="swU-Nl-ZLK"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="pCc-TK-lLr"/>
+                    <tabBarItem key="tabBarItem" title="Camera" image="camera_tab" selectedImage="camera_tab" id="pCc-TK-lLr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ym4-uP-MKq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3422" y="-98"/>
+            <point key="canvasLocation" x="7022" y="326"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="EBd-ca-pkM">
             <objects>
                 <viewController id="4xf-J9-ogS" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5FU-On-SE7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Mxi-ve-LMo"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings_tab" selectedImage="settings_tab_complete" id="fAv-wo-sBi"/>
                     <navigationItem key="navigationItem" id="E2A-8Q-Bbx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yco-ow-DrC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6564" y="2286"/>
+            <point key="canvasLocation" x="5461" y="1976"/>
         </scene>
-        <!--Item-->
+        <!--Calls-->
         <scene sceneID="Ogq-lD-QVl">
             <objects>
                 <viewController id="huH-GE-zib" sceneMemberID="viewController">
@@ -1128,23 +1132,29 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="r8j-Ab-nKC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="0fE-0t-Duc"/>
+                    <tabBarItem key="tabBarItem" title="Calls" image="calls_tab" selectedImage="calls_tab_complete" id="0fE-0t-Duc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Hn-BW-G2d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3422" y="-898"/>
+            <point key="canvasLocation" x="5461" y="-513"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="OHU-dR-yv0"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Default" width="54" height="54"/>
         <image name="Play" width="51" height="51"/>
+        <image name="Status_tab" width="24" height="25"/>
+        <image name="Status_tab_complete" width="26" height="25"/>
+        <image name="calls_tab" width="23" height="24"/>
+        <image name="calls_tab_complete" width="23" height="24"/>
         <image name="camera" width="328" height="285"/>
+        <image name="camera_tab" width="26" height="22"/>
+        <image name="chats_tab" width="31" height="23"/>
+        <image name="chats_tab_complete" width="31" height="23"/>
         <image name="mic" width="252" height="379"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="send" width="177" height="177"/>
+        <image name="settings_tab" width="27" height="27"/>
+        <image name="settings_tab_complete" width="27" height="27"/>
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>
         <image name="whatsapp" width="760" height="1396"/>
         <namedColor name="TextField">
