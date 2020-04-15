@@ -18,6 +18,7 @@
 		5B5E18C72440C59B0081B407 /* Contries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5E18C62440C59B0081B407 /* Contries.swift */; };
 		5B5E18C92441001D0081B407 /* countriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5E18C82441001D0081B407 /* countriesViewController.swift */; };
 		5B5E18CE24410E0E0081B407 /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5E18CD24410E0E0081B407 /* SF-Pro-Display-Light.otf */; };
+		5B71E97A2447438B0036FB03 /* TitleViewSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71E9792447438B0036FB03 /* TitleViewSetup.swift */; };
 		5B804B132445B12600478F87 /* ChatLogVideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B804B122445B12600478F87 /* ChatLogVideoCollectionViewCell.swift */; };
 		5B880EAB243A677800EDFBE3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B880EAA243A677800EDFBE3 /* Message.swift */; };
 		5B880EAD243AFDB200EDFBE3 /* ChatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B880EAC243AFDB200EDFBE3 /* ChatsTableViewCell.swift */; };
@@ -55,6 +56,7 @@
 		5B5E18C82441001D0081B407 /* countriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = countriesViewController.swift; sourceTree = "<group>"; };
 		5B5E18CD24410E0E0081B407 /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
 		5B5E18CF24410ED20081B407 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
+		5B71E9792447438B0036FB03 /* TitleViewSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewSetup.swift; sourceTree = "<group>"; };
 		5B804B122445B12600478F87 /* ChatLogVideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogVideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B880EAA243A677800EDFBE3 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		5B880EAC243AFDB200EDFBE3 /* ChatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableViewCell.swift; sourceTree = "<group>"; };
@@ -103,6 +105,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		5B71E978244743760036FB03 /* ChatLogVC */ = {
+			isa = PBXGroup;
+			children = (
+				5B71E9792447438B0036FB03 /* TitleViewSetup.swift */,
+			);
+			path = ChatLogVC;
+			sourceTree = "<group>";
+		};
 		5B97F779243878C000ACF83D = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +135,7 @@
 		5B97F784243878C000ACF83D /* Chat-App */ = {
 			isa = PBXGroup;
 			children = (
+				5B71E978244743760036FB03 /* ChatLogVC */,
 				5B97F7A124387C6200ACF83D /* Utilities */,
 				5B97F7A024387AA400ACF83D /* Model */,
 				5B97F79F24387A9E00ACF83D /* View */,
@@ -347,6 +358,7 @@
 				5B29B64B2442DA2800CD3FDD /* Keyboard+Hide.swift in Sources */,
 				5B97F7AF2439A04C00ACF83D /* SetupProfileViewController.swift in Sources */,
 				5B97F79D24387A8800ACF83D /* LoginViewController.swift in Sources */,
+				5B71E97A2447438B0036FB03 /* TitleViewSetup.swift in Sources */,
 				5B97F7B32439A90700ACF83D /* ImagePicker.swift in Sources */,
 				5B97F7AD2439109800ACF83D /* User.swift in Sources */,
 				5B97F788243878C000ACF83D /* SceneDelegate.swift in Sources */,

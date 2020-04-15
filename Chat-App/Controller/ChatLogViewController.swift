@@ -120,65 +120,8 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UICollection
             // Do any additional setup after loading the view.
         }
     
-    func addNavBarImage(user: User){
-        let titleview = UIView()
-        titleview.frame = CGRect(x: 0, y: 0, width: 300, height: 36)
-        titleview.backgroundColor = .red
-        
-        let profileImageView = UIImageView()
-        profileImageView.backgroundColor = .black
-        profileImageView.translatesAutoresizingMaskIntoConstraints = false
-       // profileImageView.contentMode = .scaleAspectFit
-        profileImageView.layer.cornerRadius = 18
-        profileImageView.clipsToBounds = true
-        if let profileImageUrl = user.profileImageUrl{
-            profileImageView.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
-        }
 
-        titleview.addSubview(profileImageView)
-        
-        profileImageView.isUserInteractionEnabled = true
-        profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImageTap(tapGesture:))))
 
-         //profileImageView.leftAnchor.constraint(equalTo: titleview.leftAnchor, constant: 0).isActive = true
-        profileImageView.centerYAnchor.constraint(equalTo: titleview.centerYAnchor, constant: 0).isActive = true
-       profileImageView.heightAnchor.constraint(equalToConstant: 36).isActive = true
-       profileImageView.widthAnchor.constraint(equalToConstant: 36).isActive = true
-    profileImageView.trailingAnchor.constraint(equalTo: titleview.trailingAnchor, constant: -90).isActive = true
-        
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 36))
-        if let name = user.name{
-            button.setTitle(name, for: .normal)
-        }
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .green
-        button.addTarget(self, action: #selector(buttonAction), for: UIControl.Event.touchUpInside)
-
-        titleview.addSubview(button)
-
-        button.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 9).isActive = true
-        button.centerYAnchor.constraint(equalTo: titleview.centerYAnchor, constant: 0).isActive = true
-
-        titleview.isUserInteractionEnabled = true
-        self.navigationItem.titleView?.isUserInteractionEnabled = true
-        self.navigationItem.titleView = titleview
-        self.navigationItem.titleView?.isUserInteractionEnabled = true
-        //let tap = UITapGestureRecognizer(target: self, action: #selector(didTapNavBar))
-        //self.navigationController?.navigationBar.addGestureRecognizer(tap)
-    }
-    
-    @objc
-    func didTapNavBar() {
-        print("user did tap navigation bar")
-    }
-
-    
-    @objc func buttonAction(sender: UIButton!) {
-      print("Button tapped")
-    }
         
         func curveAnimation(button: UIButton, animationOptions: UIView.AnimationOptions, x: CGFloat, bool : Bool) {
             UIView.animate(withDuration: 0.01, delay: 0, options: animationOptions, animations: {
