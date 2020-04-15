@@ -18,5 +18,8 @@ class chatLogCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var messageTextView: UITextView!
     
     @IBOutlet weak var bubbleWidthAnchor: NSLayoutConstraint!
+    @IBOutlet var chatTip: UIImageView!
     
-    }
+    var m1 = 0
+    var m2 = 0
+}
