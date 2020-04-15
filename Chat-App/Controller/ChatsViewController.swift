@@ -12,6 +12,17 @@ import FirebaseAuth
 
 class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @objc func handleModalDismissed(user: User) {
+      // Do something
+          let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                             
+              let vc = storyboard.instantiateViewController(identifier: "ChatLogViewController") as? ChatLogViewController
+                             
+              vc!.user = user
+                             
+              self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
     //MARK: - variables
     var messages = [Message]()
     var messagesDictionary = [String:Message]()
@@ -21,10 +32,14 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.defaultPhoneLogin()
-        self.Defaultlogin()
+       // self.defaultPhoneLogin(number: "9", otp: )
+        //self.Defaultlogin()
         navigationController?.navigationBar.prefersLargeTitles = true
         observeUserMessages()
+        NotificationCenter.default.addObserver(self,
+                                                  selector: #selector(self.handleModalDismissed),
+                                                  name: NSNotification.Name(rawValue: "modalIsDimissed"),
+                                                  object: nil)
     }
     
     func Defaultlogin(){
@@ -39,6 +54,11 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
 
+
+    
+    func someMethod(user: User){
+      
+    }
 
 
     func observeUserMessages(){

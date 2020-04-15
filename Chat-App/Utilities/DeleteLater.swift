@@ -10,14 +10,14 @@ import Foundation
 import FirebaseAuth
 
 extension ChatsViewController{
-    func defaultPhoneLogin(){
+    func defaultPhoneLogin(number: String, otp: String){
         
-        PhoneAuthProvider.provider().verifyPhoneNumber("9898989898", uiDelegate: nil) { (id, error) in
+        PhoneAuthProvider.provider().verifyPhoneNumber(number, uiDelegate: nil) { (id, error) in
                    if error != nil{
                     print(error?.localizedDescription ?? "error verifying number")
                    }
                    else{
-                    let credential = PhoneAuthProvider.provider().credential(withVerificationID: id!, verificationCode: "123456")
+                    let credential = PhoneAuthProvider.provider().credential(withVerificationID: id!, verificationCode: otp)
        Auth.auth().signIn(with: credential) { (result, error) in
            if error != nil{
             print("no")

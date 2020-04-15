@@ -19,7 +19,6 @@ class NewChatsViewController: UIViewController, UITableViewDataSource, UITableVi
     var users = [User]()
     
     override func viewDidLoad() {
-        
 
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -92,19 +91,21 @@ class NewChatsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         vc!.user = user
         
-        
-        let presenController : UINavigationController = self.presentingViewController as! UINavigationController
-
-        self.dismiss(animated: false, completion: {
-            presenController.pushViewController(vc!, animated: true)
+        self.dismiss(animated: false, completion: { () -> Void   in
+            print("dissmiss")
         })
-
     }
+    
+
+    
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
         
     }
+    
 }
+
 
 

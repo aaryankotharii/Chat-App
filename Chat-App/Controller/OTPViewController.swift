@@ -84,8 +84,9 @@ class OTPViewController: UIViewController {
     }
     func goToViewController(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "ChatsViewController")
+        let controller = storyboard.instantiateViewController(withIdentifier: "tabbar")
         self.present(controller, animated: true, completion: nil)
+
         }
     
     func checkExistingUser(_ uid : String) -> Bool{
