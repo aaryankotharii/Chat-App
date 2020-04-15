@@ -12,7 +12,7 @@ import UIKit
 extension ChatLogViewController {
     
     //MARK:- Adding Custom Title View
-    func addNavBarImage(user: User){
+    func setNavBarTitle(user: User){
         
         let titleview = UIView()
         titleview.frame = CGRect(x: 0, y: 0, width: 300, height: 36)

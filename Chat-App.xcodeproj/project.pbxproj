@@ -19,6 +19,11 @@
 		5B5E18C92441001D0081B407 /* countriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5E18C82441001D0081B407 /* countriesViewController.swift */; };
 		5B5E18CE24410E0E0081B407 /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B5E18CD24410E0E0081B407 /* SF-Pro-Display-Light.otf */; };
 		5B71E97A2447438B0036FB03 /* TitleViewSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71E9792447438B0036FB03 /* TitleViewSetup.swift */; };
+		5B71E97C2447468B0036FB03 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71E97B2447468B0036FB03 /* Animations.swift */; };
+		5B71E97E244746E20036FB03 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71E97D244746E20036FB03 /* DatabaseManager.swift */; };
+		5B71E98024474B2F0036FB03 /* Setup Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71E97F24474B2F0036FB03 /* Setup Cells.swift */; };
+		5B71E982244750C90036FB03 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71E981244750C90036FB03 /* VideoPlayer.swift */; };
+		5B71E986244755910036FB03 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71E985244755910036FB03 /* CollectionView.swift */; };
 		5B804B132445B12600478F87 /* ChatLogVideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B804B122445B12600478F87 /* ChatLogVideoCollectionViewCell.swift */; };
 		5B880EAB243A677800EDFBE3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B880EAA243A677800EDFBE3 /* Message.swift */; };
 		5B880EAD243AFDB200EDFBE3 /* ChatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B880EAC243AFDB200EDFBE3 /* ChatsTableViewCell.swift */; };
@@ -57,6 +62,11 @@
 		5B5E18CD24410E0E0081B407 /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
 		5B5E18CF24410ED20081B407 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		5B71E9792447438B0036FB03 /* TitleViewSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewSetup.swift; sourceTree = "<group>"; };
+		5B71E97B2447468B0036FB03 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
+		5B71E97D244746E20036FB03 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		5B71E97F24474B2F0036FB03 /* Setup Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setup Cells.swift"; sourceTree = "<group>"; };
+		5B71E981244750C90036FB03 /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
+		5B71E985244755910036FB03 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		5B804B122445B12600478F87 /* ChatLogVideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogVideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B880EAA243A677800EDFBE3 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		5B880EAC243AFDB200EDFBE3 /* ChatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableViewCell.swift; sourceTree = "<group>"; };
@@ -108,7 +118,13 @@
 		5B71E978244743760036FB03 /* ChatLogVC */ = {
 			isa = PBXGroup;
 			children = (
+				5B97F7B4243A041600ACF83D /* ChatLogViewController.swift */,
 				5B71E9792447438B0036FB03 /* TitleViewSetup.swift */,
+				5B71E97B2447468B0036FB03 /* Animations.swift */,
+				5B71E97D244746E20036FB03 /* DatabaseManager.swift */,
+				5B71E97F24474B2F0036FB03 /* Setup Cells.swift */,
+				5B71E981244750C90036FB03 /* VideoPlayer.swift */,
+				5B71E985244755910036FB03 /* CollectionView.swift */,
 			);
 			path = ChatLogVC;
 			sourceTree = "<group>";
@@ -135,7 +151,6 @@
 		5B97F784243878C000ACF83D /* Chat-App */ = {
 			isa = PBXGroup;
 			children = (
-				5B71E978244743760036FB03 /* ChatLogVC */,
 				5B97F7A124387C6200ACF83D /* Utilities */,
 				5B97F7A024387AA400ACF83D /* Model */,
 				5B97F79F24387A9E00ACF83D /* View */,
@@ -157,14 +172,14 @@
 		5B97F79E24387A9100ACF83D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5B97F79C24387A8800ACF83D /* LoginViewController.swift */,
-				5B97F7A62438F41500ACF83D /* ChatsViewController.swift */,
-				5B97F7A82439087800ACF83D /* NewChatsViewController.swift */,
-				5B97F7AE2439A04C00ACF83D /* SetupProfileViewController.swift */,
-				5B97F7B4243A041600ACF83D /* ChatLogViewController.swift */,
 				5B5E18C4244059C90081B407 /* PhoneAuthViewController.swift */,
 				5B5E18C82441001D0081B407 /* countriesViewController.swift */,
 				5B29B6462442101A00CD3FDD /* OTPViewController.swift */,
+				5B97F7AE2439A04C00ACF83D /* SetupProfileViewController.swift */,
+				5B97F79C24387A8800ACF83D /* LoginViewController.swift */,
+				5B97F7A62438F41500ACF83D /* ChatsViewController.swift */,
+				5B97F7A82439087800ACF83D /* NewChatsViewController.swift */,
+				5B71E978244743760036FB03 /* ChatLogVC */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -339,7 +354,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B71E98024474B2F0036FB03 /* Setup Cells.swift in Sources */,
 				5B97F78A243878C000ACF83D /* ViewController.swift in Sources */,
+				5B71E986244755910036FB03 /* CollectionView.swift in Sources */,
 				5B5E18C72440C59B0081B407 /* Contries.swift in Sources */,
 				5B880EAD243AFDB200EDFBE3 /* ChatsTableViewCell.swift in Sources */,
 				5B5E18A3243EFD2C0081B407 /* Chat+Plus+Button.swift in Sources */,
@@ -353,15 +370,18 @@
 				5B804B132445B12600478F87 /* ChatLogVideoCollectionViewCell.swift in Sources */,
 				5B29B64E24435BCA00CD3FDD /* ChatLogImageCollectionViewCell.swift in Sources */,
 				5B97F7A72438F41500ACF83D /* ChatsViewController.swift in Sources */,
+				5B71E97C2447468B0036FB03 /* Animations.swift in Sources */,
 				5B97F7AB24390EDD00ACF83D /* NewChatTableViewCell.swift in Sources */,
 				5B29B6472442101A00CD3FDD /* OTPViewController.swift in Sources */,
 				5B29B64B2442DA2800CD3FDD /* Keyboard+Hide.swift in Sources */,
 				5B97F7AF2439A04C00ACF83D /* SetupProfileViewController.swift in Sources */,
 				5B97F79D24387A8800ACF83D /* LoginViewController.swift in Sources */,
+				5B71E97E244746E20036FB03 /* DatabaseManager.swift in Sources */,
 				5B71E97A2447438B0036FB03 /* TitleViewSetup.swift in Sources */,
 				5B97F7B32439A90700ACF83D /* ImagePicker.swift in Sources */,
 				5B97F7AD2439109800ACF83D /* User.swift in Sources */,
 				5B97F788243878C000ACF83D /* SceneDelegate.swift in Sources */,
+				5B71E982244750C90036FB03 /* VideoPlayer.swift in Sources */,
 				5B880EAB243A677800EDFBE3 /* Message.swift in Sources */,
 				5B5E18C5244059C90081B407 /* PhoneAuthViewController.swift in Sources */,
 				5B5E18C92441001D0081B407 /* countriesViewController.swift in Sources */,

@@ -17,7 +17,6 @@ class ChatsTableViewCell: UITableViewCell {
     var message : Message? {
         didSet{
             setupNameAndProfileImage ()
-            var labelText :String?
             if message?.videoUrl != nil{
                 self.lastMessageLabel.text = "📹 Video"
             }else if message?.imageUrl != nil{
