@@ -37,6 +37,7 @@ extension ChatLogViewController{
              message.timestamp = (dictionary["timestamp"] as! Int)
              if let imageUrl = dictionary["imageUrl"] { message.imageUrl = (imageUrl as! String) }
              if let videoUrl = dictionary["videoUrl"]{  message.videoUrl = (videoUrl as! String) }
+             if let audioUrl = dictionary["audioUrl"]{ message.audioUrl = (audioUrl as! String)}
              
              if message.chatPatnerId() == self.user?.id {
                 self.messages.append(message)

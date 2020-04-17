@@ -19,6 +19,7 @@ class Message: NSObject {
     
     var imageUrl : String?
     var videoUrl : String?
+    var audioUrl : String?
     
     func chatPatnerId() -> String? {
         return fromId == Auth.auth().currentUser?.uid ? toId : fromId

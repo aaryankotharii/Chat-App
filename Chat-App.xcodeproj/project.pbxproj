@@ -24,10 +24,10 @@
 		5B71E98024474B2F0036FB03 /* Setup Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71E97F24474B2F0036FB03 /* Setup Cells.swift */; };
 		5B71E982244750C90036FB03 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71E981244750C90036FB03 /* VideoPlayer.swift */; };
 		5B71E986244755910036FB03 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71E985244755910036FB03 /* CollectionView.swift */; };
-		5B804B132445B12600478F87 /* ChatLogVideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B804B122445B12600478F87 /* ChatLogVideoCollectionViewCell.swift */; };
 		5B880EAB243A677800EDFBE3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B880EAA243A677800EDFBE3 /* Message.swift */; };
 		5B880EAD243AFDB200EDFBE3 /* ChatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B880EAC243AFDB200EDFBE3 /* ChatsTableViewCell.swift */; };
 		5B880EAF243B7BDD00EDFBE3 /* chatLogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B880EAE243B7BDD00EDFBE3 /* chatLogCollectionViewCell.swift */; };
+		5B93CEC0244A15F10067E766 /* ChatLogAudioCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B93CEBF244A15F10067E766 /* ChatLogAudioCollectionViewCell.swift */; };
 		5B97F786243878C000ACF83D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F785243878C000ACF83D /* AppDelegate.swift */; };
 		5B97F788243878C000ACF83D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F787243878C000ACF83D /* SceneDelegate.swift */; };
 		5B97F78A243878C000ACF83D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F789243878C000ACF83D /* ViewController.swift */; };
@@ -45,7 +45,6 @@
 		5B97F7B12439A88700ACF83D /* File in Resources */ = {isa = PBXBuildFile; fileRef = 5B97F7B02439A88700ACF83D /* File */; };
 		5B97F7B32439A90700ACF83D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7B22439A90700ACF83D /* ImagePicker.swift */; };
 		5B97F7B5243A041600ACF83D /* ChatLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7B4243A041600ACF83D /* ChatLogViewController.swift */; };
-		5BAD970424482DE100D280F1 /* Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD970324482DE100D280F1 /* Gestures.swift */; };
 		5BAD972F2448B86000D280F1 /* databaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD972E2448B86000D280F1 /* databaseManager.swift */; };
 		5BAD97312448B8E300D280F1 /* idkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD97302448B8E300D280F1 /* idkViewController.swift */; };
 		5BD73A43244961B300C42EA9 /* recording+animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD73A42244961B300C42EA9 /* recording+animation.swift */; };
@@ -70,10 +69,10 @@
 		5B71E97F24474B2F0036FB03 /* Setup Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setup Cells.swift"; sourceTree = "<group>"; };
 		5B71E981244750C90036FB03 /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 		5B71E985244755910036FB03 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
-		5B804B122445B12600478F87 /* ChatLogVideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogVideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B880EAA243A677800EDFBE3 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		5B880EAC243AFDB200EDFBE3 /* ChatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableViewCell.swift; sourceTree = "<group>"; };
 		5B880EAE243B7BDD00EDFBE3 /* chatLogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatLogCollectionViewCell.swift; sourceTree = "<group>"; };
+		5B93CEBF244A15F10067E766 /* ChatLogAudioCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogAudioCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B97F782243878C000ACF83D /* Chat-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chat-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B97F785243878C000ACF83D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B97F787243878C000ACF83D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,7 +92,6 @@
 		5B97F7B02439A88700ACF83D /* File */ = {isa = PBXFileReference; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 		5B97F7B22439A90700ACF83D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		5B97F7B4243A041600ACF83D /* ChatLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewController.swift; sourceTree = "<group>"; };
-		5BAD970324482DE100D280F1 /* Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gestures.swift; sourceTree = "<group>"; };
 		5BAD972E2448B86000D280F1 /* databaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = databaseManager.swift; sourceTree = "<group>"; };
 		5BAD97302448B8E300D280F1 /* idkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = idkViewController.swift; sourceTree = "<group>"; };
 		5BD73A42244961B300C42EA9 /* recording+animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "recording+animation.swift"; sourceTree = "<group>"; };
@@ -199,7 +197,7 @@
 				5B880EAC243AFDB200EDFBE3 /* ChatsTableViewCell.swift */,
 				5B880EAE243B7BDD00EDFBE3 /* chatLogCollectionViewCell.swift */,
 				5B29B64D24435BCA00CD3FDD /* ChatLogImageCollectionViewCell.swift */,
-				5B804B122445B12600478F87 /* ChatLogVideoCollectionViewCell.swift */,
+				5B93CEBF244A15F10067E766 /* ChatLogAudioCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,7 +220,6 @@
 				5B5E18A2243EFD2C0081B407 /* Chat+Plus+Button.swift */,
 				5B29B6482442440700CD3FDD /* DeleteLater.swift */,
 				5B29B64A2442DA2800CD3FDD /* Keyboard+Hide.swift */,
-				5BAD970324482DE100D280F1 /* Gestures.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -373,12 +370,12 @@
 				5B97F7A324387C6C00ACF83D /* Extensions.swift in Sources */,
 				5B29B6492442440800CD3FDD /* DeleteLater.swift in Sources */,
 				5B880EAF243B7BDD00EDFBE3 /* chatLogCollectionViewCell.swift in Sources */,
+				5B93CEC0244A15F10067E766 /* ChatLogAudioCollectionViewCell.swift in Sources */,
 				5B97F790243878C000ACF83D /* Chat_App.xcdatamodeld in Sources */,
 				5B97F7A92439087800ACF83D /* NewChatsViewController.swift in Sources */,
 				5B97F786243878C000ACF83D /* AppDelegate.swift in Sources */,
 				5B97F7B5243A041600ACF83D /* ChatLogViewController.swift in Sources */,
 				5BAD97312448B8E300D280F1 /* idkViewController.swift in Sources */,
-				5B804B132445B12600478F87 /* ChatLogVideoCollectionViewCell.swift in Sources */,
 				5B29B64E24435BCA00CD3FDD /* ChatLogImageCollectionViewCell.swift in Sources */,
 				5B97F7A72438F41500ACF83D /* ChatsViewController.swift in Sources */,
 				5B71E97C2447468B0036FB03 /* Animations.swift in Sources */,
@@ -392,7 +389,6 @@
 				5B97F7B32439A90700ACF83D /* ImagePicker.swift in Sources */,
 				5B97F7AD2439109800ACF83D /* User.swift in Sources */,
 				5B97F788243878C000ACF83D /* SceneDelegate.swift in Sources */,
-				5BAD970424482DE100D280F1 /* Gestures.swift in Sources */,
 				5B71E982244750C90036FB03 /* VideoPlayer.swift in Sources */,
 				5B880EAB243A677800EDFBE3 /* Message.swift in Sources */,
 				5B5E18C5244059C90081B407 /* PhoneAuthViewController.swift in Sources */,

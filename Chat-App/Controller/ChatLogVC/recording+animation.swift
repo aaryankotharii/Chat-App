@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
-extension ChatLogViewController {
+extension ChatLogViewController : AVAudioRecorderDelegate {
 
 
             func onStart() {
@@ -25,6 +26,7 @@ extension ChatLogViewController {
                         self.timeLabel.alpha = 1
                     }){ (Bool) in
                         self.setTimer()
+                        self.startRecording()
                         self.micButton.alpha = 0.2
                     }
                 }
@@ -35,6 +37,7 @@ extension ChatLogViewController {
                 print("END")
                 resetAnimations()
                 resetTimer()
+                finishRecording(success: true)
             }
             
 
@@ -101,5 +104,63 @@ extension ChatLogViewController {
         
         //MARK:- set red mic image
         self.redMic.image = #imageLiteral(resourceName: "red mic")
+    }
+    
+    func startRecording() {
+        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
+
+        let settings = [
+            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+            AVSampleRateKey: 12000,
+            AVNumberOfChannelsKey: 1,
+            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+        ]
+
+        do {
+            audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
+            audioRecorder.delegate = self
+            audioRecorder.record()
+
+        } catch {
+            finishRecording(success: false)
+        }
+    }
+    
+    func finishRecording(success: Bool) {
+        if audioRecorder != nil{
+        print("finished")
+        audioRecorder.stop()
+        audioRecorder = nil
+        uploadAudio()
+        }
+    }
+    
+    func uploadAudio(){
+        let path = getDocumentsDirectory().appendingPathComponent("recording.m4a")
+        self.uploadToFirebaseStorageUsingAudio(path)
+    }
+    
+    func getDocumentsDirectory() -> URL {
+         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+         return paths[0]
+     }
+    
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        if !flag {
+            finishRecording(success: false)
+        }
+    }
+    
+    func playAudio(message: Message){
+        if let audioUrl = message.audioUrl, let url = URL(string: audioUrl){
+            print("playing")
+            do{
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer.play()
+            }catch{
+                print(error.localizedDescription)
+            }
+
+        }
     }
 }

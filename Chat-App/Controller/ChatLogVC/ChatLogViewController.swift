@@ -25,6 +25,7 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet var tempView: UIView!
     @IBOutlet var micLeftAnchor: NSLayoutConstraint!
     
     
@@ -47,6 +48,10 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
       //VideoPlayer
       var playerLayer : AVPlayerLayer?
       var player : AVPlayer?
+    
+    var recordingSession : AVAudioSession!
+    var audioRecorder : AVAudioRecorder!
+    var audioPlayer : AVAudioPlayer!
     
     var timer: Timer?
      var duration: CGFloat = 0
@@ -84,7 +89,18 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         stc.isHidden = true
         timeLabel.alpha = 0
         
+        tempView.isHidden = true
+        
         redMic.alpha = 0
+        
+        //setting up session
+        recordingSession = AVAudioSession.sharedInstance()
+        
+        AVAudioSession.sharedInstance().requestRecordPermission { (hasPermission) in
+            if hasPermission{
+                print("mic permission granted")
+            }
+        }
     }
     
     func initialSetup(){

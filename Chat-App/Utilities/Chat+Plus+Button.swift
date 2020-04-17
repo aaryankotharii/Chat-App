@@ -170,6 +170,54 @@ extension ChatLogViewController {
         return nil
     }
     
+    func uploadToFirebaseStorageUsingAudio(_ url : URL){
+        let fileName = NSUUID().uuidString + ".m4a"
+        let audioRef = Storage.storage().reference().child("messages_audio").child(fileName)
+        
+        let audioData: Data = try! Data(contentsOf: url)
+                
+        let uplaodTask = audioRef.putData(audioData,  metadata: nil) { (metadata, error) in
+            if error != nil {
+                print(error?.localizedDescription ?? "Audio not uploaded")
+            }else{
+                audioRef.downloadURL(completion: { (url, error) in
+                    if error != nil {
+                        print(error!.localizedDescription)
+                    }else{
+                        if let audioUrl = url{
+                            self.sendMessageWithAudioUrl(audioUrl: audioUrl.absoluteString)
+                        }
+                    }
+                })
+            }
+        }
+        
+        uplaodTask.observe(.progress) { (snapshot) in
+            if let progress = snapshot.progress{
+            print(progress.completedUnitCount)
+            }
+        }
+        
+        uplaodTask.observe(.success) { (snapshot) in
+            print("SUCCESS!")
+        }
+    }
+    
+     func sendMessageWithAudioUrl(audioUrl : String){
+        
+        let toId = user!.id!
+        
+        let fromId = Auth.auth().currentUser!.uid
+        
+        let timeStamp = Int(NSDate().timeIntervalSince1970)
+        
+        let values = ["audioUrl":audioUrl, "toId":toId, "fromId":fromId,"timestamp":timeStamp] as [String : Any]
+               
+        sendMediaData(values: values, toId: toId, fromId: fromId)
+    }
+    
+  
+    
     
     private func handleImageselectedForInfo(info: [UIImagePickerController.InfoKey:Any]){
         var selectedImageFromPicker : UIImage?

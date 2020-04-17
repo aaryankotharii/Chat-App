@@ -21,7 +21,9 @@ class ChatsTableViewCell: UITableViewCell {
                 self.lastMessageLabel.text = "📹 Video"
             }else if message?.imageUrl != nil{
                 self.lastMessageLabel.text = "📸 Photo"
-            }else{
+            }else if message?.audioUrl != nil {
+                 self.lastMessageLabel.text = "🎤 Audio"
+        }else{
                 self.lastMessageLabel.text =  message?.text
             }
             

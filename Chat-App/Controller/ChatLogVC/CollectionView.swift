@@ -26,10 +26,19 @@ extension ChatLogViewController: UICollectionViewDelegate,UICollectionViewDataSo
             let message = messages[indexPath.item]
             
             if message.text == nil {
+                if message.audioUrl == nil {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imagecell", for: indexPath) as! ChatLogImageCollectionViewCell
                 self.setupImageCell(cell: cell, message: message)
-
                 cellToBeReturned = cell
+                }
+                else{
+                    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "audiocell", for: indexPath) as! ChatLogAudioCollectionViewCell
+                    
+                    let audioTap = MyTapGesture.init(target: self, action: #selector(handleAudioTap))
+                    audioTap.message = message
+                    cell.chatBubble.addGestureRecognizer(audioTap)
+                    cellToBeReturned = cell
+                }
             } else {
                  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! chatLogCollectionViewCell
                     
@@ -48,6 +57,9 @@ extension ChatLogViewController: UICollectionViewDelegate,UICollectionViewDataSo
         var height : CGFloat = 327
         if let text = messages[indexPath.item].text{
             height = extimateFrameForText(text: text).height + 20
+        }
+        if messages[indexPath.item].audioUrl != nil{
+            height = 20
         }
         return CGSize(width: view.frame.width, height: height)
     }

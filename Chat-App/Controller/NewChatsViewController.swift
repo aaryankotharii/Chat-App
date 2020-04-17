@@ -91,7 +91,11 @@ class NewChatsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         vc!.user = user
         print("New chat")
-        self.present(vc!, animated: true, completion: nil)
+        let presenController : UINavigationController = self.presentingViewController as! UINavigationController
+
+          self.dismiss(animated: false, completion: {
+              presenController.pushViewController(vc!, animated: true)
+          })
     }
     
 

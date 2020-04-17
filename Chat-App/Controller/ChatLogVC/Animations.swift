@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 extension ChatLogViewController {
     
     func curveAnimation(button: UIButton, animationOptions: UIView.AnimationOptions, x: CGFloat, bool : Bool) {
@@ -25,6 +26,12 @@ extension ChatLogViewController {
         if let imageView = tapGesture.view as? UIImageView{
             self.performZoom(startingImageView: imageView)
         }
+    }
+    
+    @objc func handleAudioTap(tapGesture: MyTapGesture){
+            if let message = tapGesture.message{
+            self.playAudio(message: message)
+            }
     }
     
     @objc func handleVideoTap(recognizer: MyTapGesture){
