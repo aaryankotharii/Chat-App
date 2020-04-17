@@ -156,12 +156,9 @@ extension ChatLogViewController : AVAudioRecorderDelegate {
         if let audioUrl = message.audioUrl, let url = URL(string: audioUrl){
             print("Url is",audioUrl)
             print("playing")
-            do{
-                audioPlayer = try AVPlayer(url: url)
-                audioPlayer.play()
-            }catch{
-                print(error.localizedDescription)
-            }
+            
+            audioPlayer =  AVPlayer(url: url)
+            audioPlayer.play()
 
         }
     }
