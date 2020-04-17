@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1BK-Xg-GNN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VEI-e5-cdQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -137,9 +137,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="chatsTableView" destination="4cI-qp-WTM" id="ETN-mo-bmw"/>
+                        <segue destination="W3r-9y-3OG" kind="show" id="xbO-dV-sBd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z19-m4-JGE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -155,10 +155,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whatsapp" translatesAutoresizingMaskIntoConstraints="NO" id="Rru-uK-p0H">
-                                <rect key="frame" x="0.0" y="44" width="414" height="777.5"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="684.5"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Vv-NC-NFe">
-                                <rect key="frame" x="0.0" y="822" width="414" height="40"/>
+                                <rect key="frame" x="0.0" y="773" width="414" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMP-BH-Zf8">
                                         <rect key="frame" x="12" y="11" width="22" height="18"/>
@@ -188,7 +188,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stc" translatesAutoresizingMaskIntoConstraints="NO" id="Y6I-ey-Dan">
-                                        <rect key="frame" x="142" y="9.5" width="126" height="21"/>
+                                        <rect key="frame" x="140" y="9.5" width="126" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="FxW-WI-Rab"/>
                                             <constraint firstAttribute="width" constant="126" id="qeb-kn-xXh"/>
@@ -246,7 +246,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXh-6g-xch">
-                                        <rect key="frame" x="46" y="8.5" width="43" height="25.5"/>
+                                        <rect key="frame" x="46" y="9" width="41" height="24.5"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -279,14 +279,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sf1-Gk-eGd">
-                                <rect key="frame" x="0.0" y="821.5" width="414" height="0.5"/>
+                                <rect key="frame" x="0.0" y="772.5" width="414" height="0.5"/>
                                 <color key="backgroundColor" name="separator"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="S3t-zA-Scr"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QhU-7Z-xYL">
-                                <rect key="frame" x="0.0" y="44" width="414" height="777.5"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="684.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ifh-dp-D7c">
                                     <size key="itemSize" width="414" height="238"/>
@@ -492,6 +492,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UhK-NO-N09"/>
                     </view>
+                    <navigationItem key="navigationItem" id="URF-1p-gdB"/>
                     <connections>
                         <outlet property="cameraButton" destination="ahc-1z-UtG" id="Ad6-RD-coA"/>
                         <outlet property="chatTextField" destination="Th7-pW-7GQ" id="0wR-bU-pgj"/>
@@ -622,7 +623,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oC1-GP-ezX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3951" y="886"/>
+            <point key="canvasLocation" x="3951" y="883"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="qcJ-fy-feD">
