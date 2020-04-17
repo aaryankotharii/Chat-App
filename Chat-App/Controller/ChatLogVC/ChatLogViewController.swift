@@ -51,7 +51,7 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     var recordingSession : AVAudioSession!
     var audioRecorder : AVAudioRecorder!
-    var audioPlayer : AVAudioPlayer!
+    var audioPlayer : AVPlayer!
     
     var timer: Timer?
      var duration: CGFloat = 0

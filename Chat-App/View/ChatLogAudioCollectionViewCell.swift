@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ChatLogAudioCollectionViewCell: UICollectionViewCell {
-    
+        
     @IBOutlet var chatBubble: UIView!
     
     @IBOutlet var bubbleLeftAnchor: NSLayoutConstraint!

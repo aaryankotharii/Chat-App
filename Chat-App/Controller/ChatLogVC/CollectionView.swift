@@ -33,10 +33,12 @@ extension ChatLogViewController: UICollectionViewDelegate,UICollectionViewDataSo
                 }
                 else{
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "audiocell", for: indexPath) as! ChatLogAudioCollectionViewCell
-                    
-                    let audioTap = MyTapGesture.init(target: self, action: #selector(handleAudioTap))
+                    print("Audio cell incoming")
+                    let audioTap = audioTapGesture.init(target: self, action: #selector(handleAudioTap))
                     audioTap.message = message
-                    cell.chatBubble.addGestureRecognizer(audioTap)
+                    //cell.chatBubble.addGestureRecognizer(audioTap)
+                    //cell.chatBubble.backgroundColor = .white
+                    cell.addGestureRecognizer(audioTap)
                     cellToBeReturned = cell
                 }
             } else {

@@ -20,7 +20,4 @@ extension ChatLogViewController {
                 print("playing")
             }
         }
-    
-    
-    
 }

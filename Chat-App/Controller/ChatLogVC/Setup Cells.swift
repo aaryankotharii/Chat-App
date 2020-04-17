@@ -64,3 +64,8 @@ extension ChatLogViewController {
 class MyTapGesture: UITapGestureRecognizer {
     var message : Message?
 }
+
+//MARK:- Video Tap Gesture (To pass variable)
+class audioTapGesture: UITapGestureRecognizer {
+    var message : Message?
+}
