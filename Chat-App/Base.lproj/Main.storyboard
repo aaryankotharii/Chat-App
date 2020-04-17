@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1BK-Xg-GNN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W3r-9y-3OG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -270,8 +270,23 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stc" translatesAutoresizingMaskIntoConstraints="NO" id="Y6I-ey-Dan">
+                                        <rect key="frame" x="140" y="9.5" width="126" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="FxW-WI-Rab"/>
+                                            <constraint firstAttribute="width" constant="126" id="qeb-kn-xXh"/>
+                                        </constraints>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L2A-X8-VOY">
+                                        <rect key="frame" x="331" y="0.0" width="83" height="40"/>
+                                        <color key="backgroundColor" name="grey"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="83" id="pw7-Mk-9Ka"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gC-Uz-1jb">
                                         <rect key="frame" x="379.5" y="7" width="17" height="26"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="17" id="2JY-sg-UEq"/>
                                             <constraint firstAttribute="height" constant="26" id="6sC-PH-xpL"/>
@@ -279,6 +294,9 @@
                                         <state key="normal" backgroundImage="mic"/>
                                         <connections>
                                             <action selector="micClicked:" destination="W3r-9y-3OG" eventType="touchUpInside" id="VWe-3k-Ba6"/>
+                                            <action selector="touchOutmic:" destination="W3r-9y-3OG" eventType="touchUpInside" id="jDA-vu-k7t"/>
+                                            <outletCollection property="gestureRecognizers" destination="EdJ-C7-ijl" appends="YES" id="6U1-Tz-5lz"/>
+                                            <outletCollection property="gestureRecognizers" destination="uLC-CA-QzF" appends="YES" id="rrl-7g-5KJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahc-1z-UtG">
@@ -303,6 +321,19 @@
                                             <action selector="sendClicked:" destination="W3r-9y-3OG" eventType="touchUpInside" id="NCa-W3-diA"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red mic" translatesAutoresizingMaskIntoConstraints="NO" id="YfX-f8-erk">
+                                        <rect key="frame" x="380" y="7" width="16" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="26" id="Sr7-ff-EMU"/>
+                                            <constraint firstAttribute="width" constant="16" id="xlg-da-s6Z"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXh-6g-xch">
+                                        <rect key="frame" x="46" y="9" width="41" height="24.5"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" name="grey"/>
                                 <constraints>
@@ -311,14 +342,23 @@
                                     <constraint firstItem="uVk-fk-LCf" firstAttribute="leading" secondItem="Th7-pW-7GQ" secondAttribute="trailing" priority="500" constant="9" id="4NL-fE-mfu"/>
                                     <constraint firstItem="9gC-Uz-1jb" firstAttribute="leading" secondItem="ahc-1z-UtG" secondAttribute="trailing" constant="23.5" id="7nx-Ah-UOT"/>
                                     <constraint firstItem="ahc-1z-UtG" firstAttribute="centerY" secondItem="4Vv-NC-NFe" secondAttribute="centerY" id="7re-0j-mgU"/>
+                                    <constraint firstItem="Y6I-ey-Dan" firstAttribute="centerY" secondItem="4Vv-NC-NFe" secondAttribute="centerY" id="95s-EN-AZG"/>
+                                    <constraint firstItem="eXh-6g-xch" firstAttribute="leading" secondItem="bMP-BH-Zf8" secondAttribute="trailing" constant="12" id="9gL-5D-Nk2"/>
                                     <constraint firstAttribute="height" constant="40" id="BbX-tY-6uc"/>
+                                    <constraint firstItem="YfX-f8-erk" firstAttribute="leading" secondItem="4Vv-NC-NFe" secondAttribute="leading" constant="380" id="Ehu-Ol-aW1"/>
                                     <constraint firstItem="Th7-pW-7GQ" firstAttribute="leading" secondItem="bMP-BH-Zf8" secondAttribute="trailing" constant="12" id="IIu-xv-lf7"/>
+                                    <constraint firstItem="L2A-X8-VOY" firstAttribute="height" secondItem="4Vv-NC-NFe" secondAttribute="height" id="J0G-CG-n8b"/>
                                     <constraint firstItem="9gC-Uz-1jb" firstAttribute="centerY" secondItem="4Vv-NC-NFe" secondAttribute="centerY" id="Rt5-79-NqA"/>
+                                    <constraint firstItem="eXh-6g-xch" firstAttribute="centerY" secondItem="4Vv-NC-NFe" secondAttribute="centerY" constant="1" id="T91-yB-uqg"/>
+                                    <constraint firstItem="Y6I-ey-Dan" firstAttribute="leading" secondItem="eXh-6g-xch" secondAttribute="trailing" constant="53" id="WER-nt-jbD"/>
+                                    <constraint firstAttribute="trailing" secondItem="L2A-X8-VOY" secondAttribute="trailing" id="bHu-LQ-x7d"/>
                                     <constraint firstItem="Th7-pW-7GQ" firstAttribute="centerY" secondItem="4Vv-NC-NFe" secondAttribute="centerY" id="pDA-Ve-yuf"/>
                                     <constraint firstAttribute="trailing" secondItem="uVk-fk-LCf" secondAttribute="trailing" constant="9" id="prP-nt-irT"/>
+                                    <constraint firstItem="L2A-X8-VOY" firstAttribute="centerY" secondItem="4Vv-NC-NFe" secondAttribute="centerY" id="q4N-ae-JjE"/>
                                     <constraint firstItem="ahc-1z-UtG" firstAttribute="leading" secondItem="Th7-pW-7GQ" secondAttribute="trailing" priority="500" constant="20" id="sqq-em-rPT"/>
                                     <constraint firstItem="bMP-BH-Zf8" firstAttribute="centerY" secondItem="4Vv-NC-NFe" secondAttribute="centerY" id="vpP-Wd-cgN"/>
                                     <constraint firstItem="uVk-fk-LCf" firstAttribute="centerY" secondItem="4Vv-NC-NFe" secondAttribute="centerY" id="xjj-EM-rSq"/>
+                                    <constraint firstItem="YfX-f8-erk" firstAttribute="centerY" secondItem="4Vv-NC-NFe" secondAttribute="centerY" id="yqU-gr-4tM"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sf1-Gk-eGd">
@@ -542,12 +582,26 @@
                         <outlet property="keyBoardView" destination="4Vv-NC-NFe" id="waG-NT-Axh"/>
                         <outlet property="keyboardBottomAnchot" destination="Zwf-UR-dNY" id="Wa7-Ca-xxe"/>
                         <outlet property="micButton" destination="9gC-Uz-1jb" id="Tgd-Ph-dGj"/>
-                        <outlet property="plusButton" destination="Rt5-79-NqA" id="hDR-yT-Zqh"/>
+                        <outlet property="micLeftAnchor" destination="Ehu-Ol-aW1" id="w7Q-jL-KuW"/>
+                        <outlet property="plusButton" destination="bMP-BH-Zf8" id="6oL-aI-LKT"/>
+                        <outlet property="redMic" destination="YfX-f8-erk" id="3eM-oI-9BS"/>
                         <outlet property="sendButton" destination="uVk-fk-LCf" id="kMK-eC-tJc"/>
+                        <outlet property="stc" destination="Y6I-ey-Dan" id="6Wv-YJ-eyf"/>
                         <outlet property="textfieldRightConstraint" destination="4NL-fE-mfu" id="D8C-kl-Zza"/>
+                        <outlet property="timeLabel" destination="eXh-6g-xch" id="Xng-yt-hoL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XaX-CX-cGC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="EdJ-C7-ijl">
+                    <connections>
+                        <action selector="micLongPress:" destination="W3r-9y-3OG" id="Gjh-nq-TQU"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="uLC-CA-QzF">
+                    <connections>
+                        <action selector="micSwipe:" destination="W3r-9y-3OG" id="CzN-Qf-FUw"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4757.971014492754" y="1596.4285714285713"/>
         </scene>
@@ -1044,6 +1098,21 @@
             </objects>
             <point key="canvasLocation" x="358" y="133"/>
         </scene>
+        <!--Idk View Controller-->
+        <scene sceneID="w4w-uW-ubs">
+            <objects>
+                <viewController id="QcK-vi-br5" customClass="idkViewController" customModule="Chat_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ErN-wx-oul">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="5mk-w7-SFH"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K9z-fm-3q5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="263" y="979"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="u3B-Qd-yBo">
             <objects>
@@ -1130,13 +1199,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Calls" id="oBh-Ic-EP2">
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="edit" id="JI5-1O-8an"/>
-                        <barButtonItem key="rightBarButtonItem" image="phone.badge.plus" catalog="system" style="plain" id="BN0-90-80m">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aLJ-wd-kDa">
-                                <rect key="frame" x="302" y="7" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Hn-BW-G2d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1195,12 +1257,13 @@
         <image name="chats_tab" width="31" height="23"/>
         <image name="chats_tab_complete" width="31" height="23"/>
         <image name="mic" width="252" height="379"/>
-        <image name="phone.badge.plus" catalog="system" width="128" height="118"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="red mic" width="18" height="27"/>
         <image name="send" width="177" height="177"/>
         <image name="settings_tab" width="27" height="27"/>
         <image name="settings_tab_complete" width="27" height="27"/>
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>
+        <image name="stc" width="124" height="16"/>
         <image name="whatsapp" width="760" height="1396"/>
         <namedColor name="TextField">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -18,12 +18,23 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     @IBOutlet var textfieldRightConstraint: NSLayoutConstraint!
     @IBOutlet var keyboardBottomAnchot: NSLayoutConstraint!
     @IBOutlet var keyBoardView: UIView!
-    @IBOutlet weak var plusButton: NSLayoutConstraint!
+    @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var micButton: UIButton!
     @IBOutlet weak var chatTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet var micLeftAnchor: NSLayoutConstraint!
+    
+    
+    @IBOutlet var redMic: UIImageView!
+    
+    
+    @IBOutlet var timeLabel: UILabel!
+    
+    @IBOutlet var stc: UIImageView!
+    
     
     
     //MARK:- Variables
@@ -36,6 +47,9 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
       //VideoPlayer
       var playerLayer : AVPlayerLayer?
       var player : AVPlayer?
+    
+    var timer: Timer?
+     var duration: CGFloat = 0
       
     
       var messages = [Message]()
@@ -47,6 +61,10 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 observeMessages()
             }
         }
+    
+     var swipe = UIGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
+    
+    
 
     //MARK:- Activity Indicator
     var activityIndicatorView : UIActivityIndicatorView{
@@ -62,9 +80,16 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     override func viewDidLoad() {
             super.viewDidLoad()
             initialSetup()
-        }
+
+        stc.isHidden = true
+        timeLabel.alpha = 0
+        
+        redMic.alpha = 0
+    }
     
     func initialSetup(){
+        
+       
         
         //Title
         self.navigationItem.largeTitleDisplayMode = .never
@@ -96,9 +121,56 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         @IBAction func micClicked(_ sender: Any) {
         }
+    
+    
+    @IBAction func micLongPress(_ sender: UILongPressGestureRecognizer) {
+            sender.minimumPressDuration = 0.5
+            if sender.state == .began
+            {
+                print("began")
+                onStart()
+            }
+            if sender.state == .ended {
+                print("ended")
+                //Send recording
+                onEnd()
+            }
+            if sender.state == .changed{
+                //trash animation
+            
+            }
+    }
+    
+    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizer.Direction.left:
+                print("Swiped left")
+                //onEnd()
+            default:
+                break
+            }
+        }
+    }
+    
+    @IBAction func touchOutmic(_ sender: Any) {
+        print("")
+    }
+    
+    
+    
+    @IBAction func micSwipe(_ sender: UISwipeGestureRecognizer) {
+        print("swipe")
+    }
+    
+    
+    
+    
+    
+    
+    
         
-        
-        @IBAction func sendClicked(_ sender: Any) {
+    @IBAction func sendClicked(_ sender: Any) {
            sendData()
             self.curveAnimation(button: self.cameraButton, animationOptions: .curveEaseIn, x: 0, bool: true)
             self.curveAnimation(button: self.micButton, animationOptions: .curveEaseIn, x: 0, bool: true)

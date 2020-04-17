@@ -46,6 +46,10 @@
 		5B97F7B12439A88700ACF83D /* File in Resources */ = {isa = PBXBuildFile; fileRef = 5B97F7B02439A88700ACF83D /* File */; };
 		5B97F7B32439A90700ACF83D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7B22439A90700ACF83D /* ImagePicker.swift */; };
 		5B97F7B5243A041600ACF83D /* ChatLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7B4243A041600ACF83D /* ChatLogViewController.swift */; };
+		5BAD970424482DE100D280F1 /* Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD970324482DE100D280F1 /* Gestures.swift */; };
+		5BAD972F2448B86000D280F1 /* databaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD972E2448B86000D280F1 /* databaseManager.swift */; };
+		5BAD97312448B8E300D280F1 /* idkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD97302448B8E300D280F1 /* idkViewController.swift */; };
+		5BD73A43244961B300C42EA9 /* recording+animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD73A42244961B300C42EA9 /* recording+animation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +95,10 @@
 		5B97F7B02439A88700ACF83D /* File */ = {isa = PBXFileReference; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 		5B97F7B22439A90700ACF83D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		5B97F7B4243A041600ACF83D /* ChatLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewController.swift; sourceTree = "<group>"; };
+		5BAD970324482DE100D280F1 /* Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gestures.swift; sourceTree = "<group>"; };
+		5BAD972E2448B86000D280F1 /* databaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = databaseManager.swift; sourceTree = "<group>"; };
+		5BAD97302448B8E300D280F1 /* idkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = idkViewController.swift; sourceTree = "<group>"; };
+		5BD73A42244961B300C42EA9 /* recording+animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "recording+animation.swift"; sourceTree = "<group>"; };
 		A7ADEA28FA161DA7BA3FE40E /* Pods-Chat-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat-App.release.xcconfig"; path = "Target Support Files/Pods-Chat-App/Pods-Chat-App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +133,7 @@
 				5B71E97F24474B2F0036FB03 /* Setup Cells.swift */,
 				5B71E981244750C90036FB03 /* VideoPlayer.swift */,
 				5B71E985244755910036FB03 /* CollectionView.swift */,
+				5BD73A42244961B300C42EA9 /* recording+animation.swift */,
 			);
 			path = ChatLogVC;
 			sourceTree = "<group>";
@@ -132,6 +141,8 @@
 		5B97F779243878C000ACF83D = {
 			isa = PBXGroup;
 			children = (
+				5BAD97302448B8E300D280F1 /* idkViewController.swift */,
+				5BAD972E2448B86000D280F1 /* databaseManager.swift */,
 				5B97F7B02439A88700ACF83D /* File */,
 				5B97F784243878C000ACF83D /* Chat-App */,
 				5B97F783243878C000ACF83D /* Products */,
@@ -214,6 +225,7 @@
 				5B5E18A2243EFD2C0081B407 /* Chat+Plus+Button.swift */,
 				5B29B6482442440700CD3FDD /* DeleteLater.swift */,
 				5B29B64A2442DA2800CD3FDD /* Keyboard+Hide.swift */,
+				5BAD970324482DE100D280F1 /* Gestures.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -354,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BD73A43244961B300C42EA9 /* recording+animation.swift in Sources */,
 				5B71E98024474B2F0036FB03 /* Setup Cells.swift in Sources */,
 				5B97F78A243878C000ACF83D /* ViewController.swift in Sources */,
 				5B71E986244755910036FB03 /* CollectionView.swift in Sources */,
@@ -367,6 +380,7 @@
 				5B97F7A92439087800ACF83D /* NewChatsViewController.swift in Sources */,
 				5B97F786243878C000ACF83D /* AppDelegate.swift in Sources */,
 				5B97F7B5243A041600ACF83D /* ChatLogViewController.swift in Sources */,
+				5BAD97312448B8E300D280F1 /* idkViewController.swift in Sources */,
 				5B804B132445B12600478F87 /* ChatLogVideoCollectionViewCell.swift in Sources */,
 				5B29B64E24435BCA00CD3FDD /* ChatLogImageCollectionViewCell.swift in Sources */,
 				5B97F7A72438F41500ACF83D /* ChatsViewController.swift in Sources */,
@@ -377,10 +391,12 @@
 				5B97F7AF2439A04C00ACF83D /* SetupProfileViewController.swift in Sources */,
 				5B97F79D24387A8800ACF83D /* LoginViewController.swift in Sources */,
 				5B71E97E244746E20036FB03 /* DatabaseManager.swift in Sources */,
+				5BAD972F2448B86000D280F1 /* databaseManager.swift in Sources */,
 				5B71E97A2447438B0036FB03 /* TitleViewSetup.swift in Sources */,
 				5B97F7B32439A90700ACF83D /* ImagePicker.swift in Sources */,
 				5B97F7AD2439109800ACF83D /* User.swift in Sources */,
 				5B97F788243878C000ACF83D /* SceneDelegate.swift in Sources */,
+				5BAD970424482DE100D280F1 /* Gestures.swift in Sources */,
 				5B71E982244750C90036FB03 /* VideoPlayer.swift in Sources */,
 				5B880EAB243A677800EDFBE3 /* Message.swift in Sources */,
 				5B5E18C5244059C90081B407 /* PhoneAuthViewController.swift in Sources */,
