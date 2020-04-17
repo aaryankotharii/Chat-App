@@ -35,7 +35,6 @@
 		5B97F790243878C000ACF83D /* Chat_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F78E243878C000ACF83D /* Chat_App.xcdatamodeld */; };
 		5B97F792243878C500ACF83D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B97F791243878C500ACF83D /* Assets.xcassets */; };
 		5B97F795243878C500ACF83D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B97F793243878C500ACF83D /* LaunchScreen.storyboard */; };
-		5B97F79D24387A8800ACF83D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F79C24387A8800ACF83D /* LoginViewController.swift */; };
 		5B97F7A324387C6C00ACF83D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7A224387C6C00ACF83D /* Extensions.swift */; };
 		5B97F7A52438CACC00ACF83D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B97F7A42438CACC00ACF83D /* GoogleService-Info.plist */; };
 		5B97F7A72438F41500ACF83D /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7A62438F41500ACF83D /* ChatsViewController.swift */; };
@@ -84,7 +83,6 @@
 		5B97F791243878C500ACF83D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B97F794243878C500ACF83D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B97F796243878C500ACF83D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B97F79C24387A8800ACF83D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5B97F7A224387C6C00ACF83D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5B97F7A42438CACC00ACF83D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B97F7A62438F41500ACF83D /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
@@ -187,7 +185,6 @@
 				5B5E18C82441001D0081B407 /* countriesViewController.swift */,
 				5B29B6462442101A00CD3FDD /* OTPViewController.swift */,
 				5B97F7AE2439A04C00ACF83D /* SetupProfileViewController.swift */,
-				5B97F79C24387A8800ACF83D /* LoginViewController.swift */,
 				5B97F7A62438F41500ACF83D /* ChatsViewController.swift */,
 				5B97F7A82439087800ACF83D /* NewChatsViewController.swift */,
 				5B71E978244743760036FB03 /* ChatLogVC */,
@@ -389,7 +386,6 @@
 				5B29B6472442101A00CD3FDD /* OTPViewController.swift in Sources */,
 				5B29B64B2442DA2800CD3FDD /* Keyboard+Hide.swift in Sources */,
 				5B97F7AF2439A04C00ACF83D /* SetupProfileViewController.swift in Sources */,
-				5B97F79D24387A8800ACF83D /* LoginViewController.swift in Sources */,
 				5B71E97E244746E20036FB03 /* DatabaseManager.swift in Sources */,
 				5BAD972F2448B86000D280F1 /* databaseManager.swift in Sources */,
 				5B71E97A2447438B0036FB03 /* TitleViewSetup.swift in Sources */,

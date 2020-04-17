@@ -117,9 +117,9 @@ class SetupProfileViewController: UIViewController {
         }
     }
     
-    func goToViewController(){
-             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "ChatsViewController")
+     func goToViewController(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "tabbar")
         self.present(controller, animated: true, completion: nil)
         }
 }

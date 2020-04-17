@@ -69,6 +69,7 @@ class OTPViewController: UIViewController {
                 else{
                     if let uid = result?.user.uid{
                     let existingUser = self.checkExistingUser(uid)
+                    print("existing user",existingUser)
                     existingUser ? self.goToViewController() : self.segue()
                     }
                 }
@@ -86,7 +87,6 @@ class OTPViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "tabbar")
         self.present(controller, animated: true, completion: nil)
-
         }
     
     func checkExistingUser(_ uid : String) -> Bool{

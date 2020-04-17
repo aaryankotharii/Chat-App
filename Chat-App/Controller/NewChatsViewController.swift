@@ -90,7 +90,9 @@ class NewChatsViewController: UIViewController, UITableViewDataSource, UITableVi
         let user = users[indexPath.row]
         
         vc!.user = user
-        
+        print(self.presentingViewController)
+        print(self.presentedViewController)
+        print(self.chatsViewController?.timer)
         self.dismiss(animated: false, completion: { () -> Void   in
             print("dissmiss")
         })
