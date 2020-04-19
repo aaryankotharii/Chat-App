@@ -10,32 +10,33 @@ import UIKit
 
 
 
-class countriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate {
+class countriesViewController: UIViewController, UISearchControllerDelegate {
 
     
  
 
-    let search = UISearchController(searchResultsController: nil)           // Declare the searchController
-
-    var searchResults = [String:String]()
+    //MARK:- Outlets + Variables
     
     @IBOutlet var tableView: UITableView!
     
-    var mainViewController:PhoneAuthViewController?
+    var mainViewController:PhoneAuthViewController?  // to Send Data backwards
+    
+    let search = UISearchController(searchResultsController: nil)    // Declare the searchController
+    
+    var searchResults = [String:String]()  // Filter for searhc
 
+    
+    //MARK:- ViewDidLoad + initial Setup
     override func viewDidLoad() {
-           self.navigationItem.searchController = search
-        
-       // search.searchResultsUpdater = self
-
+        self.navigationItem.searchController = search
         search.delegate = self
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-    
-    
-    
+}
+
+
+//MARK:- CountriesVC TableView Delegate Methods
+extension countriesViewController :  UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contries.count
      }
@@ -65,5 +66,4 @@ class countriesViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
     }
-    
 }

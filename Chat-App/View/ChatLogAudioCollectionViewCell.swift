@@ -11,22 +11,17 @@ import AVFoundation
 
 class ChatLogAudioCollectionViewCell: UICollectionViewCell {
     
-    var message : Message?
         
-    
+    /// - This cell if for Audio Messages
+
     @IBOutlet var bubbleLeftAnchor: NSLayoutConstraint!
-    
     @IBOutlet var bubbleRightAnchor: NSLayoutConstraint!
-    
-    
     @IBOutlet var bubbleWidthAnchor: NSLayoutConstraint!
-    
-    
-    
     @IBOutlet var imageView: UIImageView!
-    
     @IBOutlet var chatBubble: UIView!
     
+    var message : Message?
+
     func handleAudio(){
         if let audioUrl = message?.audioUrl, let url = URL(string: audioUrl){
            let player = AVPlayer(url: url)
@@ -34,8 +29,7 @@ class ChatLogAudioCollectionViewCell: UICollectionViewCell {
             playerLayer.frame = chatBubble.bounds
             chatBubble.layer.addSublayer(playerLayer)
             player.play()
-            print("playing")
+            print("playing Audio (cell function)")
         }
     }
-
 }

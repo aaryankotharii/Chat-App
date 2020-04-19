@@ -26,7 +26,7 @@ extension ChatLogViewController{
         
          messagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
             
-             guard let dictionary = snapshot.value as?[String:AnyObject] else { return }
+        guard let dictionary = snapshot.value as?[String:AnyObject] else { return }
              
             
             //MARK:- Create Message

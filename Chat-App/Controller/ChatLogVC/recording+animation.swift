@@ -107,7 +107,7 @@ extension ChatLogViewController : AVAudioRecorderDelegate {
     }
     
     func startRecording() {
-        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
+        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.mp3")
 
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -136,7 +136,7 @@ extension ChatLogViewController : AVAudioRecorderDelegate {
     }
     
     func uploadAudio(){
-        let path = getDocumentsDirectory().appendingPathComponent("recording.m4a")
+        let path = getDocumentsDirectory().appendingPathComponent("recording.mp3")
         self.uploadToFirebaseStorageUsingAudio(path)
     }
     
@@ -159,7 +159,7 @@ extension ChatLogViewController : AVAudioRecorderDelegate {
             
             audioPlayer =  AVPlayer(url: url)
             audioPlayer.play()
-
         }
     }
+    
 }

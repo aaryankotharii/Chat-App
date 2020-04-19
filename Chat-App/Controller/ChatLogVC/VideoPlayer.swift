@@ -10,6 +10,7 @@ import Foundation
 import AVFoundation
 
 extension ChatLogViewController {
+    //MARK:- Play Video
     func handlePlay(message: Message?){
             if let videoUrl = message?.videoUrl, let url = URL(string: videoUrl){
               player = AVPlayer(url: url)
@@ -21,6 +22,7 @@ extension ChatLogViewController {
             }
         }
     
+    //MARK:- Play Audio
     func handleAudio(message: Message?){
         if let audioUrl = message?.audioUrl, let url = URL(string: audioUrl){
            let player = AVPlayer(url: url)

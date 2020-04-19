@@ -11,6 +11,7 @@ import UIKit
 
 extension ChatLogViewController {
     
+    
     //MARK:- Adding Custom Title View
     func setNavBarTitle(user: User){
         
@@ -18,7 +19,6 @@ extension ChatLogViewController {
         titleview.frame = CGRect(x: 0, y: 0, width: 300, height: 36)
         
         //Setup Profile Picture
-        let profileImageView = UIImageView()
         profileImageView.backgroundColor = .black
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
         profileImageView.layer.cornerRadius = 18
@@ -56,6 +56,6 @@ extension ChatLogViewController {
     
     //MARK:- NavBar Tap function
     @objc func didTapNavBar() {
-        print("user did tap navigation bar")
+        self.performZoom(startingImageView: profileImageView)
     }
 }

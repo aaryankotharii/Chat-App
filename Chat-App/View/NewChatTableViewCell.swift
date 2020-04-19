@@ -10,14 +10,11 @@ import UIKit
 
 class NewChatTableViewCell: UITableViewCell {
 
-    
+    //MARK:- Cell Outlets
     @IBOutlet weak var profileImageView: UIImageView!
-    
-    
     @IBOutlet weak var nameLabel: UILabel!
-    
-    
     @IBOutlet weak var statusLabel: UILabel!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,8 +23,6 @@ class NewChatTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
-
 }

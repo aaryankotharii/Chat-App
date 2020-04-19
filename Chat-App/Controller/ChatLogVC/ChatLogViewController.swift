@@ -24,21 +24,15 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     @IBOutlet weak var chatTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet var tempView: UIView!
     @IBOutlet var micLeftAnchor: NSLayoutConstraint!
-    
-    
     @IBOutlet var redMic: UIImageView!
-    
-    
     @IBOutlet var timeLabel: UILabel!
-    
     @IBOutlet var stc: UIImageView!
     
     
     
-    //MARK:- Variables
+      //MARK:- Variables
     
       //ImageView
       var startingImageFrame : CGRect?
@@ -49,17 +43,18 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
       var playerLayer : AVPlayerLayer?
       var player : AVPlayer?
     
-    var recordingSession : AVAudioSession!
-    var audioRecorder : AVAudioRecorder!
-    var audioPlayer : AVPlayer!
+      //audioPlayer
+      var recordingSession : AVAudioSession!
+      var audioRecorder : AVAudioRecorder!
+      var audioPlayer : AVPlayer!
     
-    var timer: Timer?
-     var duration: CGFloat = 0
+      //Timer
+      var timer: Timer?
+      var duration: CGFloat = 0
       
     
       var messages = [Message]()
 
-    
       var user : User? {
             didSet{
                 setNavBarTitle(user: user!)
@@ -67,6 +62,10 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             }
         }
     
+    //TitleBar UI
+     let profileImageView = UIImageView()
+
+    //swipe gesture
      var swipe = UIGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
     
     
@@ -83,29 +82,11 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
 
     //MARK:- ViewDidLoad + InitialSetup
     override func viewDidLoad() {
-            super.viewDidLoad()
-            initialSetup()
-
-        stc.isHidden = true
-        timeLabel.alpha = 0
-        
-        tempView.isHidden = true
-        
-        redMic.alpha = 0
-        
-        //setting up session
-        recordingSession = AVAudioSession.sharedInstance()
-        
-        AVAudioSession.sharedInstance().requestRecordPermission { (hasPermission) in
-            if hasPermission{
-                print("mic permission granted")
-            }
-        }
+        super.viewDidLoad()
+        initialSetup()
     }
     
     func initialSetup(){
-        
-       
         
         //Title
         self.navigationItem.largeTitleDisplayMode = .never
@@ -123,6 +104,19 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         //Collectionview
         collectionView.alwaysBounceVertical=true
         collectionView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 7, right: 0)
+        
+        //setup recording ui
+        stc.isHidden = true
+        timeLabel.alpha = 0
+        tempView.isHidden = true
+        redMic.alpha = 0
+        
+        //setting up recording session
+        recordingSession = AVAudioSession.sharedInstance()
+        
+        AVAudioSession.sharedInstance().requestRecordPermission { (hasPermission) in
+            if hasPermission{ print("mic permission granted") }
+        }
     }
 
         //MARK:- Button Action Outlets
@@ -136,6 +130,7 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         
         @IBAction func micClicked(_ sender: Any) {
+            
         }
     
     
@@ -143,7 +138,7 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             sender.minimumPressDuration = 0.5
             if sender.state == .began
             {
-                print("began")
+                print("recording began")
                 onStart()
             }
             if sender.state == .ended {
@@ -153,7 +148,6 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             }
             if sender.state == .changed{
                 //trash animation
-            
             }
     }
     
@@ -170,20 +164,13 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     }
     
     @IBAction func touchOutmic(_ sender: Any) {
-        print("")
+        print("touch out mic")
     }
-    
     
     
     @IBAction func micSwipe(_ sender: UISwipeGestureRecognizer) {
         print("swipe")
     }
-    
-    
-    
-    
-    
-    
     
         
     @IBAction func sendClicked(_ sender: Any) {

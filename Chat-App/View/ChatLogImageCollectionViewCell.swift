@@ -11,21 +11,17 @@ import AVFoundation
 
 class ChatLogImageCollectionViewCell: UICollectionViewCell {
     
-    var message : Message?
+    /// - This cell if for Images And Videos
     
     @IBOutlet var bubbleLeftAnchor: NSLayoutConstraint!
-    
-    
     @IBOutlet var bubbleRightAnchor: NSLayoutConstraint!
-    
     @IBOutlet var chatBubble: UIView!
-    
     @IBOutlet var imageView: UIImageView!
-    
     @IBOutlet var playButton: UIImageView!
-    
     @IBOutlet var bubbleWidthAnchor: NSLayoutConstraint!
     
+    var message : Message?
+
     func handlePlay(view: UIView){
         if let videoUrl = message?.videoUrl, let url = URL(string: videoUrl){
            let player = AVPlayer(url: url)

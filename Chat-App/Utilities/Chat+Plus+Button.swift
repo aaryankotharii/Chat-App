@@ -171,7 +171,7 @@ extension ChatLogViewController {
     }
     
     func uploadToFirebaseStorageUsingAudio(_ url : URL){
-        let fileName = NSUUID().uuidString + ".m4a"
+        let fileName = NSUUID().uuidString + ".mp3"
         let audioRef = Storage.storage().reference().child("messages_audio").child(fileName)
         
         let audioData: Data = try! Data(contentsOf: url)

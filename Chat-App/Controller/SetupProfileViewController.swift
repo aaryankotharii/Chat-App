@@ -13,25 +13,25 @@ import FirebaseStorage
 
 class SetupProfileViewController: UIViewController {
     
-    
-    
+    //MARK:- Outlets
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet var countLabel: UILabel!
     
     var phone : String?
 
+    
+    //Initial Setup
     override func viewDidLoad() {
-        
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.hideKeyboardWhenTappedAround()
         setUpBorders()
         super.viewDidLoad()
-
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handSelectProfileImageView)))
-        // Do any additional setup after loading the view.
     }
     
+    
+    //MARK:- TextField Setup
     func setUpBorders(){
         let width = nameTextField.frame.width
         let bottomBorder = CALayer()
@@ -54,6 +54,7 @@ class SetupProfileViewController: UIViewController {
         self.handSelectProfileImageView()
     }
     
+    //MARK:- Keep character count
     @IBAction func addingName(_ sender: UITextField) {
         if let text = sender.text {
         let count = text.count
@@ -64,6 +65,8 @@ class SetupProfileViewController: UIViewController {
     }
     }
     
+    
+    //MARK:- *** Create New Profile ***
     func createProfile(){
         
         guard let uid = Auth.auth().currentUser?.uid else { return }
@@ -74,20 +77,18 @@ class SetupProfileViewController: UIViewController {
         
         let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).jpg")
         
-        
-        if let profileImage = self.profileImageView.image, let uploadData = profileImage.jpegData(compressionQuality: 0.2){
-        
-        //if let uploadData = self.profileImageView.image!.pngData(){
+        if let profileImage = self.profileImageView.image,
             
-            storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
-                if error != nil {
-                    print(error?.localizedDescription ?? "error uploadign image")
-                    return
-                }
-                else{
+            let uploadData = profileImage.jpegData(compressionQuality: 0.2){
+                    
+                storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    } else {
+                        
                     storageRef.downloadURL { (url, error) in
-                        if error != nil {
-                            print(error?.localizedDescription ?? "")
+                        if let error = error {
+                            print(error.localizedDescription)
                         }else{
                             let values = ["name": name, "phone": self.phone, "profileImageUrl": url?.absoluteString ?? ""]
                             self.registerUserIntoDataBasewithUID(uid: uid, values: values as [String : Any])
@@ -100,7 +101,6 @@ class SetupProfileViewController: UIViewController {
     
     
     private func registerUserIntoDataBasewithUID(uid : String, values : [String:Any]){
-        //let ref = Database.database().reference(fromURL: "https://chat-app-ae81b.firebaseio.com/")
         
         let ref = Database.database().reference()
                     
@@ -111,12 +111,13 @@ class SetupProfileViewController: UIViewController {
                   print(error.localizedDescription)
               }
               else{
-                print("User saved into database")
+                print("User saved into database YAYAYAYAYY")
                 self.goToViewController()
               }
         }
     }
     
+    //GOTO TabbarVC
      func goToViewController(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "tabbar")

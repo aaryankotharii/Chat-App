@@ -26,14 +26,10 @@ class ChatsTableViewCell: UITableViewCell {
         }else{
                 self.lastMessageLabel.text =  message?.text
             }
-            
             if let seconds = message?.timestamp?.doubleValue {
             let timestampDate = NSDate(timeIntervalSince1970: seconds)
-                
                 let dateFormatter = DateFormatter()
-                
                 dateFormatter.dateFormat = "hh:mm"
-                
                 self.timeLabel.text = dateFormatter.string(from: timestampDate as Date)
                 
             }
@@ -42,9 +38,6 @@ class ChatsTableViewCell: UITableViewCell {
     
     
     private func setupNameAndProfileImage(){
-        
-     
-        
         if let id = message?.chatPatnerId() {
             let ref = Database.database().reference().child("users").child(id)
             ref.observe(.value, with: { (snapshot) in
@@ -60,11 +53,10 @@ class ChatsTableViewCell: UITableViewCell {
     }
     
     
-    
+    //MARK:- Cell Outlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var lastMessageLabel: UILabel!
-    
     @IBOutlet weak var timeLabel: UILabel!
     
     
@@ -75,8 +67,6 @@ class ChatsTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
-
 }

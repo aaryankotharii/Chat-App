@@ -12,28 +12,40 @@ import FirebaseDatabase
 
 class OTPViewController: UIViewController {
 
+    //Variables
     var id : String?
     var phone : String?
     var users = [String]()
     
+    //OUTlets
     @IBOutlet var otpTextField: UITextField!
-    
     @IBOutlet var otpLabel: UILabel!
     
     
+    ///TODO:- make user checking more efficient
+    
     override func viewDidLoad() {
-        
-        self.otpTextField.becomeFirstResponder()
-        let ref = Database.database().reference().child("users")
-            ref.observe(.childAdded, with: { (snapshot) in
-            print(snapshot.key,"snapshotkey")
-                self.users.append(snapshot.key)
-            }, withCancel: nil)
         super.viewDidLoad()
-        otpTextField.tintColor = .clear
-        // Do any additional setup after loading the view.
+        initialSetup()
     }
     
+    func initialSetup(){
+        //Brings up permanent keyboard
+        self.otpTextField.becomeFirstResponder()
+        
+        //removes textfield cursor
+        otpTextField.tintColor = .clear
+        
+        //Check for user
+        let ref = Database.database().reference().child("users")
+        ref.observe(.childAdded, with: { (snapshot) in
+        print(snapshot.key,"snapshotkey")
+            self.users.append(snapshot.key)
+        }, withCancel: nil)
+    }
+    
+    
+    //MARK:- OTP TextField UI Setup
     @IBAction func otp(_ sender: UITextField) {
         var last = ""
         if let text = sender.text {
@@ -54,6 +66,7 @@ class OTPViewController: UIViewController {
             }
         }
         
+        //MARK:- Initiate Sign in as soon as textfield full
         if sender.text?.count == 6{
             otpTextField.isEnabled = false
             let credential = PhoneAuthProvider.provider().credential(withVerificationID: id!, verificationCode: otpTextField.text!)
@@ -77,18 +90,22 @@ class OTPViewController: UIViewController {
         }
     }
     
+    //MARK:- Segue for New Users
     func segue(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "SetupProfileViewController") as SetupProfileViewController
         vc.phone = self.phone
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    //MARK:- Segue for existing Users
     func goToViewController(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "tabbar")
         self.present(controller, animated: true, completion: nil)
         }
     
+    //function name is enough desxription
     func checkExistingUser(_ uid : String) -> Bool{
         if users.contains(uid) {
              return true
@@ -96,21 +113,11 @@ class OTPViewController: UIViewController {
         return false
     }
     
+    //Reset TextField after wrong OTP or networking error
     func resetLabels(){
         for i in 1...6{
             let label : UILabel = self.view.viewWithTag(i) as! UILabel
             label.text = "﹣"
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
