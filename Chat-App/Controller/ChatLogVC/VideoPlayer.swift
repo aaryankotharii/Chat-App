@@ -20,4 +20,15 @@ extension ChatLogViewController {
                 print("playing")
             }
         }
+    
+    func handleAudio(message: Message?){
+        if let audioUrl = message?.audioUrl, let url = URL(string: audioUrl){
+           let player = AVPlayer(url: url)
+            let playerLayer = AVPlayerLayer(player: player)
+            playerLayer.frame = view.bounds
+            view.layer.addSublayer(playerLayer)
+            player.play()
+            print("playing Audio")
+        }
+    }
 }

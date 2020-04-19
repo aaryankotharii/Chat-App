@@ -28,11 +28,10 @@ extension ChatLogViewController {
         }
     }
     
-    @objc func handleAudioTap(tapGesture: MyTapGesture){
+    @objc func handleAudioTap(tapGesture: audioTapGesture){
             print("AudioTapped")
             if let message = tapGesture.message{
-           self.playAudio(message: message)
-             //   self.handlePlay(message: message)
+                self.handleAudio(message: message)
             }
     }
     

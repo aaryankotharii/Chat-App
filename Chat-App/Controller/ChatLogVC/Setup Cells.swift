@@ -58,6 +58,30 @@ extension ChatLogViewController {
                   }
        }
     
+    //MARK:- Media Audio Cell
+     func setupAudioCell(cell : ChatLogAudioCollectionViewCell, message : Message){
+        cell.message = message
+        if let audioUrl = message.audioUrl {
+            //MARK:- Video Cell
+           if message.videoUrl != nil{
+               let tapped = audioTapGesture.init(target: self, action: #selector(handleAudioTap))
+               tapped.message = message
+               cell.imageView.addGestureRecognizer(tapped)
+           }
+        }
+           if message.fromId == Auth.auth().currentUser?.uid {
+                      //green Cell
+               cell.chatBubble.backgroundColor = UIColor(named: "tochatcolor")
+               cell.bubbleLeftAnchor.isActive = false
+               cell.bubbleRightAnchor.isActive = true
+                  }else {
+                      //white cell
+               cell.chatBubble.backgroundColor = UIColor(named: "fromchatcolor")
+               cell.bubbleRightAnchor.isActive = false
+               cell.bubbleLeftAnchor.isActive = true
+                  }
+       }
+    
 }
 
 //MARK:- Video Tap Gesture (To pass variable)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1BK-Xg-GNN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d0j-dI-Hsy">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -208,7 +208,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stc" translatesAutoresizingMaskIntoConstraints="NO" id="Y6I-ey-Dan">
-                                        <rect key="frame" x="140" y="9.5" width="126" height="21"/>
+                                        <rect key="frame" x="142" y="9.5" width="126" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="FxW-WI-Rab"/>
                                             <constraint firstAttribute="width" constant="126" id="qeb-kn-xXh"/>
@@ -266,7 +266,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXh-6g-xch">
-                                        <rect key="frame" x="46" y="9" width="41" height="24.5"/>
+                                        <rect key="frame" x="46" y="8.5" width="43" height="25.5"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -448,21 +448,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="327"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1kt-gD-oUz">
-                                                    <rect key="frame" x="71" y="0.0" width="327" height="327"/>
-                                                    <color key="backgroundColor" red="0.84943974020000002" green="1" blue="0.97124296430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="327" id="0gn-9x-zhX"/>
-                                                        <constraint firstAttribute="width" priority="1" constant="327" id="hga-3q-xN3"/>
-                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="327" id="qCY-4b-trh"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="7"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="chat-tip" translatesAutoresizingMaskIntoConstraints="NO" id="loj-Uc-wvT">
                                                     <rect key="frame" x="396" y="262" width="10" height="82"/>
                                                     <constraints>
@@ -470,23 +455,40 @@
                                                         <constraint firstAttribute="height" constant="15" id="eAJ-EG-Btf"/>
                                                     </constraints>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xlM-Ze-sF8">
+                                                    <rect key="frame" x="71" y="0.0" width="327" height="327"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aae-WQ-hxm">
+                                                            <rect key="frame" x="43" y="110" width="240" height="128"/>
+                                                            <color key="backgroundColor" red="0.75686274509999996" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="aae-WQ-hxm" secondAttribute="trailing" constant="44" id="Ua0-Ao-09b"/>
+                                                        <constraint firstItem="aae-WQ-hxm" firstAttribute="leading" secondItem="xlM-Ze-sF8" secondAttribute="leading" constant="43" id="b3Q-Mt-8uz"/>
+                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="327" id="ois-6O-8aG"/>
+                                                        <constraint firstItem="aae-WQ-hxm" firstAttribute="top" secondItem="xlM-Ze-sF8" secondAttribute="top" constant="110" id="qgv-UX-I4w"/>
+                                                        <constraint firstAttribute="bottom" secondItem="aae-WQ-hxm" secondAttribute="bottom" constant="89" id="uiA-dB-4cz"/>
+                                                        <constraint firstAttribute="width" priority="500" constant="327" id="yEu-D3-bXb"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="1kt-gD-oUz" secondAttribute="trailing" constant="16" id="abK-QI-aLp"/>
-                                                <constraint firstItem="1kt-gD-oUz" firstAttribute="top" secondItem="eh3-ch-IaH" secondAttribute="top" id="hMr-QE-cVU"/>
-                                                <constraint firstItem="1kt-gD-oUz" firstAttribute="leading" secondItem="eh3-ch-IaH" secondAttribute="leading" priority="1" constant="16" id="rD4-fw-h1Q"/>
-                                                <constraint firstAttribute="bottom" secondItem="1kt-gD-oUz" secondAttribute="bottom" id="w3s-Zr-jMQ"/>
+                                                <constraint firstItem="xlM-Ze-sF8" firstAttribute="leading" secondItem="eh3-ch-IaH" secondAttribute="leading" priority="1" constant="16" id="Spd-SO-yKY"/>
+                                                <constraint firstItem="xlM-Ze-sF8" firstAttribute="top" secondItem="eh3-ch-IaH" secondAttribute="top" id="cCz-FO-oca"/>
+                                                <constraint firstAttribute="trailing" secondItem="xlM-Ze-sF8" secondAttribute="trailing" constant="16" id="mmg-4B-CKg"/>
+                                                <constraint firstAttribute="bottom" secondItem="xlM-Ze-sF8" secondAttribute="bottom" id="nSj-oD-pRI"/>
                                             </constraints>
-                                            <connections>
-                                                <outlet property="bubbleLeftAnchor" destination="rD4-fw-h1Q" id="IP3-cz-OyI"/>
-                                                <outlet property="bubbleRightAnchor" destination="abK-QI-aLp" id="daY-Jg-eup"/>
-                                                <outlet property="bubbleWidthAnchor" destination="hga-3q-xN3" id="ESD-y7-bir"/>
-                                            </connections>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="414" height="327"/>
                                         <connections>
-                                            <outlet property="chatBubble" destination="1kt-gD-oUz" id="ePG-6R-bvg"/>
+                                            <outlet property="bubbleLeftAnchor" destination="Spd-SO-yKY" id="oSh-bv-fcm"/>
+                                            <outlet property="bubbleRightAnchor" destination="mmg-4B-CKg" id="0IX-vX-XRP"/>
+                                            <outlet property="bubbleWidthAnchor" destination="yEu-D3-bXb" id="wD3-G1-hco"/>
+                                            <outlet property="chatBubble" destination="xlM-Ze-sF8" id="3vF-gs-Gcg"/>
+                                            <outlet property="imageView" destination="aae-WQ-hxm" id="sX2-4F-3wx"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -998,7 +1000,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your name and add an optional profile picture" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAv-kF-WBt">
-                                <rect key="frame" x="100" y="131" width="275.5" height="14"/>
+                                <rect key="frame" x="100" y="131" width="261" height="14.5"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="12"/>
                                 <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.55686274509803924" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
