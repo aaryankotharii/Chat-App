@@ -25,8 +25,6 @@ extension ChatLogViewController {
     //MARK:- Play Audio
     func handleAudio(message: Message?){
         
-       
-        
         if let audioUrl = message?.audioUrl{
             
             self.downloadAndSaveAudioFile(audioUrl){result in
@@ -37,21 +35,25 @@ extension ChatLogViewController {
                 do{
                     self.audioPlayer = try AVAudioPlayer(contentsOf: path!)
                     self.audioPlayer.play()
+                    self.displayLink = CADisplayLink(target: self, selector: #selector(self.updateSliderProgress))
+                    self.displayLink.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
                 }catch{
                     print(error.localizedDescription)
                 }
                 
-                
-//                let player = AVPlayer(url: url)
-//                 let playerLayer = AVPlayerLayer(player: player)
-//                 playerLayer.frame = view.bounds
-//                 view.layer.addSublayer(playerLayer)
-//                 player.play()
-//                 print(player.currentTime())
-//                 print("playing Audio")
             }
-        }
+            }
     }
+    
+    @objc func updateSliderProgress(){
+        var progress = audioPlayer.currentTime / audioPlayer.duration
+        print(progress)
+        if audioPlayer.isPlaying == false {
+            displayLink.invalidate()
+        }
+}
+    
+
     
     func downloadAndSaveAudioFile(_ audioFile: String, completion: @escaping (String) -> ()) {
         
