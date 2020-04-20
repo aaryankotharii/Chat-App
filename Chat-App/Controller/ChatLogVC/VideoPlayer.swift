@@ -32,6 +32,7 @@ extension ChatLogViewController {
             self.downloadAndSaveAudioFile(audioUrl){result in
                 
                 let path = URL(string: result)
+                print("path is ",path)
                 print("playing")
                 do{
                     self.audioPlayer = try AVAudioPlayer(contentsOf: path!)
@@ -77,6 +78,7 @@ extension ChatLogViewController {
             // check if it exists before downloading it
             if FileManager().fileExists(atPath: destinationUrl.path) {
                 print("The file already exists at path")
+                completion(destinationUrl.absoluteString)
             } else {
                 //  if the file doesn't exist
                 //  just download the data from your url

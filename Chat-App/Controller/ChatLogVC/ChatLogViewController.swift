@@ -127,7 +127,15 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         
         @IBAction func cameraClicked(_ sender: Any) {
-            self.cameraTapped()
+            //self.cameraTapped()
+            let path = getDocumentsDirectory().appendingPathComponent("recording.m4a")
+            print("playing")
+            do{
+                audioPlayer = try AVAudioPlayer(contentsOf: path)
+                audioPlayer.play()
+            }catch{
+                print(error.localizedDescription)
+            }
         }
         
         
