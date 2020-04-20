@@ -107,7 +107,8 @@ extension ChatLogViewController : AVAudioRecorderDelegate {
     }
     
     func startRecording() {
-        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.mp3")
+        print("recording started")
+        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
 
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -120,9 +121,11 @@ extension ChatLogViewController : AVAudioRecorderDelegate {
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.delegate = self
             audioRecorder.record()
-
+            print("recording now")
         } catch {
             finishRecording(success: false)
+            print("recording failed")
+            print(error.localizedDescription)
         }
     }
     
@@ -136,9 +139,10 @@ extension ChatLogViewController : AVAudioRecorderDelegate {
     }
     
     func uploadAudio(){
-        let path = getDocumentsDirectory().appendingPathComponent("recording.mp3")
+        let path = getDocumentsDirectory().appendingPathComponent("recording.m4a")
         self.uploadToFirebaseStorageUsingAudio(path)
     }
+    
     
     func getDocumentsDirectory() -> URL {
          let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -151,15 +155,15 @@ extension ChatLogViewController : AVAudioRecorderDelegate {
         }
     }
     
-    func playAudio(message: Message){
-        print("message is",message)
-        if let audioUrl = message.audioUrl, let url = URL(string: audioUrl){
-            print("Url is",audioUrl)
-            print("playing")
-            
-            audioPlayer =  AVPlayer(url: url)
-            audioPlayer.play()
-        }
-    }
+//    func playAudio(message: Message){
+//        print("message is",message)
+//        if let audioUrl = message.audioUrl, let url = URL(string: audioUrl){
+//            print("Url is",audioUrl)
+//            print("playing")
+//            
+//            audioPlayer =  AVPlayer(url: url)
+//            audioPlayer.play()
+//        }
+//    }
     
 }

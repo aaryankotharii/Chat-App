@@ -36,6 +36,7 @@ extension ChatLogViewController {
     }
     
     @objc func handleVideoTap(recognizer: MyTapGesture){
+        print("VideoTapped")
         if let imageView = recognizer.view as? UIImageView{
             self.performZoom(startingImageView: imageView)
             if let message = recognizer.message{

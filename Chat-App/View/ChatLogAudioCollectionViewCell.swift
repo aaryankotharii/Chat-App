@@ -20,6 +20,11 @@ class ChatLogAudioCollectionViewCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var chatBubble: UIView!
     
+    
+    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
+        print("celll tapped audio idk bruh ")
+    }
+    
     var message : Message?
 
     func handleAudio(){

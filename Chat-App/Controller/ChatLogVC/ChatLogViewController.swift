@@ -46,7 +46,8 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
       //audioPlayer
       var recordingSession : AVAudioSession!
       var audioRecorder : AVAudioRecorder!
-      var audioPlayer : AVPlayer!
+      var audioPlayer : AVAudioPlayer!
+
     
       //Timer
       var timer: Timer?
@@ -126,11 +127,12 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         
         @IBAction func cameraClicked(_ sender: Any) {
+            self.cameraTapped()
         }
         
         
         @IBAction func micClicked(_ sender: Any) {
-            
+            print("Mic clicked")
         }
     
     

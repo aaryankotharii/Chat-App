@@ -444,32 +444,33 @@
                                     <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="audiocell" id="u6H-8n-Ldj" customClass="ChatLogAudioCollectionViewCell" customModule="Chat_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="674" width="414" height="327"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="eh3-ch-IaH" customClass="ChatLogAudioCollectionViewCell" customModule="Chat_App" customModuleProvider="target">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="eh3-ch-IaH">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="327"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="chat-tip" translatesAutoresizingMaskIntoConstraints="NO" id="loj-Uc-wvT">
-                                                    <rect key="frame" x="396" y="262" width="10" height="82"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="10" id="YUE-mo-k2M"/>
-                                                        <constraint firstAttribute="height" constant="15" id="eAJ-EG-Btf"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xlM-Ze-sF8">
-                                                    <rect key="frame" x="71" y="0.0" width="327" height="327"/>
+                                                    <rect key="frame" x="71" y="0.0" width="327" height="39"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aae-WQ-hxm">
-                                                            <rect key="frame" x="43" y="110" width="240" height="128"/>
+                                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="byte" translatesAutoresizingMaskIntoConstraints="NO" id="aae-WQ-hxm">
+                                                            <rect key="frame" x="138.5" y="4.5" width="50" height="30"/>
                                                             <color key="backgroundColor" red="0.75686274509999996" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <gestureRecognizers/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" priority="1" constant="30" id="06a-Wo-SZC"/>
+                                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="spU-aJ-qmc"/>
+                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="z9X-wn-Jwc"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outletCollection property="gestureRecognizers" destination="0Xh-ED-PLg" appends="YES" id="Szy-gT-S6v"/>
+                                                            </connections>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="aae-WQ-hxm" secondAttribute="trailing" constant="44" id="Ua0-Ao-09b"/>
-                                                        <constraint firstItem="aae-WQ-hxm" firstAttribute="leading" secondItem="xlM-Ze-sF8" secondAttribute="leading" constant="43" id="b3Q-Mt-8uz"/>
-                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="327" id="ois-6O-8aG"/>
-                                                        <constraint firstItem="aae-WQ-hxm" firstAttribute="top" secondItem="xlM-Ze-sF8" secondAttribute="top" constant="110" id="qgv-UX-I4w"/>
-                                                        <constraint firstAttribute="bottom" secondItem="aae-WQ-hxm" secondAttribute="bottom" constant="89" id="uiA-dB-4cz"/>
+                                                        <constraint firstItem="aae-WQ-hxm" firstAttribute="centerY" secondItem="xlM-Ze-sF8" secondAttribute="centerY" priority="1" id="9nL-Gs-ooL"/>
+                                                        <constraint firstItem="aae-WQ-hxm" firstAttribute="centerX" secondItem="xlM-Ze-sF8" secondAttribute="centerX" priority="1" id="Mrm-fQ-dCF"/>
+                                                        <constraint firstAttribute="height" constant="39.100000000000001" id="kNn-mC-akf"/>
                                                         <constraint firstAttribute="width" priority="500" constant="327" id="yEu-D3-bXb"/>
                                                     </constraints>
                                                 </view>
@@ -478,7 +479,6 @@
                                                 <constraint firstItem="xlM-Ze-sF8" firstAttribute="leading" secondItem="eh3-ch-IaH" secondAttribute="leading" priority="1" constant="16" id="Spd-SO-yKY"/>
                                                 <constraint firstItem="xlM-Ze-sF8" firstAttribute="top" secondItem="eh3-ch-IaH" secondAttribute="top" id="cCz-FO-oca"/>
                                                 <constraint firstAttribute="trailing" secondItem="xlM-Ze-sF8" secondAttribute="trailing" constant="16" id="mmg-4B-CKg"/>
-                                                <constraint firstAttribute="bottom" secondItem="xlM-Ze-sF8" secondAttribute="bottom" id="nSj-oD-pRI"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -546,6 +546,7 @@
                         <action selector="micSwipe:" destination="W3r-9y-3OG" id="CzN-Qf-FUw"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <tapGestureRecognizer id="0Xh-ED-PLg"/>
             </objects>
             <point key="canvasLocation" x="4757.971014492754" y="1596.4285714285713"/>
         </scene>
@@ -1083,6 +1084,7 @@
     <resources>
         <image name="Default" width="54" height="54"/>
         <image name="Play" width="51" height="51"/>
+        <image name="byte" width="4000" height="2577"/>
         <image name="camera" width="328" height="285"/>
         <image name="chat-tip" width="10" height="15"/>
         <image name="chats_tab" width="31" height="23"/>

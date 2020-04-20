@@ -171,7 +171,7 @@ extension ChatLogViewController {
     }
     
     func uploadToFirebaseStorageUsingAudio(_ url : URL){
-        let fileName = NSUUID().uuidString + ".mp3"
+        let fileName = NSUUID().uuidString + ".m4a"
         let audioRef = Storage.storage().reference().child("messages_audio").child(fileName)
         
         let audioData: Data = try! Data(contentsOf: url)
@@ -180,6 +180,10 @@ extension ChatLogViewController {
             if error != nil {
                 print(error?.localizedDescription ?? "Audio not uploaded")
             }else{
+                if let metadata = metadata{
+                let size = metadata.size
+                print("Size of uploaded audio file is: \(size)")
+                }
                 audioRef.downloadURL(completion: { (url, error) in
                     if error != nil {
                         print(error!.localizedDescription)
@@ -203,15 +207,16 @@ extension ChatLogViewController {
         }
     }
     
+    
      func sendMessageWithAudioUrl(audioUrl : String){
         
         let toId = user!.id!
         
-        let fromId = Auth.auth().currentUser!.uid
+        let fromId = getUID()
         
         let timeStamp = Int(NSDate().timeIntervalSince1970)
         
-        let values = ["audioUrl":audioUrl, "toId":toId, "fromId":fromId,"timestamp":timeStamp] as [String : Any]
+        let values = ["audioUrl":audioUrl, "toId":toId, "fromId":fromId,"timestamp":timeStamp,"text":"🎤 Audio"] as [String : Any]
                
         sendMediaData(values: values, toId: toId, fromId: fromId)
     }
@@ -269,8 +274,7 @@ extension ChatLogViewController {
         
         let toId = user!.id!
         
-        let fromId = Auth.auth().currentUser!.uid
-        
+        let fromId = getUID()
         let timeStamp = Int(NSDate().timeIntervalSince1970)
         
         let values = ["imageUrl":imageUrl, "toId":toId, "fromId":fromId,"timestamp":timeStamp] as [String : Any]
@@ -283,7 +287,7 @@ extension ChatLogViewController {
                
         let toId = user!.id!
         
-        let fromId = Auth.auth().currentUser!.uid
+        let fromId = getUID()
         
         let timeStamp = Int(NSDate().timeIntervalSince1970)
         

@@ -50,7 +50,7 @@ class idkViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     func startRecording() {
-        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.mp3")
+        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
 
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -84,7 +84,7 @@ class idkViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     @IBAction func play(_ sender: Any) {
-        let path = getDocumentsDirectory().appendingPathComponent("recording.mp3")
+        let path = getDocumentsDirectory().appendingPathComponent("recording.m4a")
         print("playing")
         do{
             audioPlayer = try AVAudioPlayer(contentsOf: path)

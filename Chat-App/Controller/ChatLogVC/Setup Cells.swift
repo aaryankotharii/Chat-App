@@ -61,13 +61,12 @@ extension ChatLogViewController {
     //MARK:- Media Audio Cell
      func setupAudioCell(cell : ChatLogAudioCollectionViewCell, message : Message){
         cell.message = message
-        if let audioUrl = message.audioUrl {
-            //MARK:- Video Cell
-           if message.videoUrl != nil{
+        if message.audioUrl != nil {
+               print("Adding tap to audio image")
+               cell.imageView.isUserInteractionEnabled = true
                let tapped = audioTapGesture.init(target: self, action: #selector(handleAudioTap))
                tapped.message = message
                cell.imageView.addGestureRecognizer(tapped)
-           }
         }
            if message.fromId == Auth.auth().currentUser?.uid {
                       //green Cell

@@ -26,9 +26,18 @@ extension ChatLogViewController: UICollectionViewDelegate,UICollectionViewDataSo
             let message = messages[indexPath.item]
             
             if message.text == nil {
-                if message.audioUrl == nil {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imagecell", for: indexPath) as! ChatLogImageCollectionViewCell
                 self.setupImageCell(cell: cell, message: message)
+                cellToBeReturned = cell
+            } else {
+                if message.audioUrl == nil {
+                
+                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! chatLogCollectionViewCell
+                    
+                cell.messageTextView.text = message.text
+                
+                self.setupMessageCell(cell: cell, message: message)
+                cell.bubbleWidthAnchor.constant = extimateFrameForText(text: message.text!).width + 32
                 cellToBeReturned = cell
                 }
                 else{
@@ -37,14 +46,6 @@ extension ChatLogViewController: UICollectionViewDelegate,UICollectionViewDataSo
                     self.setupAudioCell(cell: cell, message: message)
                     cellToBeReturned = cell
                 }
-            } else {
-                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! chatLogCollectionViewCell
-                    
-                cell.messageTextView.text = message.text
-                
-                self.setupMessageCell(cell: cell, message: message)
-                cell.bubbleWidthAnchor.constant = extimateFrameForText(text: message.text!).width + 32
-                cellToBeReturned = cell
             }
             return cellToBeReturned
         }
@@ -55,9 +56,7 @@ extension ChatLogViewController: UICollectionViewDelegate,UICollectionViewDataSo
         var height : CGFloat = 327
         if let text = messages[indexPath.item].text{
             height = extimateFrameForText(text: text).height + 20
-        }
-        if messages[indexPath.item].audioUrl != nil{
-            height = 20
+            print(text,height)
         }
         return CGSize(width: view.frame.width, height: height)
     }
@@ -70,6 +69,11 @@ extension ChatLogViewController: UICollectionViewDelegate,UICollectionViewDataSo
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16)], context: nil)
        }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.item,"IndexPath")
+        print(collectionView.cellForItem(at: indexPath))
+    }
     
     
     //MARK:- IDK

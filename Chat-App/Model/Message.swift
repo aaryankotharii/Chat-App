@@ -22,6 +22,6 @@ class Message: NSObject {
     var audioUrl : String?
     
     func chatPatnerId() -> String? {
-        return fromId == Auth.auth().currentUser?.uid ? toId : fromId
+        return fromId == getUID() ? toId : fromId
     }
 }
