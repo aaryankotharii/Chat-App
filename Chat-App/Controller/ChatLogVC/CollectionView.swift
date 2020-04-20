@@ -56,8 +56,11 @@ extension ChatLogViewController: UICollectionViewDelegate,UICollectionViewDataSo
         var height : CGFloat = 327
         if let text = messages[indexPath.item].text{
             height = extimateFrameForText(text: text).height + 20
-            print(text,height)
+            if messages[indexPath.item].audioUrl != nil{
+                height += 15
+            }
         }
+        print("height is",height)
         return CGSize(width: view.frame.width, height: height)
     }
     

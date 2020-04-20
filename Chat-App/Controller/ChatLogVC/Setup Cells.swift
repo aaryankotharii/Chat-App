@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 extension ChatLogViewController {
     
@@ -65,8 +66,21 @@ extension ChatLogViewController {
                print("Adding tap to audio image")
                cell.imageView.isUserInteractionEnabled = true
                let tapped = audioTapGesture.init(target: self, action: #selector(handleAudioTap))
+                self.displayLink = CADisplayLink(target: self, selector: #selector(self.updateSliderProgress))
+            
+//                    self.displayLink.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
                tapped.message = message
                cell.imageView.addGestureRecognizer(tapped)
+            
+            let ref = Database.database().reference().child("users").child(getUID())
+             ref.observe(.value) { (snapshot) in
+                 
+                 if let dictionary = snapshot.value as? [String:AnyObject] {
+                     if let profileImageUrl = dictionary["profileImageUrl"] as? String {
+                        cell.profilePicture.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
+                     }
+                 }
+             }
         }
            if message.fromId == Auth.auth().currentUser?.uid {
                       //green Cell

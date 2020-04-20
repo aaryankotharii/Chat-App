@@ -208,7 +208,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stc" translatesAutoresizingMaskIntoConstraints="NO" id="Y6I-ey-Dan">
-                                        <rect key="frame" x="140" y="9.5" width="126" height="21"/>
+                                        <rect key="frame" x="142" y="9.5" width="126" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="FxW-WI-Rab"/>
                                             <constraint firstAttribute="width" constant="126" id="qeb-kn-xXh"/>
@@ -266,7 +266,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXh-6g-xch">
-                                        <rect key="frame" x="46" y="9" width="41" height="24.5"/>
+                                        <rect key="frame" x="46" y="8.5" width="43" height="25.5"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -308,7 +308,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QhU-7Z-xYL">
                                 <rect key="frame" x="0.0" y="88" width="414" height="733.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ifh-dp-D7c">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ifh-dp-D7c">
                                     <size key="itemSize" width="414" height="238"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -442,53 +442,84 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="audiocell" id="u6H-8n-Ldj" customClass="ChatLogAudioCollectionViewCell" customModule="Chat_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="674" width="414" height="327"/>
+                                        <rect key="frame" x="0.0" y="674" width="414" height="54.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="eh3-ch-IaH">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="327"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="l9d-V0-JM9">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="54.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xlM-Ze-sF8">
-                                                    <rect key="frame" x="71" y="0.0" width="327" height="39"/>
+                                                    <rect key="frame" x="71" y="0.0" width="327" height="54.5"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="byte" translatesAutoresizingMaskIntoConstraints="NO" id="aae-WQ-hxm">
-                                                            <rect key="frame" x="138.5" y="4.5" width="50" height="30"/>
-                                                            <color key="backgroundColor" red="0.75686274509999996" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playButton" translatesAutoresizingMaskIntoConstraints="NO" id="aae-WQ-hxm">
+                                                            <rect key="frame" x="70" y="18" width="17" height="19"/>
                                                             <gestureRecognizers/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" priority="1" constant="30" id="06a-Wo-SZC"/>
-                                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="spU-aJ-qmc"/>
-                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="z9X-wn-Jwc"/>
+                                                                <constraint firstAttribute="height" constant="19" id="spU-aJ-qmc"/>
+                                                                <constraint firstAttribute="width" constant="17" id="z9X-wn-Jwc"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outletCollection property="gestureRecognizers" destination="0Xh-ED-PLg" appends="YES" id="Szy-gT-S6v"/>
                                                             </connections>
                                                         </imageView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0RB-Pf-grR">
+                                                            <rect key="frame" x="5" y="5" width="45" height="45"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="45" id="cBv-iX-LsN"/>
+                                                                <constraint firstAttribute="height" constant="45" id="z5F-S7-oaP"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <real key="value" value="22.5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kWp-4H-qyc">
+                                                            <rect key="frame" x="100" y="12.5" width="220" height="31"/>
+                                                            <color key="minimumTrackTintColor" red="0.78823529411764703" green="0.8666666666666667" blue="0.71764705882352942" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                                            <color key="maximumTrackTintColor" red="0.78823529410000004" green="0.86666666670000003" blue="0.71764705880000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                            <connections>
+                                                                <action selector="silded:" destination="u6H-8n-Ldj" eventType="valueChanged" id="bQR-cj-w4Z"/>
+                                                            </connections>
+                                                        </slider>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstItem="aae-WQ-hxm" firstAttribute="centerY" secondItem="xlM-Ze-sF8" secondAttribute="centerY" priority="1" id="9nL-Gs-ooL"/>
-                                                        <constraint firstItem="aae-WQ-hxm" firstAttribute="centerX" secondItem="xlM-Ze-sF8" secondAttribute="centerX" priority="1" id="Mrm-fQ-dCF"/>
-                                                        <constraint firstAttribute="height" constant="39.100000000000001" id="kNn-mC-akf"/>
+                                                        <constraint firstItem="0RB-Pf-grR" firstAttribute="leading" secondItem="xlM-Ze-sF8" secondAttribute="leading" constant="5" id="E6D-wQ-mvB"/>
+                                                        <constraint firstItem="0RB-Pf-grR" firstAttribute="centerY" secondItem="xlM-Ze-sF8" secondAttribute="centerY" id="EfZ-fO-T16"/>
+                                                        <constraint firstItem="aae-WQ-hxm" firstAttribute="leading" secondItem="0RB-Pf-grR" secondAttribute="trailing" constant="20" id="I3T-x2-Wiz"/>
+                                                        <constraint firstItem="kWp-4H-qyc" firstAttribute="leading" secondItem="aae-WQ-hxm" secondAttribute="trailing" constant="15" id="LiI-hb-dUt"/>
+                                                        <constraint firstItem="kWp-4H-qyc" firstAttribute="centerY" secondItem="xlM-Ze-sF8" secondAttribute="centerY" id="QET-4A-uMw"/>
+                                                        <constraint firstAttribute="height" constant="54.5" id="kNn-mC-akf"/>
+                                                        <constraint firstAttribute="trailing" secondItem="kWp-4H-qyc" secondAttribute="trailing" constant="9" id="lC1-cC-Jti"/>
                                                         <constraint firstAttribute="width" priority="500" constant="327" id="yEu-D3-bXb"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="xlM-Ze-sF8" firstAttribute="leading" secondItem="eh3-ch-IaH" secondAttribute="leading" priority="1" constant="16" id="Spd-SO-yKY"/>
-                                                <constraint firstItem="xlM-Ze-sF8" firstAttribute="top" secondItem="eh3-ch-IaH" secondAttribute="top" id="cCz-FO-oca"/>
+                                                <constraint firstItem="xlM-Ze-sF8" firstAttribute="leading" secondItem="l9d-V0-JM9" secondAttribute="leading" priority="1" constant="16" id="Spd-SO-yKY"/>
+                                                <constraint firstItem="xlM-Ze-sF8" firstAttribute="top" secondItem="l9d-V0-JM9" secondAttribute="top" id="cCz-FO-oca"/>
                                                 <constraint firstAttribute="trailing" secondItem="xlM-Ze-sF8" secondAttribute="trailing" constant="16" id="mmg-4B-CKg"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <size key="customSize" width="414" height="327"/>
+                                        <size key="customSize" width="414" height="54.5"/>
                                         <connections>
-                                            <outlet property="bubbleLeftAnchor" destination="Spd-SO-yKY" id="oSh-bv-fcm"/>
-                                            <outlet property="bubbleRightAnchor" destination="mmg-4B-CKg" id="0IX-vX-XRP"/>
+                                            <outlet property="bubbleLeftAnchor" destination="Spd-SO-yKY" id="E8e-5B-j9w"/>
+                                            <outlet property="bubbleRightAnchor" destination="mmg-4B-CKg" id="RSa-UZ-EZ7"/>
                                             <outlet property="bubbleWidthAnchor" destination="yEu-D3-bXb" id="wD3-G1-hco"/>
                                             <outlet property="chatBubble" destination="xlM-Ze-sF8" id="3vF-gs-Gcg"/>
                                             <outlet property="imageView" destination="aae-WQ-hxm" id="sX2-4F-3wx"/>
+                                            <outlet property="profilePicture" destination="0RB-Pf-grR" id="gPW-cE-Q0t"/>
+                                            <outlet property="silder" destination="kWp-4H-qyc" id="mLL-S9-4hh"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1084,12 +1115,12 @@
     <resources>
         <image name="Default" width="54" height="54"/>
         <image name="Play" width="51" height="51"/>
-        <image name="byte" width="4000" height="2577"/>
         <image name="camera" width="328" height="285"/>
         <image name="chat-tip" width="10" height="15"/>
         <image name="chats_tab" width="31" height="23"/>
         <image name="chats_tab_complete" width="31" height="23"/>
         <image name="mic" width="252" height="379"/>
+        <image name="playButton" width="16" height="19"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="red mic" width="18" height="27"/>
         <image name="send" width="177" height="177"/>

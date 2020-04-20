@@ -19,6 +19,23 @@ class ChatLogAudioCollectionViewCell: UICollectionViewCell {
     @IBOutlet var bubbleWidthAnchor: NSLayoutConstraint!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var chatBubble: UIView!
+    @IBOutlet var profilePicture: UIImageView!
+    
+    @IBOutlet var silder: UISlider!
+    
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        silder.setThumbImage(#imageLiteral(resourceName: "Oval"), for: .normal)
+        // Initialization code
+    }
+    
+    
+    @IBAction func silded(_ sender: UISlider) {
+        print(sender.value)
+    }
+    
     
     
     @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {

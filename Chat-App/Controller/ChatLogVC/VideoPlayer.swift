@@ -31,23 +31,21 @@ extension ChatLogViewController {
                 
                 let path = URL(string: result)
                 print("path is ",path)
-                print("playing")
                 do{
                     self.audioPlayer = try AVAudioPlayer(contentsOf: path!)
                     self.audioPlayer.play()
-                    self.displayLink = CADisplayLink(target: self, selector: #selector(self.updateSliderProgress))
+                    //self.displayLink = CADisplayLink(target: self, selector: #selector(self.updateSliderProgress))
                     self.displayLink.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
                 }catch{
                     print(error.localizedDescription)
                 }
-                
             }
-            }
+        }
     }
     
-    @objc func updateSliderProgress(){
+    @objc func updateSliderProgress()-> Double{
         var progress = audioPlayer.currentTime / audioPlayer.duration
-        print(progress)
+        return progress
         if audioPlayer.isPlaying == false {
             displayLink.invalidate()
         }
