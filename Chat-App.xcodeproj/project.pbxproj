@@ -30,7 +30,6 @@
 		5B93CEC0244A15F10067E766 /* ChatLogAudioCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B93CEBF244A15F10067E766 /* ChatLogAudioCollectionViewCell.swift */; };
 		5B97F786243878C000ACF83D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F785243878C000ACF83D /* AppDelegate.swift */; };
 		5B97F788243878C000ACF83D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F787243878C000ACF83D /* SceneDelegate.swift */; };
-		5B97F78A243878C000ACF83D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F789243878C000ACF83D /* ViewController.swift */; };
 		5B97F78D243878C000ACF83D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B97F78B243878C000ACF83D /* Main.storyboard */; };
 		5B97F790243878C000ACF83D /* Chat_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F78E243878C000ACF83D /* Chat_App.xcdatamodeld */; };
 		5B97F792243878C500ACF83D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B97F791243878C500ACF83D /* Assets.xcassets */; };
@@ -48,7 +47,6 @@
 		5BAD972F2448B86000D280F1 /* databaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD972E2448B86000D280F1 /* databaseManager.swift */; };
 		5BAD97312448B8E300D280F1 /* idkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD97302448B8E300D280F1 /* idkViewController.swift */; };
 		5BD73A43244961B300C42EA9 /* recording+animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD73A42244961B300C42EA9 /* recording+animation.swift */; };
-		5BDAE891244EDC9800678726 /* instantiate+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDAE890244EDC9800678726 /* instantiate+ViewController.swift */; };
 		5BDBE2FE244D8AE700636CF1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDBE2FD244D8AE700636CF1 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,7 +76,6 @@
 		5B97F782243878C000ACF83D /* Chat-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chat-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B97F785243878C000ACF83D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B97F787243878C000ACF83D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5B97F789243878C000ACF83D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5B97F78C243878C000ACF83D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B97F78F243878C000ACF83D /* Chat_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Chat_App.xcdatamodel; sourceTree = "<group>"; };
 		5B97F791243878C500ACF83D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,7 +94,6 @@
 		5BAD972E2448B86000D280F1 /* databaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = databaseManager.swift; sourceTree = "<group>"; };
 		5BAD97302448B8E300D280F1 /* idkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = idkViewController.swift; sourceTree = "<group>"; };
 		5BD73A42244961B300C42EA9 /* recording+animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "recording+animation.swift"; sourceTree = "<group>"; };
-		5BDAE890244EDC9800678726 /* instantiate+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "instantiate+ViewController.swift"; sourceTree = "<group>"; };
 		5BDBE2FD244D8AE700636CF1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A7ADEA28FA161DA7BA3FE40E /* Pods-Chat-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat-App.release.xcconfig"; path = "Target Support Files/Pods-Chat-App/Pods-Chat-App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,7 +164,6 @@
 				5B97F79E24387A9100ACF83D /* Controller */,
 				5B97F785243878C000ACF83D /* AppDelegate.swift */,
 				5B97F787243878C000ACF83D /* SceneDelegate.swift */,
-				5B97F789243878C000ACF83D /* ViewController.swift */,
 				5B97F78B243878C000ACF83D /* Main.storyboard */,
 				5B97F793243878C500ACF83D /* LaunchScreen.storyboard */,
 				5B97F791243878C500ACF83D /* Assets.xcassets */,
@@ -225,7 +220,6 @@
 				5B29B6482442440700CD3FDD /* DeleteLater.swift */,
 				5B29B64A2442DA2800CD3FDD /* Keyboard+Hide.swift */,
 				5BDBE2FD244D8AE700636CF1 /* Constants.swift */,
-				5BDAE890244EDC9800678726 /* instantiate+ViewController.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -369,7 +363,6 @@
 				5BD73A43244961B300C42EA9 /* recording+animation.swift in Sources */,
 				5BDBE2FE244D8AE700636CF1 /* Constants.swift in Sources */,
 				5B71E98024474B2F0036FB03 /* Setup Cells.swift in Sources */,
-				5B97F78A243878C000ACF83D /* ViewController.swift in Sources */,
 				5B71E986244755910036FB03 /* CollectionView.swift in Sources */,
 				5B5E18C72440C59B0081B407 /* Contries.swift in Sources */,
 				5B880EAD243AFDB200EDFBE3 /* ChatsTableViewCell.swift in Sources */,
@@ -379,7 +372,6 @@
 				5B880EAF243B7BDD00EDFBE3 /* chatLogCollectionViewCell.swift in Sources */,
 				5B93CEC0244A15F10067E766 /* ChatLogAudioCollectionViewCell.swift in Sources */,
 				5B97F790243878C000ACF83D /* Chat_App.xcdatamodeld in Sources */,
-				5BDAE891244EDC9800678726 /* instantiate+ViewController.swift in Sources */,
 				5B97F7A92439087800ACF83D /* NewChatsViewController.swift in Sources */,
 				5B97F786243878C000ACF83D /* AppDelegate.swift in Sources */,
 				5B97F7B5243A041600ACF83D /* ChatLogViewController.swift in Sources */,

@@ -45,6 +45,7 @@ extension ChatLogViewController: UICollectionViewDelegate,UICollectionViewDataSo
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "audiocell", for: indexPath) as! ChatLogAudioCollectionViewCell
                     print("Audio cell incoming")
                     cell.message = message
+                    cell.user = self.user
                     cell.setupAudioCell(message: message)
                     //self.setupAudioCell(cell: cell, message: message)
                     cellToBeReturned = cell

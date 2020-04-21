@@ -26,8 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
 
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+
         let loginstatus = UserDefaults.standard.bool(forKey: "login")
         
         debugLog(message: "Login status=\(loginstatus)")
@@ -39,7 +39,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             } catch let signOutError as NSError {
                 print ("Error signing out: %@", signOutError)
             }
-            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let VC = mainStoryboard.instantiateViewController(withIdentifier: "LoginVC") as! UINavigationController
             guard let windowScene = (scene as? UIWindowScene) else { return }
             self.window = UIWindow(frame: windowScene.coordinateSpace.bounds)
@@ -48,7 +47,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window!.makeKeyAndVisible()
         }
         else if loginstatus == true {
-                     let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let VC = mainStoryboard.instantiateViewController(withIdentifier: "tabbar") as! UINavigationController
             guard let windowScene = (scene as? UIWindowScene) else { return }
             self.window = UIWindow(frame: windowScene.coordinateSpace.bounds)

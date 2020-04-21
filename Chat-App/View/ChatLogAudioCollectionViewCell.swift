@@ -25,6 +25,7 @@ class ChatLogAudioCollectionViewCell: UICollectionViewCell {
     @IBOutlet var silder: UISlider!
     
     var message : Message?
+    var user : User?
     
       //audioPlayer
       var recordingSession : AVAudioSession!
@@ -59,23 +60,29 @@ class ChatLogAudioCollectionViewCell: UICollectionViewCell {
                        tapped.message = message
                        imageView.addGestureRecognizer(tapped)
                     
-                    let ref = Database.database().reference().child("users").child(getUID())
-                     ref.observe(.value) { (snapshot) in
-                         
-                         if let dictionary = snapshot.value as? [String:AnyObject] {
-                             if let profileImageUrl = dictionary["profileImageUrl"] as? String {
-                                self.profilePicture.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
-                             }
-                         }
-                     }
                 }
         if message.fromId == getUID() {
                               //green Cell
+            let ref = Database.database().reference().child("users").child(getUID())
+
+            ref.observe(.value) { (snapshot) in
+                
+                if let dictionary = snapshot.value as? [String:AnyObject] {
+                    if let profileImageUrl = dictionary["profileImageUrl"] as? String {
+                       self.profilePicture.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
+                    }
+                }
+            }
+            
                        chatBubble.backgroundColor = UIColor(named: "tochatcolor")
                        bubbleLeftAnchor.isActive = false
                        bubbleRightAnchor.isActive = true
                           }else {
                               //white cell
+            if let profileImageUrl = user!.profileImageUrl
+            { self.profilePicture.loadImageUsingCacheWithUrlString(urlString: profileImageUrl) }
+
+            
                        chatBubble.backgroundColor = UIColor(named: "fromchatcolor")
                        bubbleRightAnchor.isActive = false
                        bubbleLeftAnchor.isActive = true

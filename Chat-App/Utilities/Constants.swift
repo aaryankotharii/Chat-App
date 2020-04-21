@@ -15,6 +15,7 @@ internal func getUID() -> String {
     return uid ?? "notFound"
 }
 
+
 public func debugLog(message: String) {
     #if DEBUG
     debugPrint("=======================================")

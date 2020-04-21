@@ -208,7 +208,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stc" translatesAutoresizingMaskIntoConstraints="NO" id="Y6I-ey-Dan">
-                                        <rect key="frame" x="142" y="9.5" width="126" height="21"/>
+                                        <rect key="frame" x="140" y="9.5" width="126" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="FxW-WI-Rab"/>
                                             <constraint firstAttribute="width" constant="126" id="qeb-kn-xXh"/>
@@ -266,7 +266,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXh-6g-xch">
-                                        <rect key="frame" x="46" y="8.5" width="43" height="25.5"/>
+                                        <rect key="frame" x="46" y="9" width="41" height="24.5"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

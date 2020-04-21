@@ -39,7 +39,7 @@ extension ChatLogViewController {
         let name = user.name ?? ""
         nameLabel.text = name
         nameLabel.font = UIFont(name: "SFProDisplay-Medium", size: 16.4)
-        nameLabel.textColor = .black
+        nameLabel.textColor = .label
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
 
         titleview.addSubview(nameLabel)
