@@ -29,6 +29,7 @@ extension ChatLogViewController: UICollectionViewDelegate,UICollectionViewDataSo
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imagecell", for: indexPath) as! ChatLogImageCollectionViewCell
                 self.setupImageCell(cell: cell, message: message)
                 cellToBeReturned = cell
+    
             } else {
                 if message.audioUrl == nil {
                 

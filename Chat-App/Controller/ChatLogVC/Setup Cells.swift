@@ -20,10 +20,12 @@ extension ChatLogViewController {
              cell.chatBubble.backgroundColor = UIColor(named: "tochatcolor")
              cell.bubbleLeftAnchor.isActive = false
              cell.bubbleRightAnchor.isActive = true
+            cell.chatTipLeft.isHidden = true
                 }else {
              cell.chatBubble.backgroundColor = UIColor(named: "fromchatcolor")
              cell.bubbleRightAnchor.isActive = false
              cell.bubbleLeftAnchor.isActive = true
+            cell.chatTip.isHidden = true
                 }
      }
     

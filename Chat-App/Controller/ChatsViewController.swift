@@ -80,13 +80,29 @@ class ChatsViewController: UIViewController{
         
         //MARK: - Logout functions
         @IBAction func editClicked(_ sender: Any) {
-            
+            signOut()
         }
         
         func toChatLogVC(){
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(identifier: "ChatLogViewController") as? ChatLogViewController
             self.navigationController?.pushViewController(vc!, animated: true)
+        }
+    
+        //MARK: - Signout function
+        func signOut() {
+            let firebaseAuth = Auth.auth()
+            do {
+                // Set initial user default for login as false
+                UserDefaults.standard.set(false, forKey: "login")
+                try firebaseAuth.signOut()
+                debugLog(message: "SignOut successful")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! UINavigationController
+                self.present(controller, animated: true, completion: nil)
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
         }
     }
 

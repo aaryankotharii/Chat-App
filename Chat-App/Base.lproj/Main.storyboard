@@ -356,14 +356,23 @@
                                                         <constraint firstAttribute="width" constant="10" id="kFg-qQ-Q1D"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat-tip-L" translatesAutoresizingMaskIntoConstraints="NO" id="kGz-9E-anQ">
+                                                    <rect key="frame" x="62" y="307" width="10" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15" id="Db9-7s-xyK"/>
+                                                        <constraint firstAttribute="width" constant="10" id="PgK-mf-yrM"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="yix-oP-eFx" secondAttribute="bottom" id="B76-2k-ajn"/>
+                                                <constraint firstItem="yix-oP-eFx" firstAttribute="leading" secondItem="kGz-9E-anQ" secondAttribute="trailing" constant="-1" id="ITg-ht-1I9"/>
                                                 <constraint firstAttribute="trailing" secondItem="yix-oP-eFx" secondAttribute="trailing" constant="16" id="W0q-fm-fAk"/>
                                                 <constraint firstItem="yix-oP-eFx" firstAttribute="leading" secondItem="rWm-DR-BOz" secondAttribute="leading" priority="1" constant="16" id="ZVn-Bq-liO"/>
                                                 <constraint firstItem="yix-oP-eFx" firstAttribute="top" secondItem="rWm-DR-BOz" secondAttribute="top" id="aFQ-eu-hxW"/>
                                                 <constraint firstItem="kZo-BC-adP" firstAttribute="leading" secondItem="yix-oP-eFx" secondAttribute="trailing" constant="-1" id="hYf-fv-epl"/>
                                                 <constraint firstAttribute="bottom" secondItem="kZo-BC-adP" secondAttribute="bottom" constant="5" id="pbx-nW-A2w"/>
+                                                <constraint firstAttribute="bottom" secondItem="kGz-9E-anQ" secondAttribute="bottom" constant="5" id="zLN-3X-R9n"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -374,6 +383,7 @@
                                             <outlet property="bubbleWidthAnchor" destination="WMB-iZ-msE" id="td6-Qu-Jff"/>
                                             <outlet property="chatBubble" destination="yix-oP-eFx" id="yem-Oy-U2p"/>
                                             <outlet property="chatTip" destination="kZo-BC-adP" id="h30-5X-q6W"/>
+                                            <outlet property="chatTipLeft" destination="kGz-9E-anQ" id="GG2-ly-at4"/>
                                             <outlet property="messageTextView" destination="oKU-rj-Yzo" id="6in-kb-Asl"/>
                                         </connections>
                                     </collectionViewCell>
@@ -1083,7 +1093,7 @@
         <!--Navigation Controller-->
         <scene sceneID="u3B-Qd-yBo">
             <objects>
-                <navigationController storyboardIdentifier="LoginVC" id="1BK-Xg-GNN" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginVC" modalPresentationStyle="fullScreen" id="1BK-Xg-GNN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JUQ-x9-QI4">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1123,6 +1133,7 @@
         <image name="Play" width="51" height="51"/>
         <image name="camera" width="328" height="285"/>
         <image name="chat-tip" width="10" height="15"/>
+        <image name="chat-tip-L" width="10" height="15"/>
         <image name="chats_tab" width="31" height="23"/>
         <image name="chats_tab_complete" width="31" height="23"/>
         <image name="mic" width="252" height="379"/>
