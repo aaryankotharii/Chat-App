@@ -33,7 +33,10 @@ extension SetupProfileViewController: UIImagePickerControllerDelegate, UINavigat
                 self.dismiss(animated: true, completion: nil)
               }
     
+        if self.profileImageView.image != self.defaultImage{
+
               alertController.addAction(deleteAction)
+        }
               alertController.addAction(photoLibraryAction)
               alertController.addAction(cameraAction)
               alertController.addAction(cancelAction)
@@ -97,6 +100,6 @@ extension SetupProfileViewController: UIImagePickerControllerDelegate, UINavigat
     
     func deletePhoto(){
         //MARK:- LEFT
-        print("delete")
+        self.profileImageView.image = defaultImage
     }
 }

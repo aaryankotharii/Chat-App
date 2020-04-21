@@ -73,7 +73,7 @@ extension ChatLogViewController {
 
 
         
-             let cancelActionButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelActionButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
          Alert.addAction(cancelActionButton)
         self.present(Alert, animated: true, completion: nil)
         

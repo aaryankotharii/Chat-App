@@ -122,12 +122,6 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
 
     //MARK:- ViewDidLoad + InitialSetup
     override func viewDidLoad() {
-        collectionView.keyboardDismissMode = .interactive
-        
-        NotificationCenter.default.addObserver(self,
-            selector: #selector(self.keyboardNotification(notification:)),
-            name: UIResponder.keyboardWillChangeFrameNotification,
-            object: nil)
         super.viewDidLoad()
         initialSetup()
     }
@@ -136,6 +130,10 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         //Title
         self.navigationItem.largeTitleDisplayMode = .never
+        
+        
+        //keyboard dissmiss mode
+        collectionView.keyboardDismissMode = .interactive
 
         //Button
         self.sendButton.isHidden = true
@@ -163,6 +161,13 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         AVAudioSession.sharedInstance().requestRecordPermission { (hasPermission) in
             if hasPermission{ print("mic permission granted") }
         }
+        
+        //setting keyboard observer
+        NotificationCenter.default.addObserver(self,
+              selector: #selector(self.keyboardNotification(notification:)),
+              name: UIResponder.keyboardWillChangeFrameNotification,
+              object: nil)
+        
     }
 
         //MARK:- Button Action Outlets

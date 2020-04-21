@@ -19,6 +19,7 @@ class SetupProfileViewController: UIViewController {
     @IBOutlet var countLabel: UILabel!
     
     var phone : String?
+    var defaultImage = #imageLiteral(resourceName: "Default")
 
     
     //Initial Setup
@@ -27,6 +28,7 @@ class SetupProfileViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         setUpBorders()
         super.viewDidLoad()
+        profileImageView.image = defaultImage
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handSelectProfileImageView)))
     }
     
