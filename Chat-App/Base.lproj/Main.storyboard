@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d0j-dI-Hsy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1BK-Xg-GNN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -475,7 +475,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kWp-4H-qyc">
+                                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kWp-4H-qyc">
                                                             <rect key="frame" x="100" y="12.5" width="220" height="31"/>
                                                             <color key="minimumTrackTintColor" red="0.78823529411764703" green="0.8666666666666667" blue="0.71764705882352942" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                             <color key="maximumTrackTintColor" red="0.78823529410000004" green="0.86666666670000003" blue="0.71764705880000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -548,7 +548,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UhK-NO-N09"/>
                     </view>
-                    <navigationItem key="navigationItem" id="URF-1p-gdB"/>
+                    <navigationItem key="navigationItem" id="URF-1p-gdB">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="phonecall" style="plain" id="eDB-C3-KYu">
+                            <connections>
+                                <action selector="phoneClicked:" destination="W3r-9y-3OG" id="VMH-X9-H78"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="cameraButton" destination="ahc-1z-UtG" id="Ad6-RD-coA"/>
                         <outlet property="chatTextField" destination="Th7-pW-7GQ" id="0wR-bU-pgj"/>
@@ -1077,7 +1083,7 @@
         <!--Navigation Controller-->
         <scene sceneID="u3B-Qd-yBo">
             <objects>
-                <navigationController id="1BK-Xg-GNN" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginVC" id="1BK-Xg-GNN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JUQ-x9-QI4">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1120,6 +1126,7 @@
         <image name="chats_tab" width="31" height="23"/>
         <image name="chats_tab_complete" width="31" height="23"/>
         <image name="mic" width="252" height="379"/>
+        <image name="phonecall" width="22" height="22"/>
         <image name="playButton" width="16" height="19"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="red mic" width="18" height="27"/>

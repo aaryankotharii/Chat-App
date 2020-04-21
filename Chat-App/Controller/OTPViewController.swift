@@ -80,6 +80,7 @@ class OTPViewController: UIViewController {
                     self.otpTextField.becomeFirstResponder()
                 }
                 else{
+                    UserDefaults.standard.setValue(true, forKey: "login")
                     if let uid = result?.user.uid{
                     let existingUser = self.checkExistingUser(uid)
                     print("existing user",existingUser)

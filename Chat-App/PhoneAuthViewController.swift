@@ -27,8 +27,8 @@ class PhoneAuthViewController: UIViewController{
     override func viewDidLoad() {
         
 
-        
-
+        initialUISetup()
+        phoneTextField.becomeFirstResponder()
         super.viewDidLoad()
  
 
@@ -50,7 +50,6 @@ class PhoneAuthViewController: UIViewController{
         border.frame = CGRect(x: 0, y: 0, width: 0.5,height: 42)
         border.backgroundColor=UIColor.init(r: 193, g: 193, b: 193).cgColor
         phoneTextField.layer.addSublayer(border)
-        
         //Done Button
         doneButton.isEnabled = false
     }

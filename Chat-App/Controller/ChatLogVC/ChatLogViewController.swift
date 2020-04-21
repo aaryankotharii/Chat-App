@@ -82,6 +82,17 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         aiv.startAnimating()
         return aiv
     }
+    
+    private func callNumber(phoneNumber:String) {
+
+      if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
+
+        let application:UIApplication = UIApplication.shared
+        if (application.canOpenURL(phoneCallURL)) {
+            application.open(phoneCallURL, options: [:], completionHandler: nil)
+        }
+      }
+    }
         
 
     //MARK:- ViewDidLoad + InitialSetup
@@ -130,15 +141,7 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         
         @IBAction func cameraClicked(_ sender: Any) {
-            //self.cameraTapped()
-            let path = getDocumentsDirectory().appendingPathComponent("recording.m4a")
-            print("playing")
-            do{
-                audioPlayer = try AVAudioPlayer(contentsOf: path)
-                audioPlayer.play()
-            }catch{
-                print(error.localizedDescription)
-            }
+            self.cameraTapped()
         }
         
         
@@ -160,6 +163,7 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 onEnd()
             }
             if sender.state == .changed{
+                print("cancel audio")
                 //trash animation
             }
     }
@@ -185,12 +189,20 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         print("swipe")
     }
     
+    
+    
         
     @IBAction func sendClicked(_ sender: Any) {
            sendData()
             self.curveAnimation(button: self.cameraButton, animationOptions: .curveEaseIn, x: 0, bool: true)
             self.curveAnimation(button: self.micButton, animationOptions: .curveEaseIn, x: 0, bool: true)
         }
+    
+    
+    @IBAction func phoneClicked(_ sender: Any) {
+        print("phone clicked")
+        callNumber(phoneNumber: (user?.phone!)!)
+    }
     
     
         //MARK:- Chat TextField fucntions

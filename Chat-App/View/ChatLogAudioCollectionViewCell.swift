@@ -108,7 +108,9 @@ class ChatLogAudioCollectionViewCell: UICollectionViewCell {
                     do{
                         self.audioPlayer = try AVAudioPlayer(contentsOf: path!)
                         self.audioPlayer.play()
-                        self.imageView.image = #imageLiteral(resourceName: "Combined Shape")
+                        DispatchQueue.main.async {
+                            self.imageView.image = #imageLiteral(resourceName: "Combined Shape")
+                        }
                         self.displayLink = CADisplayLink(target: self, selector: #selector(self.updateSliderProgress))
                         self.displayLink.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
                     }catch{

@@ -48,6 +48,7 @@
 		5BAD972F2448B86000D280F1 /* databaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD972E2448B86000D280F1 /* databaseManager.swift */; };
 		5BAD97312448B8E300D280F1 /* idkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD97302448B8E300D280F1 /* idkViewController.swift */; };
 		5BD73A43244961B300C42EA9 /* recording+animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD73A42244961B300C42EA9 /* recording+animation.swift */; };
+		5BDAE891244EDC9800678726 /* instantiate+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDAE890244EDC9800678726 /* instantiate+ViewController.swift */; };
 		5BDBE2FE244D8AE700636CF1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDBE2FD244D8AE700636CF1 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		5BAD972E2448B86000D280F1 /* databaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = databaseManager.swift; sourceTree = "<group>"; };
 		5BAD97302448B8E300D280F1 /* idkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = idkViewController.swift; sourceTree = "<group>"; };
 		5BD73A42244961B300C42EA9 /* recording+animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "recording+animation.swift"; sourceTree = "<group>"; };
+		5BDAE890244EDC9800678726 /* instantiate+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "instantiate+ViewController.swift"; sourceTree = "<group>"; };
 		5BDBE2FD244D8AE700636CF1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A7ADEA28FA161DA7BA3FE40E /* Pods-Chat-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat-App.release.xcconfig"; path = "Target Support Files/Pods-Chat-App/Pods-Chat-App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -223,6 +225,7 @@
 				5B29B6482442440700CD3FDD /* DeleteLater.swift */,
 				5B29B64A2442DA2800CD3FDD /* Keyboard+Hide.swift */,
 				5BDBE2FD244D8AE700636CF1 /* Constants.swift */,
+				5BDAE890244EDC9800678726 /* instantiate+ViewController.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				5B880EAF243B7BDD00EDFBE3 /* chatLogCollectionViewCell.swift in Sources */,
 				5B93CEC0244A15F10067E766 /* ChatLogAudioCollectionViewCell.swift in Sources */,
 				5B97F790243878C000ACF83D /* Chat_App.xcdatamodeld in Sources */,
+				5BDAE891244EDC9800678726 /* instantiate+ViewController.swift in Sources */,
 				5B97F7A92439087800ACF83D /* NewChatsViewController.swift in Sources */,
 				5B97F786243878C000ACF83D /* AppDelegate.swift in Sources */,
 				5B97F7B5243A041600ACF83D /* ChatLogViewController.swift in Sources */,
