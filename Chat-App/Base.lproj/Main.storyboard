@@ -1032,9 +1032,6 @@
                                 <rect key="frame" x="191" y="471" width="32" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next"/>
-                                <connections>
-                                    <action selector="nextButton:" destination="QyX-55-EbB" eventType="touchUpInside" id="vVg-X3-P4c"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="673-qe-MnX">
                                 <rect key="frame" x="35" y="178" width="30" height="13"/>
@@ -1078,7 +1075,11 @@
                         <viewLayoutGuide key="safeArea" id="4fW-sL-MQU"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Profile" largeTitleDisplayMode="never" id="23R-Nv-Lfh">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="e7F-45-R4B"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="e7F-45-R4B">
+                            <connections>
+                                <action selector="doneClicked:" destination="QyX-55-EbB" id="JZ3-hM-Nik"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="countLabel" destination="11E-bv-GcH" id="AY7-II-LJy"/>
@@ -1088,7 +1089,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLx-F6-vyv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="358" y="133"/>
+            <point key="canvasLocation" x="428" y="18"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="u3B-Qd-yBo">

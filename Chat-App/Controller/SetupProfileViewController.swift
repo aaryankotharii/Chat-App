@@ -44,15 +44,15 @@ class SetupProfileViewController: UIViewController {
         nameTextField.layer.addSublayer(topBorder)
     }
     
-    
-    
-    @IBAction func nextButton(_ sender: Any) {
-        createProfile()
-    }
-    
     @IBAction func editButton(_ sender: Any) {
         self.handSelectProfileImageView()
     }
+    
+    @IBAction func doneClicked(_ sender: UIButton) {
+        createProfile()
+    }
+    
+    
     
     //MARK:- Keep character count
     @IBAction func addingName(_ sender: UITextField) {
