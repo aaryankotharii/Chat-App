@@ -75,6 +75,10 @@ class PhoneAuthViewController: UIViewController{
     
     @IBAction func doneClicked(_ sender: Any) {
         //Auth.auth().settings?.isAppVerificationDisabledForTesting = true
+        AuthAlert(title: "\(phoneNumber!)", message: "Please Confirm your number")
+    }
+    
+    func processFurther(){
         if let number = self.phoneNumber {
         PhoneAuthProvider.provider().verifyPhoneNumber(number, uiDelegate: nil) { (id, error) in
                    if error != nil{
@@ -89,6 +93,19 @@ class PhoneAuthViewController: UIViewController{
                    }
                }
         }
+    }
+    
+    func AuthAlert(title:String,message:String){
+        let Alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Continue", style: .default) { (UIAlertAction) in
+            self.processFurther()
+        }
+        let cancelAction = UIAlertAction(title: "Edit", style: .cancel, handler: nil)
+        
+        Alert.addAction(cancelAction)
+        Alert.addAction(action)
+        
+        self.present(Alert, animated: true)
     }
 }
 

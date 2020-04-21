@@ -12,6 +12,8 @@ import UIKit
 
 extension ChatLogViewController {
     
+    
+    //MARK:- Camera mic sendButton ANimations 
     func curveAnimation(button: UIButton, animationOptions: UIView.AnimationOptions, x: CGFloat, bool : Bool) {
         UIView.animate(withDuration: 0.01, delay: 0, options: animationOptions, animations: {
             self.sendButton.alpha = bool ? 0 : 1
@@ -22,17 +24,12 @@ extension ChatLogViewController {
         }, completion: nil)
     }
     
+    //MARK:- Tap Gesture function for Media Cells
+    
     @objc func handleImageTap(tapGesture: UITapGestureRecognizer){
         if let imageView = tapGesture.view as? UIImageView{
             self.performZoom(startingImageView: imageView)
         }
-    }
-    
-    @objc func handleAudioTap(tapGesture: audioTapGesture){
-            print("AudioTapped")
-            if let message = tapGesture.message{
-                self.handleAudio(message: message)
-            }
     }
     
     @objc func handleVideoTap(recognizer: MyTapGesture){
@@ -45,6 +42,8 @@ extension ChatLogViewController {
         }
     }
     
+    
+    //MARK:- Zoom in Image/  Video
     func performZoom(startingImageView : UIImageView){
         self.startingImageView = startingImageView
         startingImageFrame = startingImageView.globalFrame
@@ -75,6 +74,7 @@ extension ChatLogViewController {
         }
     }
     
+    //MARK:- Image / Video Zoomout on tap
     @objc func zoomout(tapGesture: UITapGestureRecognizer){
         print("zoom  out")
         if  let zoomOutImageView = tapGesture.view{
@@ -91,6 +91,29 @@ extension ChatLogViewController {
             }
         }
         
+    }
+    
+    
+    //MARK:- Textfield Animate with Keyboard
+    @objc func keyboardNotification(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let endFrameY = endFrame?.origin.y ?? 0
+            let duration:TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
+            let animationCurve:UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
+            if endFrameY >= UIScreen.main.bounds.size.height {
+                self.keyboardBottomAnchot?.constant = 0.0
+            } else {
+                self.keyboardBottomAnchot?.constant = (endFrame?.size.height ?? 0.0) - CGFloat(integerLiteral: 34)
+            }
+            UIView.animate(withDuration: duration,
+                                       delay: TimeInterval(0),
+                                       options: animationCurve,
+                                       animations: { self.view.layoutIfNeeded() },
+                                       completion: nil)
+        }
     }
 
     

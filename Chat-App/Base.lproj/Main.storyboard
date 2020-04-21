@@ -17,42 +17,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Idk View Controller-->
-        <scene sceneID="sxy-c4-Suz">
-            <objects>
-                <viewController id="dtj-zi-3KY" customClass="idkViewController" customModule="Chat_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="e9o-UK-D8J">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIa-Q4-Uaf">
-                                <rect key="frame" x="130" y="600" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="startRecording:" destination="dtj-zi-3KY" eventType="touchUpInside" id="ceg-eI-CKX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXT-FS-EZM">
-                                <rect key="frame" x="153" y="303" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="play:" destination="dtj-zi-3KY" eventType="touchUpInside" id="tN1-cc-pmt"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="9Rv-sK-VaO"/>
-                    </view>
-                    <connections>
-                        <outlet property="recordButton" destination="hIa-Q4-Uaf" id="nLL-wX-tXe"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Uu-m8-Kkg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2294" y="1769"/>
-        </scene>
         <!--Chats-->
         <scene sceneID="kdy-qV-g0w">
             <objects>
@@ -1028,11 +992,6 @@
                                     <action selector="addingName:" destination="QyX-55-EbB" eventType="editingChanged" id="MkV-Nb-Lee"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbn-jc-Gam">
-                                <rect key="frame" x="191" y="471" width="32" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Next"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="673-qe-MnX">
                                 <rect key="frame" x="35" y="178" width="30" height="13"/>
                                 <constraints>

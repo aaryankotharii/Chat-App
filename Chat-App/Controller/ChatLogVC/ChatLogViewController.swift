@@ -48,10 +48,6 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
       var audioRecorder : AVAudioRecorder!
       var audioPlayer : AVAudioPlayer!
     
-    var displayLink = CADisplayLink()
-
-
-    
       //Timer
       var timer: Timer?
       var duration: CGFloat = 0
@@ -68,10 +64,6 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     //TitleBar UI
      let profileImageView = UIImageView()
-
-    //swipe gesture
-     var swipe = UIGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
-    
     
 
     //MARK:- Activity Indicator
@@ -98,26 +90,7 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         NotificationCenter.default.removeObserver(self)
     }
 
-    @objc func keyboardNotification(notification: NSNotification) {
-        if let userInfo = notification.userInfo {
-            let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-            let endFrameY = endFrame?.origin.y ?? 0
-            let duration:TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
-            let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
-            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
-            let animationCurve:UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
-            if endFrameY >= UIScreen.main.bounds.size.height {
-                self.keyboardBottomAnchot?.constant = 0.0
-            } else {
-                self.keyboardBottomAnchot?.constant = (endFrame?.size.height ?? 0.0) - CGFloat(integerLiteral: 34)
-            }
-            UIView.animate(withDuration: duration,
-                                       delay: TimeInterval(0),
-                                       options: animationCurve,
-                                       animations: { self.view.layoutIfNeeded() },
-                                       completion: nil)
-        }
-    }
+
         
 
     //MARK:- ViewDidLoad + InitialSetup
@@ -204,37 +177,20 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             }
     }
     
-    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            switch swipeGesture.direction {
-            case UISwipeGestureRecognizer.Direction.left:
-                print("Swiped left")
-                //onEnd()
-            default:
-                break
-            }
-        }
-    }
-    
     @IBAction func touchOutmic(_ sender: Any) {
         print("touch out mic")
     }
-    
     
     @IBAction func micSwipe(_ sender: UISwipeGestureRecognizer) {
         print("swipe")
     }
     
-    
-    
-        
     @IBAction func sendClicked(_ sender: Any) {
            sendData()
         self.curveAnimation(button: self.cameraButton, animationOptions: .curveEaseIn, x: 0, bool: true)
         self.curveAnimation(button: self.micButton, animationOptions: .curveEaseIn, x: 0, bool: true)
 
         }
-    
     
     @IBAction func phoneClicked(_ sender: Any) {
         print("phone clicked")

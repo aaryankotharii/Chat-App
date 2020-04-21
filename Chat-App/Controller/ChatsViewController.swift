@@ -49,6 +49,10 @@ class ChatsViewController: UIViewController{
                 message.fromId = (dictionary["fromId"] as! String)
                 message.toId = (dictionary["toId"] as! String)
                 message.timestamp = (dictionary["timestamp"] as! Int)
+                if let imageUrl = dictionary["imageUrl"] { message.imageUrl = (imageUrl as! String) }
+                if let videoUrl = dictionary["videoUrl"]{  message.videoUrl = (videoUrl as! String) }
+                if let audioUrl = dictionary["audioUrl"]{ message.audioUrl = (audioUrl as! String)}
+                
                                               
                  if let chatPatnerId = message.chatPatnerId() {
                     

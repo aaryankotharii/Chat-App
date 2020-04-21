@@ -15,44 +15,35 @@ class ChatLogAudioCollectionViewCell: UICollectionViewCell {
         
     /// - This cell if for Audio Messages
 
+    //MARK:- Outlets
     @IBOutlet var bubbleLeftAnchor: NSLayoutConstraint!
     @IBOutlet var bubbleRightAnchor: NSLayoutConstraint!
     @IBOutlet var bubbleWidthAnchor: NSLayoutConstraint!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var chatBubble: UIView!
     @IBOutlet var profilePicture: UIImageView!
-    
     @IBOutlet var silder: UISlider!
     
+    
+    //MARK:- Variables
     var message : Message?
+    
     var user : User?
     
-      //audioPlayer
-      var recordingSession : AVAudioSession!
-      var audioRecorder : AVAudioRecorder!
-      var audioPlayer : AVAudioPlayer!
+   //audioPlayer
+   var recordingSession : AVAudioSession!
+   var audioRecorder : AVAudioRecorder!
+   var audioPlayer : AVAudioPlayer!
     
-    var displayLink = CADisplayLink()
+   var displayLink = CADisplayLink()
 
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        silder.setThumbImage(#imageLiteral(resourceName: "Oval"), for: .normal)
-    
-
-               }
-    
     
     @IBAction func silded(_ sender: UISlider) {
-        print(sender.value)
+       
     }
-    
-    
     
     func setupAudioCell(message: Message){
         if message.audioUrl != nil {
-            print("Adding tap to audio image")
             imageView.isUserInteractionEnabled = true
             let tapped = audioTapGesture.init(target: self, action: #selector(handleAudioTap))
             displayLink = CADisplayLink(target: self, selector: #selector(self.updateSliderProgress))
@@ -62,11 +53,18 @@ class ChatLogAudioCollectionViewCell: UICollectionViewCell {
                     
                 }
         if message.fromId == getUID() {
-                              //green Cell
-            let ref = Database.database().reference().child("users").child(getUID())
+            //MARK:- Green cell
 
+            let ref = Database.database().reference().child("users").child(getUID())
+            
+            //Slider
+            silder.setThumbImage(#imageLiteral(resourceName: "Oval"), for: .normal)
+            silder.maximumTrackTintColor = UIColor(named: "left audio")
+            silder.minimumTrackTintColor = UIColor(named: "left audio")
+            
+            
+            //profile picture
             ref.observe(.value) { (snapshot) in
-                
                 if let dictionary = snapshot.value as? [String:AnyObject] {
                     if let profileImageUrl = dictionary["profileImageUrl"] as? String {
                        self.profilePicture.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
@@ -74,19 +72,34 @@ class ChatLogAudioCollectionViewCell: UICollectionViewCell {
                 }
             }
             
-                       chatBubble.backgroundColor = UIColor(named: "tochatcolor")
-                       bubbleLeftAnchor.isActive = false
-                       bubbleRightAnchor.isActive = true
-                          }else {
-                              //white cell
+            
+            //chat bubble
+           chatBubble.backgroundColor = UIColor(named: "tochatcolor")
+           bubbleLeftAnchor.isActive = false
+           bubbleRightAnchor.isActive = true
+                          
+            
+            }else {
+            //MARK:- white cell
+            
+            
+            //Slider
+            silder.setThumbImage(#imageLiteral(resourceName: "left_oval"), for: .normal)
+            silder.maximumTrackTintColor = UIColor(named: "left audio")
+            silder.minimumTrackTintColor = UIColor(named: "left audio")
+
+            
+            //profile picture
             if let profileImageUrl = user!.profileImageUrl
             { self.profilePicture.loadImageUsingCacheWithUrlString(urlString: profileImageUrl) }
 
             
-                       chatBubble.backgroundColor = UIColor(named: "fromchatcolor")
-                       bubbleRightAnchor.isActive = false
-                       bubbleLeftAnchor.isActive = true
-                          }
+            //chat bubble
+            chatBubble.backgroundColor = UIColor(named: "fromchatcolor")
+            bubbleRightAnchor.isActive = false
+            bubbleLeftAnchor.isActive = true
+            
+            }
     }
     
     
@@ -111,7 +124,6 @@ class ChatLogAudioCollectionViewCell: UICollectionViewCell {
                 self.downloadAndSaveAudioFile(audioUrl){result in
                     
                     let path = URL(string: result)
-                    print("path is ",path)
                     do{
                         self.audioPlayer = try AVAudioPlayer(contentsOf: path!)
                         self.audioPlayer.play()

@@ -43,7 +43,6 @@ extension ChatLogViewController: UICollectionViewDelegate,UICollectionViewDataSo
                 }
                 else{
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "audiocell", for: indexPath) as! ChatLogAudioCollectionViewCell
-                    print("Audio cell incoming")
                     cell.message = message
                     cell.user = self.user
                     cell.setupAudioCell(message: message)
@@ -64,7 +63,6 @@ extension ChatLogViewController: UICollectionViewDelegate,UICollectionViewDataSo
                 height += 15
             }
         }
-        print("height is",height)
         return CGSize(width: view.frame.width, height: height)
     }
     

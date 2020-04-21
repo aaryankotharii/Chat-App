@@ -21,11 +21,15 @@ extension ChatLogViewController {
              cell.bubbleLeftAnchor.isActive = false
              cell.bubbleRightAnchor.isActive = true
             cell.chatTipLeft.isHidden = true
+            cell.chatTip.isHidden = false
+
                 }else {
              cell.chatBubble.backgroundColor = UIColor(named: "fromchatcolor")
              cell.bubbleRightAnchor.isActive = false
              cell.bubbleLeftAnchor.isActive = true
             cell.chatTip.isHidden = true
+            cell.chatTipLeft.isHidden = false
+
                 }
      }
     
