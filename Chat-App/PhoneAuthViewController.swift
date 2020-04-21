@@ -74,6 +74,7 @@ class PhoneAuthViewController: UIViewController{
     
     
     @IBAction func doneClicked(_ sender: Any) {
+        //Auth.auth().settings?.isAppVerificationDisabledForTesting = true
         if let number = self.phoneNumber {
         PhoneAuthProvider.provider().verifyPhoneNumber(number, uiDelegate: nil) { (id, error) in
                    if error != nil{

@@ -2,11 +2,7 @@ add error handling extensions
 
 enable take photo for profile pic
 
-add name and profile pic to chatLogVC
-
-lec 11 min 19 remove all somethig used in logout ( ltaer )
-
-remove fetchData function
+delete photo only if no photo
 
 after clicking send button
 
@@ -15,7 +11,6 @@ chatVC label constraints
 add phone number confirmation alert
 
 add video indicator
-
 
 DONE:-
 
