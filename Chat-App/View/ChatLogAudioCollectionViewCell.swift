@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import FirebaseDatabase
 
 class ChatLogAudioCollectionViewCell: UICollectionViewCell {
     
@@ -23,13 +24,23 @@ class ChatLogAudioCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var silder: UISlider!
     
+    var message : Message?
+    
+      //audioPlayer
+      var recordingSession : AVAudioSession!
+      var audioRecorder : AVAudioRecorder!
+      var audioPlayer : AVAudioPlayer!
+    
+    var displayLink = CADisplayLink()
+
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         silder.setThumbImage(#imageLiteral(resourceName: "Oval"), for: .normal)
-        // Initialization code
-    }
+    
+
+               }
     
     
     @IBAction func silded(_ sender: UISlider) {
@@ -38,20 +49,131 @@ class ChatLogAudioCollectionViewCell: UICollectionViewCell {
     
     
     
+    func setupAudioCell(message: Message){
+        if message.audioUrl != nil {
+            print("Adding tap to audio image")
+            imageView.isUserInteractionEnabled = true
+            let tapped = audioTapGesture.init(target: self, action: #selector(handleAudioTap))
+            displayLink = CADisplayLink(target: self, selector: #selector(self.updateSliderProgress))
+        //                               self.displayLink.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
+                       tapped.message = message
+                       imageView.addGestureRecognizer(tapped)
+                    
+                    let ref = Database.database().reference().child("users").child(getUID())
+                     ref.observe(.value) { (snapshot) in
+                         
+                         if let dictionary = snapshot.value as? [String:AnyObject] {
+                             if let profileImageUrl = dictionary["profileImageUrl"] as? String {
+                                self.profilePicture.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
+                             }
+                         }
+                     }
+                }
+        if message.fromId == getUID() {
+                              //green Cell
+                       chatBubble.backgroundColor = UIColor(named: "tochatcolor")
+                       bubbleLeftAnchor.isActive = false
+                       bubbleRightAnchor.isActive = true
+                          }else {
+                              //white cell
+                       chatBubble.backgroundColor = UIColor(named: "fromchatcolor")
+                       bubbleRightAnchor.isActive = false
+                       bubbleLeftAnchor.isActive = true
+                          }
+    }
+    
+    
+    
     @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
         print("celll tapped audio idk bruh ")
     }
     
-    var message : Message?
+    @objc func handleAudioTap(tapGesture: audioTapGesture){
+             print("AudioTapped")
+             if let message = tapGesture.message{
+                 self.handleAudio(message: message)
+             }
+     }
+    
+    
+        //MARK:- Play Audio
+        func handleAudio(message: Message?){
+            
+            if let audioUrl = message?.audioUrl{
+                
+                self.downloadAndSaveAudioFile(audioUrl){result in
+                    
+                    let path = URL(string: result)
+                    print("path is ",path)
+                    do{
+                        self.audioPlayer = try AVAudioPlayer(contentsOf: path!)
+                        self.audioPlayer.play()
+                        self.imageView.image = #imageLiteral(resourceName: "Combined Shape")
+                        self.displayLink = CADisplayLink(target: self, selector: #selector(self.updateSliderProgress))
+                        self.displayLink.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
+                    }catch{
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+        }
+        
+        @objc func updateSliderProgress(){
+            var progress = audioPlayer.currentTime / audioPlayer.duration
+            print(progress)
+            if audioPlayer.isPlaying == false {
+                displayLink.invalidate()
+                imageView.image = #imageLiteral(resourceName: "playButton")
+                progress = 0
+            }
+            silder.value = Float(progress)
+    }
+        
 
-    func handleAudio(){
-        if let audioUrl = message?.audioUrl, let url = URL(string: audioUrl){
-           let player = AVPlayer(url: url)
-            let playerLayer = AVPlayerLayer(player: player)
-            playerLayer.frame = chatBubble.bounds
-            chatBubble.layer.addSublayer(playerLayer)
-            player.play()
-            print("playing Audio (cell function)")
+        
+        func downloadAndSaveAudioFile(_ audioFile: String, completion: @escaping (String) -> ()) {
+            
+            //Create directory if not present
+            let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.libraryDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+            let documentDirectory = paths.first! as NSString
+            let soundDirPathString = documentDirectory.appendingPathComponent("Sounds")
+            
+            do {
+                try FileManager.default.createDirectory(atPath: soundDirPathString, withIntermediateDirectories: true, attributes:nil)
+                print("directory created at \(soundDirPathString)")
+            } catch let error as NSError {
+                print("error while creating dir : \(error.localizedDescription)");
+            }
+            
+            if let audioUrl = URL(string: audioFile) {
+                // create your document folder url
+                let documentsUrl =  FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first! as URL
+                let documentsFolderUrl = documentsUrl.appendingPathComponent("Sounds")
+                // your destination file url
+                let destinationUrl = documentsFolderUrl.appendingPathComponent(audioUrl.lastPathComponent)
+                
+                print(destinationUrl,"destinationURl")
+                // check if it exists before downloading it
+                if FileManager().fileExists(atPath: destinationUrl.path) {
+                    print("The file already exists at path")
+                    completion(destinationUrl.absoluteString)
+                } else {
+                    //  if the file doesn't exist
+                    //  just download the data from your url
+                    DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async(execute: {
+                        if let myAudioDataFromUrl = try? Data(contentsOf: audioUrl){
+                            // after downloading your data you need to save it to your destination url
+                            if (try? myAudioDataFromUrl.write(to: destinationUrl, options: [.atomic])) != nil {
+                                print("file saved")
+                                completion(destinationUrl.absoluteString)
+                            } else {
+                                print("error saving file")
+                                completion("")
+                            }
+                        }
+                    })
+                }
+            }
         }
     }
-}
+

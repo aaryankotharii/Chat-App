@@ -67,8 +67,7 @@ extension ChatLogViewController {
                cell.imageView.isUserInteractionEnabled = true
                let tapped = audioTapGesture.init(target: self, action: #selector(handleAudioTap))
                 self.displayLink = CADisplayLink(target: self, selector: #selector(self.updateSliderProgress))
-            
-//                    self.displayLink.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
+//                               self.displayLink.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
                tapped.message = message
                cell.imageView.addGestureRecognizer(tapped)
             
@@ -94,7 +93,6 @@ extension ChatLogViewController {
                cell.bubbleLeftAnchor.isActive = true
                   }
        }
-    
 }
 
 //MARK:- Video Tap Gesture (To pass variable)
