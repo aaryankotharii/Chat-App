@@ -97,6 +97,7 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+      //  self.collectionView.reloadItems(at: <#T##[IndexPath]#>)
     }
     
     func initialSetup(){

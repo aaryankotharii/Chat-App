@@ -41,7 +41,6 @@
 		5B97F7AB24390EDD00ACF83D /* NewChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7AA24390EDD00ACF83D /* NewChatTableViewCell.swift */; };
 		5B97F7AD2439109800ACF83D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7AC2439109800ACF83D /* User.swift */; };
 		5B97F7AF2439A04C00ACF83D /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7AE2439A04C00ACF83D /* SetupProfileViewController.swift */; };
-		5B97F7B12439A88700ACF83D /* File in Resources */ = {isa = PBXBuildFile; fileRef = 5B97F7B02439A88700ACF83D /* File */; };
 		5B97F7B32439A90700ACF83D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7B22439A90700ACF83D /* ImagePicker.swift */; };
 		5B97F7B5243A041600ACF83D /* ChatLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B97F7B4243A041600ACF83D /* ChatLogViewController.swift */; };
 		5BD73A43244961B300C42EA9 /* recording+animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD73A42244961B300C42EA9 /* recording+animation.swift */; };
@@ -86,7 +85,6 @@
 		5B97F7AA24390EDD00ACF83D /* NewChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatTableViewCell.swift; sourceTree = "<group>"; };
 		5B97F7AC2439109800ACF83D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5B97F7AE2439A04C00ACF83D /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
-		5B97F7B02439A88700ACF83D /* File */ = {isa = PBXFileReference; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 		5B97F7B22439A90700ACF83D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		5B97F7B4243A041600ACF83D /* ChatLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewController.swift; sourceTree = "<group>"; };
 		5BD73A42244961B300C42EA9 /* recording+animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "recording+animation.swift"; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 		5B97F779243878C000ACF83D = {
 			isa = PBXGroup;
 			children = (
-				5B97F7B02439A88700ACF83D /* File */,
 				5B97F784243878C000ACF83D /* Chat-App */,
 				5B97F783243878C000ACF83D /* Products */,
 				6AFFA466BFB6F2B35F0DB556 /* Pods */,
@@ -300,7 +297,6 @@
 				5B97F7A52438CACC00ACF83D /* GoogleService-Info.plist in Resources */,
 				5B97F78D243878C000ACF83D /* Main.storyboard in Resources */,
 				5B5E18CE24410E0E0081B407 /* SF-Pro-Display-Light.otf in Resources */,
-				5B97F7B12439A88700ACF83D /* File in Resources */,
 				5B29B64C2442E0BF00CD3FDD /* SF-Pro-Display-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
