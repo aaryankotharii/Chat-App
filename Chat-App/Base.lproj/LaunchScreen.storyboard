@@ -15,16 +15,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="git" translatesAutoresizingMaskIntoConstraints="NO" id="sAy-qE-pLj">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="sAy-qE-pLj">
+                                <rect key="frame" x="163" y="404" width="88" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="8uH-Me-59E"/>
+                                    <constraint firstAttribute="height" constant="88" id="TPI-EG-PsB"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="from" translatesAutoresizingMaskIntoConstraints="NO" id="r5b-Za-AZr">
+                                <rect key="frame" x="162.5" y="779" width="89" height="35"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sAy-qE-pLj" secondAttribute="trailing" id="DGj-cC-MKZ"/>
-                            <constraint firstItem="sAy-qE-pLj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Vji-2P-E4h"/>
-                            <constraint firstItem="sAy-qE-pLj" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="eaw-tR-9uI"/>
-                            <constraint firstAttribute="bottom" secondItem="sAy-qE-pLj" secondAttribute="bottom" id="jIQ-SR-Xse"/>
+                            <constraint firstItem="sAy-qE-pLj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="30f-CT-GTa"/>
+                            <constraint firstItem="r5b-Za-AZr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="IOd-zf-gbo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="r5b-Za-AZr" secondAttribute="bottom" constant="48" id="J21-TS-cZG"/>
+                            <constraint firstItem="sAy-qE-pLj" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Y6V-gF-zdi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -35,6 +42,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="git" width="1044" height="1800"/>
+        <image name="from" width="89" height="35"/>
+        <image name="logo" width="229" height="228"/>
     </resources>
 </document>
