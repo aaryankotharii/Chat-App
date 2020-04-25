@@ -19,6 +19,7 @@ class ChatLogImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var playButton: UIImageView!
     @IBOutlet var bubbleWidthAnchor: NSLayoutConstraint!
+    @IBOutlet var timeLabel: UILabel!
     
     var message : Message?
 

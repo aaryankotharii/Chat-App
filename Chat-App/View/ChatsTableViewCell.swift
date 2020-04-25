@@ -27,11 +27,8 @@ class ChatsTableViewCell: UITableViewCell {
                 self.lastMessageLabel.text =  message?.text
             }
             if let seconds = message?.timestamp?.doubleValue {
-            let timestampDate = NSDate(timeIntervalSince1970: seconds)
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "hh:mm"
-                self.timeLabel.text = dateFormatter.string(from: timestampDate as Date)
-                
+                let time = seconds.timeStringConverter
+                self.timeLabel.text = time
             }
         }
     }

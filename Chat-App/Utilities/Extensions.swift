@@ -132,6 +132,16 @@ extension CGFloat{
     }
 }
 
+extension Double {
+    var timeStringConverter: String {
+        let timestampDate = NSDate(timeIntervalSince1970: self)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "hh:mm"
+       let time = dateFormatter.string(from: timestampDate as Date)
+        return time
+        }
+}
+
 
 
 

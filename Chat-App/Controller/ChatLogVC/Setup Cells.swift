@@ -22,21 +22,22 @@ extension ChatLogViewController {
              cell.bubbleRightAnchor.isActive = true
             cell.chatTipLeft.isHidden = true
             cell.chatTip.isHidden = false
-
                 }else {
              cell.chatBubble.backgroundColor = UIColor(named: "fromchatcolor")
              cell.bubbleRightAnchor.isActive = false
              cell.bubbleLeftAnchor.isActive = true
             cell.chatTip.isHidden = true
             cell.chatTipLeft.isHidden = false
-
-                }
+            }
      }
     
     
     //MARK:- Media Message Cell
      func setupImageCell(cell : ChatLogImageCollectionViewCell, message : Message){
         cell.message = message
+        let seconds = message.timestamp?.doubleValue
+        let time = seconds?.timeStringConverter
+        cell.timeLabel.text = time
         if let imageUrl = message.imageUrl {
             cell.imageView.loadImageUsingCacheWithUrlString(urlString: imageUrl)
             //MARK:- Video Cell
@@ -62,7 +63,7 @@ extension ChatLogViewController {
                cell.chatBubble.backgroundColor = UIColor(named: "fromchatcolor")
                cell.bubbleRightAnchor.isActive = false
                cell.bubbleLeftAnchor.isActive = true
-                  }
+                }
        }
 }
 

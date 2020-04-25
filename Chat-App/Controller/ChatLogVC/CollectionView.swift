@@ -36,9 +36,11 @@ extension ChatLogViewController: UICollectionViewDelegate,UICollectionViewDataSo
                  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! chatLogCollectionViewCell
                     
                 cell.messageTextView.text = message.text
-                
+                    let seconds = message.timestamp?.doubleValue
+                    let time = seconds?.timeStringConverter
+                    cell.timeLabel.text = time
                 self.setupMessageCell(cell: cell, message: message)
-                cell.bubbleWidthAnchor.constant = extimateFrameForText(text: message.text!).width + 32
+                cell.bubbleWidthAnchor.constant = extimateFrameForText(text: message.text!).width + 62
                 cellToBeReturned = cell
                 }
                 else{
@@ -58,9 +60,9 @@ extension ChatLogViewController: UICollectionViewDelegate,UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var height : CGFloat = 327
         if let text = messages[indexPath.item].text{
-            height = extimateFrameForText(text: text).height + 20
+            height = extimateFrameForText(text: text).height + 15
             if messages[indexPath.item].audioUrl != nil{
-                height += 15
+                height += 20
             }
         }
         return CGSize(width: view.frame.width, height: height)

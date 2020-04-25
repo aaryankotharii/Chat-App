@@ -20,4 +20,7 @@ class chatLogCollectionViewCell: UICollectionViewCell {
     @IBOutlet var chatTip: UIImageView!
     
     @IBOutlet var chatTipLeft: UIImageView!
+    @IBOutlet var timeLabel: UILabel!
 }
+
+

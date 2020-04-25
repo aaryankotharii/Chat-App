@@ -24,6 +24,7 @@ class ChatLogAudioCollectionViewCell: UICollectionViewCell {
     @IBOutlet var profilePicture: UIImageView!
     @IBOutlet var silder: UISlider!
     
+    @IBOutlet var timeLabel: UILabel!
     
     //MARK:- Variables
     var message : Message?
@@ -43,6 +44,9 @@ class ChatLogAudioCollectionViewCell: UICollectionViewCell {
     }
     
     func setupAudioCell(message: Message){
+        let seconds = message.timestamp?.doubleValue
+        let time = seconds?.timeStringConverter
+        timeLabel.text = time
         if message.audioUrl != nil {
             imageView.isUserInteractionEnabled = true
             let tapped = audioTapGesture.init(target: self, action: #selector(handleAudioTap))
