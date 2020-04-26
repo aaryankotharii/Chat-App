@@ -63,7 +63,7 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         }
     
     //TitleBar UI
-     let profileImageView = UIImageView()
+    let profileImageView = UIImageView()
     
 
     //MARK:- Activity Indicator
@@ -97,14 +97,12 @@ class ChatLogViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
-      //  self.collectionView.reloadItems(at: <#T##[IndexPath]#>)
     }
     
     func initialSetup(){
         
         //Title
         self.navigationItem.largeTitleDisplayMode = .never
-        
         
         //keyboard dissmiss mode
         collectionView.keyboardDismissMode = .interactive
