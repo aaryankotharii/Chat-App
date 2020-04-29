@@ -64,6 +64,7 @@ extension SetupProfileViewController: UIImagePickerControllerDelegate, UINavigat
            self.dismiss(animated: true, completion: nil )
        }
     
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         print("Cancelled Image picker")
         picker.dismiss(animated: true, completion: nil)
