@@ -1,11 +1,12 @@
 # Chat-App
 
-[![forthebadge made-with-swift](http://ForTheBadge.com/images/badges/made-with-swift.svg)](https://swift.org/)
-
 ## ACM Summer Project 💻
 ```
 Realtime Chat application using firebase.
 ```
+
+[![forthebadge made-with-swift](http://ForTheBadge.com/images/badges/made-with-swift.svg)](https://swift.org/)
+
 
  ## Screenshots
  <p float="left">
