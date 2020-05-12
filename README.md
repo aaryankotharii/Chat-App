@@ -1,22 +1,20 @@
 # Chat-App
 
-## ACM Summer Project 💻
+[![forthebadge made-with-swift](http://ForTheBadge.com/images/badges/made-with-swift.svg)](https://swift.org/)
+
+#### ACM Summer Project 💻
 ```
 Realtime Chat application using firebase.
 ```
-
-[![forthebadge made-with-swift](http://ForTheBadge.com/images/badges/made-with-swift.svg)](https://swift.org/)
-
 
  ## Screenshots
  <p float="left">
  <img src ="iChat.png"  />      
  </p>
  
- 
  [![License](http://img.shields.io/badge/License-MIT-green.svg?style=flat)](https://github.com/aaryankotharii/Chat-App/blob/master/LICENSE)
 [![Swift 5](https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat)](https://swift.org)
-[![Linkden: @aaryankotharii](https://img.shields.io/badge/Contact-Linkedin-blue.svg?style=flat)](https://github.com/aaryankotharii) 
+[![Linkden: @aaryankotharii](https://img.shields.io/badge/Contact-Linkedin-blue.svg?style=flat)](www.linkedin.com/in/aaryankotharii) 
 
 ## Includes
 - realtime Chat
