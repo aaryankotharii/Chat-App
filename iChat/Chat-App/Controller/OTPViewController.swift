@@ -39,7 +39,6 @@ class OTPViewController: UIViewController {
         //Check for user
         let ref = Database.database().reference().child("users")
         ref.observe(.childAdded, with: { (snapshot) in
-        print(snapshot.key,"snapshotkey")
             self.users.append(snapshot.key)
         }, withCancel: nil)
     }
